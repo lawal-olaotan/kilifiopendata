@@ -1,0 +1,54 @@
+@import "./media-query";
+
+.hero{
+    height: 70vh;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden !important;
+    justify-content: flex-end;
+    
+
+    &__content{
+        z-index: 1000;
+        width: 28%;
+        margin: 2rem 0;
+            padding: 1rem 2rem;
+        background: white;
+        border: 1px solid green;
+        align-self: flex-start;
+
+    }
+    &__title{
+        font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    }
+
+    &__contenttable{
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    &__project{
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    &__protitle{
+        font-size: 1.2rem;
+        font-weight: 550;
+    }
+
+    &__map{
+        width: fit-content;
+        max-height:100%;
+    }
+
+    &__prosubtitle{
+        font-size: .75rem;
+    }
+}
+

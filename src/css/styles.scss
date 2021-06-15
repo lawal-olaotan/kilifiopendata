@@ -1,0 +1,61 @@
+
+
+@import "./media-query";
+
+.header{
+    background-color: #F7F8F2;
+    padding: 0 2rem;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logowrapper{
+        display: flex;
+        img{
+            width: 200px;
+        }
+    }
+
+    &__searchwrapper{
+
+        height: 1.8rem;
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__search{
+        padding: 0 .5rem;
+        width: 60%;
+        margin-right: 1rem;
+        border-radius: 8px;
+        outline: none;
+        border: 1px solid;
+        background-color: transparent;
+
+        &::placeholder{
+            font-size: .75rem;
+        }
+    }
+
+    &__btn{
+        padding: 0 1.4rem;
+        outline: none;
+        background: black;
+        color: white;
+        border-radius: 8px;
+        border: none;
+    }
+}
+
+.nav{
+    display: flex;
+    &__left{
+        display: flex;
+        width: 60%;
+        align-items: center;
+        justify-content:space-between;
+    }
+}

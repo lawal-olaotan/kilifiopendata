@@ -1,0 +1,92 @@
+.header {
+  background-color: #F7F8F2;
+  padding: 0 2rem;
+}
+
+.top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.top__logowrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.top__logowrapper img {
+  width: 200px;
+}
+
+.top__searchwrapper {
+  height: 1.8rem;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.top__search {
+  padding: 0 .5rem;
+  width: 60%;
+  margin-right: 1rem;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid;
+  background-color: transparent;
+}
+
+.top__search::-webkit-input-placeholder {
+  font-size: .75rem;
+}
+
+.top__search:-ms-input-placeholder {
+  font-size: .75rem;
+}
+
+.top__search::-ms-input-placeholder {
+  font-size: .75rem;
+}
+
+.top__search::placeholder {
+  font-size: .75rem;
+}
+
+.top__btn {
+  padding: 0 1.4rem;
+  outline: none;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  border: none;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=styles.css.map */
