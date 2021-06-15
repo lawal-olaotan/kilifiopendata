@@ -54,19 +54,7 @@ const handleDept = e => {
     
 }
 
-// const HandleSearch = e => {
-//   const searchItem = e.target.value
-//   setQ(searchItem);
-  
-// }
 
-// comming back to title
-// const findtiitle = () => {
-//   let queryData = data.subCounty.filter(item => item.Name.toLowerCase().indexOf(q) > -1 )
-//   console.log(queryData);
-//   console.log(subcount)
-//   // setCompDate(queryData);
-// }
 
 
 
