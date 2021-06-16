@@ -2,7 +2,7 @@
     "Name":"kilifi",
     "lon":39.939,
     "lat":-3.297,
-    "zoom":8.2,
+    "zoom":8,
     "projectNumber":"80,000",
     "totalSpent":"75,000,000,000",
     "subCounty":[
@@ -137,7 +137,7 @@
             "Name":"Kaloleni",
             "lat":"-3.744",
             "lon":"39.722",
-            "zoom":11,
+            "zoom":10.5,
             "projectNumber":"20,000",
             "totalSpent":"35,000,000,000"
         },
