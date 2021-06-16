@@ -13,7 +13,7 @@ const ICON = new Icon({
 function ChangeView({data}){
 
     const map = useMap()
-        map.setView(data,9)
+        map.setView(data,8)
         map.flyTo(data,map.getZoom())
         return null
                
@@ -26,7 +26,7 @@ const Map = ({data}) => {
 
     return(
 
-        <MapContainer center={initaldata} zoom={8.3} scrollWheelZoom={false} style={{height:"100%", width:"100%" ,position:"absolute",top:"0pc",left:"0pc"}}>
+        <MapContainer center={initaldata} zoom={8} scrollWheelZoom={false} style={{height:"100%", width:"100%" ,position:"absolute",top:"0pc",left:"0pc"}}>
 
                         <TileLayer
                             attribution="© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>"
