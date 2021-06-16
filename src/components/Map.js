@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {Icon} from 'leaflet'
+// import {Icon} from 'leaflet'
 import { MapContainer, TileLayer, Marker, Popup,useMap} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 // import marker from '../marker.svg';
@@ -18,7 +18,7 @@ function ChangeView({data,zoom}){
 }
 
 
-const Map = ({data,zoom}) => {
+const MapEle = ({data,zoom}) => {
 
 
     return(
@@ -41,5 +41,5 @@ const Map = ({data,zoom}) => {
 }
 
 
-export default Map 
+export default MapEle
 
