@@ -8,6 +8,7 @@ import Popup from './Popup'
 const DataTable = ({ data }) => {
 
     const mapData = [data.lat,data.lon]
+    const zoom = data.zoom
 
 
     return(
@@ -15,7 +16,7 @@ const DataTable = ({ data }) => {
         <div className="hero">
 
             <div className="hero__map">
-                <Map data= {mapData}/>    
+                <Map data={mapData} zoom={zoom}/>    
             </div>
             <Popup data={data}/>
         </div>

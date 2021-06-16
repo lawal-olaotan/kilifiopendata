@@ -2,6 +2,7 @@
     "Name":"kilifi",
     "lon":39.849850,
     "lat":-3.633700,
+    "zoom":8,
     "projectNumber":"80,000",
     "totalSpent":"75,000,000,000",
     "subCounty":[
@@ -9,6 +10,7 @@
             "Name":"Ganze",
             "lat":-3.536730,
             "lon":39.692370,
+            "zoom":10,
             "projectNumber":"10,000",
             "totalSpent":"25,000,000,000",
             "wards":[
@@ -127,6 +129,7 @@
             "Name":"Malindi",
             "lat":"-3.213190",
             "lon":"40.118000",
+            "zoom":10,
             "projectNumber":"5,000",
             "totalSpent":"10,000,000,000"
         },
@@ -134,6 +137,7 @@
             "Name":"Kaloleni",
             "lat":"-3.816870",
             "lon":"39.626600",
+            "zoom":10,
             "projectNumber":"20,000",
             "totalSpent":"35,000,000,000"
         },
@@ -141,6 +145,7 @@
             "Name":"Kilifi East",
             "lat":"-3.536730",
             "lon":"39.692370",
+            "zoom":10,
             "projectNumber":"10,000",
             "totalSpent":"25,000,000,000"
         }
