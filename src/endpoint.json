@@ -1,8 +1,8 @@
 {
     "Name":"kilifi",
-    "lon":39.849850,
-    "lat":-3.633700,
-    "zoom":8,
+    "lon":39.939,
+    "lat":-3.297,
+    "zoom":8.2,
     "projectNumber":"80,000",
     "totalSpent":"75,000,000,000",
     "subCounty":[
@@ -129,23 +129,47 @@
             "Name":"Malindi",
             "lat":"-3.213190",
             "lon":"40.118000",
-            "zoom":10,
+            "zoom":9.5,
             "projectNumber":"5,000",
             "totalSpent":"10,000,000,000"
         },
         {
             "Name":"Kaloleni",
-            "lat":"-3.816870",
-            "lon":"39.626600",
-            "zoom":10,
+            "lat":"-3.744",
+            "lon":"39.722",
+            "zoom":8.5,
             "projectNumber":"20,000",
             "totalSpent":"35,000,000,000"
         },
         {
-            "Name":"Kilifi East",
-            "lat":"-3.536730",
-            "lon":"39.692370",
-            "zoom":10,
+            "Name":"Kilifi",
+            "lat":"-3.581297874802858",
+            "lon":"39.79346292313003",
+            "zoom":10.2,
+            "projectNumber":"10,000",
+            "totalSpent":"25,000,000,000"
+        },
+        {
+            "Name":"Magarini",
+            "lat":"-3.023276431920616",
+            "lon":"40.06700513752723",
+            "zoom":9,
+            "projectNumber":"10,000",
+            "totalSpent":"25,000,000,000"
+        },
+        {
+            "Name":"Kilifi South",
+            "lat":"-3.776113008337626",
+            "lon":"39.83224031160767",
+            "zoom":10.4,
+            "projectNumber":"10,000",
+            "totalSpent":"25,000,000,000"
+        },
+        {
+            "Name":"Rabai",
+            "lat":"-3.932021734071574",
+            "lon":"39.54882822876534",
+            "zoom":10.3,
             "projectNumber":"10,000",
             "totalSpent":"25,000,000,000"
         }

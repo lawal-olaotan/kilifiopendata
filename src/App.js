@@ -20,11 +20,12 @@ useEffect(()=> {retrievecounty()},[])
 
   const retrievecounty= () => {
     const departData = data.department;
+    const subcountNo = data.subCounty.length
     const subData = data.subCounty;
     setCompDate(data);
     setDepartment(departData);
     setSubCount(subData);
- 
+    console.log(subcountNo);
  }
 
   const handleChange = e => {
