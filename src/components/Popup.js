@@ -1,23 +1,30 @@
-import React from 'react';
+import React,{useState,useContext} from 'react';
+import { FilterContext } from '../FilterContext';
 
-const Popup = ({data}) => {
 
+
+
+const Popup = () => {
+
+    const {compdata} = useContext(FilterContext);
+    const currentComp = compdata
+    console.log(currentComp);
 
     return (
 
         <div className="hero__content">
               
-                <div className="hero__title">{data.Name}</div>
+                <div className="hero__title">{currentComp.Name}</div>
 
                     <div className="hero__contenttable">
 
                         <div className="hero__project">
-                            <span className="hero__protitle">{data.projectNumber}</span>
+                            <span className="hero__protitle">{currentComp.projectNumber}</span>
                             <p className="hero__prosubtitle">Total Number of Projects</p>
                         </div>
 
                         <div className="hero__project">
-                            <span className="hero__protitle">{data.totalSpent}</span>
+                            <span className="hero__protitle">{currentComp.totalSpent}</span>
                             <p className="hero__prosubtitle">Total Funds Spent(KES)</p>
                         </div>
                             
@@ -40,12 +47,12 @@ const Popup = ({data}) => {
                     <div className="hero__contenttable">
 
                         <div className="hero__project">
-                            <span className="hero__protitle">{data.CommmunityInvolvement}</span>
+                            <span className="hero__protitle">{currentComp.CommmunityInvolvement}</span>
                             <p className="hero__prosubtitle">Commmunity Involvement</p>
                         </div>
 
                         <div className="hero__project">
-                            <span className="hero__protitle">{data.citizenPriority}</span>
+                            <span className="hero__protitle">{currentComp.citizenPriority}</span>
                             <p className="hero__prosubtitle">citizen Priority</p>
                         </div>
                             
