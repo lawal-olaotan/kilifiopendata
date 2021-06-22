@@ -1,0 +1,80 @@
+.project{
+    width: 100%;
+    background-color: #F7F8F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+
+    &__wrapper{
+        width: 70%;
+        background-color: #FFF;
+        padding: 2%;
+    }
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title{
+        font-size: 2rem;
+    }
+
+    &__hidefilter{
+        padding: .8rem;
+        background: black;
+        color: white;
+        border-radius: 8px;
+    }
+
+    &__filters{
+       cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    &__extra{
+        width: 255px;
+    }
+
+    &__headerwrapper{
+        margin-bottom: 3rem;
+    }
+
+    &__infostep{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__sumtitle{
+        font-weight: 650;
+    }
+
+    &__sumvalue{
+        font-size: 3rem;
+        font-weight: 800;
+    }
+
+    
+}
+
+.react-datepicker-wrapper{
+    width: 100%;
+
+    input {
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+
+        &:focus{
+            outline: 0;
+        }
+    }
+
+
+}

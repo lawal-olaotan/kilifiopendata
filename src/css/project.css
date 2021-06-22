@@ -1,0 +1,100 @@
+.project {
+  width: 100%;
+  background-color: #F7F8F2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 0;
+}
+
+.project__wrapper {
+  width: 70%;
+  background-color: #FFF;
+  padding: 2%;
+}
+
+.project__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.project__title {
+  font-size: 2rem;
+}
+
+.project__hidefilter {
+  padding: .8rem;
+  background: black;
+  color: white;
+  border-radius: 8px;
+}
+
+.project__filters {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.project__extra {
+  width: 255px;
+}
+
+.project__headerwrapper {
+  margin-bottom: 3rem;
+}
+
+.project__infostep {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.project__sumtitle {
+  font-weight: 650;
+}
+
+.project__sumvalue {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker-wrapper input {
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+}
+
+.react-datepicker-wrapper input:focus {
+  outline: 0;
+}
+/*# sourceMappingURL=project.css.map */

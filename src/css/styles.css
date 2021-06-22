@@ -1,6 +1,10 @@
 .header {
   background-color: #F7F8F2;
   padding: 0 2rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0pc;
+  z-index: 3000;
 }
 
 .top {
@@ -13,6 +17,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 1rem;
+  margin-top: .5rem;
 }
 
 .top__logowrapper {
@@ -81,12 +87,54 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 60%;
+  width: 38%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.nav__orgselect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.nav__orgselect:focus {
+  outline: 0;
+}
+
+.nav__select {
+  width: 120px;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  padding: 0 .4rem;
+  border-radius: 8px;
+}
+
+.container {
+  position: relative;
 }
 /*# sourceMappingURL=styles.css.map */

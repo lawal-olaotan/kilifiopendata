@@ -8,9 +8,7 @@ import Popup from './Popup'
 
 
 const DataTable = () => {
-
-
-
+    
     return(
         <div className="hero">
             <Map/> 

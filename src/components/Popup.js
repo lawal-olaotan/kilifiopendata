@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react';
+import React,{useContext} from 'react';
 import { FilterContext } from '../FilterContext';
 
 
@@ -7,8 +7,7 @@ import { FilterContext } from '../FilterContext';
 const Popup = () => {
 
     const {compdata} = useContext(FilterContext);
-    const currentComp = compdata
-    console.log(currentComp);
+    const currentComp = compdata;
 
     return (
 

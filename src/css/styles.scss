@@ -5,11 +5,17 @@
 .header{
     background-color: #F7F8F2;
     padding: 0 2rem;
+    position: sticky;
+    top: 0pc;
+    z-index:3000;
 }
+
 .top{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
 
     &__logowrapper{
         display: flex;
@@ -54,8 +60,39 @@
     display: flex;
     &__left{
         display: flex;
-        width: 60%;
+        width: 38%;
         align-items: center;
         justify-content:space-between;
+        margin-bottom:1rem ;
     }
+
+    &__orgselect{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border: none;
+        background: transparent;
+        font-size: 1rem;
+
+        &:focus{
+            outline: 0;
+        }
+    }
+
+    &__select{
+        width: 120px;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        padding: 0 .4rem;
+        border-radius: 8px;
+    }
+    
+}
+
+.container{
+    position: relative;
 }
