@@ -85,7 +85,7 @@ const ProjectWrapper = () => {
 
 
     const state = {
-
+        
         labels: ['Completed & in use','Incomplete & in use','Incomplete & not in use','Ongoing & in use','Ongoing & not in use','Does not exist'],
         datasets:[{
             label:'Project Status',
@@ -95,7 +95,6 @@ const ProjectWrapper = () => {
         }
 
         ]
-
     }
 
     
