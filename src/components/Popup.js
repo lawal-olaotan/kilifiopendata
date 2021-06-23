@@ -30,17 +30,15 @@ const Popup = () => {
                     </div>
 
                     <div className="hero__contenttable">
-
                         <div className="hero__project">
-                            <span className="hero__protitle">6</span>
-                            <p className="hero__prosubtitle">Total Number of SubCounty</p>
+                            <span className="hero__protitle">50%</span>
+                            <p className="hero__prosubtitle">Projects completed</p>
                         </div>
 
                         <div className="hero__project">
-                            <span className="hero__protitle">10</span>
-                            <p className="hero__prosubtitle">Total Number of wards</p>
-                        </div>
-                            
+                            <span className="hero__protitle">10%</span>
+                            <p className="hero__prosubtitle">Projects Ongoing</p>
+                        </div>   
                     </div>
 
                     <div className="hero__contenttable">
@@ -52,7 +50,7 @@ const Popup = () => {
 
                         <div className="hero__project">
                             <span className="hero__protitle">{currentComp.citizenPriority}</span>
-                            <p className="hero__prosubtitle">citizen Priority</p>
+                            <p className="hero__prosubtitle">Citizen Priority</p>
                         </div>
                             
                     </div>

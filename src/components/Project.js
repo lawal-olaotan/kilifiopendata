@@ -80,13 +80,16 @@ const Project = () => {
                             </div>
                         </div>
                         <div className="project__pie">
-                            <p className="project__sumtitle">Based on project type</p>
+                            <p className="project__sumtitle">Based on project execution phase</p>
                             <div className="projects__piewrapper">
                                 <Piechart/>
                             </div>
                         </div>
                         
                     </div>  
+
+                    <hr/>
+                
 
                 </div>
 
