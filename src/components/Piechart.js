@@ -1,54 +1,30 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
+import '../css/project.min.css';
 
 
+const Piechart = ({state}) => {
 
-
-
-
-const Piechart = () => {
-
-    const state = {
-
-        labels: ['Construction Based', 'Technology Based','Human Resource','Research Based'],
-        datasets:[{
-            label:'Projects',
-            backgroundColor:[
-                '#90CBA9',
-                '#EBA10F',
-                '#2B87E3',
-                '#9B51E0',
-            ],
-            hoverBackgroundColor:[
-                '#90CBA9',
-                '#EBA10F',
-                '#2B87E3',
-                '#9B51E0',
-            ],
-            data: [100,70,40,150]
-        }]
-
-    }
-
+    
 
     return(
-    
-        <Doughnut
-        data={state}
-        options={{ 
-            title:{
-                display: true,
-                text: 'Based on project type',
-                fontSize:20
-            },
-            legend:{
-                display: true,
-                position:'right',
-            }
-        }}
-        
-        />
-    )
+
+        <div className="project__piewrapper">
+            <Doughnut
+            data={state}
+            options={{ 
+                responsive: true,
+                legend:{
+                    display:true,
+                    position:'right',
+                    labels:{
+                        boxWidth: 16,
+                    }
+                }
+            }}
+            />
+        </div>
+    );
 
 };
 

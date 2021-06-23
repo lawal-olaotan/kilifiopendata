@@ -45,7 +45,7 @@ const Popup = () => {
 
                         <div className="hero__project">
                             <span className="hero__protitle">{currentComp.CommmunityInvolvement}</span>
-                            <p className="hero__prosubtitle">Commmunity Involvement</p>
+                            <p className="hero__prosubtitle">Women Involvement</p>
                         </div>
 
                         <div className="hero__project">

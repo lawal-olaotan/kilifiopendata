@@ -42,6 +42,8 @@
   background: black;
   color: white;
   border-radius: 8px;
+  outline: none;
+  border: none;
 }
 
 .project__filters {
@@ -72,13 +74,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .project__sumtitle {
   font-weight: 650;
+  margin-bottom: 1rem;
 }
 
 .project__sumvalue {
@@ -94,6 +94,10 @@
   margin-bottom: 2rem;
 }
 
+.project__piewrapper {
+  margin-top: 2rem;
+}
+
 .react-datepicker-wrapper {
   width: 100%;
 }
@@ -106,5 +110,9 @@
 
 .react-datepicker-wrapper input:focus {
   outline: 0;
+}
+
+.notactive {
+  display: none;
 }
 /*# sourceMappingURL=project.css.map */

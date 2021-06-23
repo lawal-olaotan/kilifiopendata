@@ -1,12 +1,12 @@
 {
-    "Name":"kilifi",
+    "Name":"kilifi Kenya",
     "lon":39.939,
     "lat":-3.297,
     "projectNumber":"80,000",
     "totalSpent":"75,000,000,000",
     "subCounty":[
         {
-            "Name":"Ganze",
+            "Name":"Ganze kilifi",
             "lat":-3.536730,
             "lon":39.692370,
             "projectNumber":"10,000",

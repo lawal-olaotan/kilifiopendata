@@ -28,6 +28,8 @@
         background: black;
         color: white;
         border-radius: 8px;
+        outline: none;
+        border: none;
     }
 
     &__filters{
@@ -49,11 +51,11 @@
     &__infostep{
         display: flex;
         justify-content: space-between;
-        align-items: center;
     }
 
     &__sumtitle{
         font-weight: 650;
+        margin-bottom: 1rem;
     }
 
     &__sumvalue{
@@ -67,6 +69,10 @@
 
     &__infostep{
         margin-bottom: 2rem;
+    }
+
+    &__piewrapper{
+        margin-top: 2rem;
     }
     
 }
@@ -85,4 +91,8 @@
     }
 
 
+}
+
+.notactive{
+    display: none;
 }
