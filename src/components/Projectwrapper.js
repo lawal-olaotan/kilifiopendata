@@ -84,6 +84,20 @@ const ProjectWrapper = () => {
     }
 
 
+    const state = {
+
+        labels: ['Completed & in use','Incomplete & in use','Incomplete & not in use','Ongoing & in use','Ongoing & not in use','Does not exist'],
+        datasets:[{
+            label:'Project Status',
+            backgroundColor:'#6FCF97',
+            data:[12,28,17,10,25,2.5],
+            barThickness: 64,
+        }
+
+        ]
+
+    }
+
     
 
 
@@ -121,7 +135,7 @@ const ProjectWrapper = () => {
 
                         <div className="project__pie">
                             <p className="project__sumtitle">Based on project execution phase</p>
-                            <BarChart/>
+                            <BarChart state={state}/>
                         </div>
                         
                     </div> 

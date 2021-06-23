@@ -2,28 +2,10 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import '../css/project.min.css';
 
-const BarChart =() => {
-
-
-    const state = {
-
-        labels: ['Completed & in use','Incomplete & in use','Incomplete & not in use','Ongoing & in use','Ongoing & not in use','Does not exist'],
-        datasets:[{
-            label:'Project Status',
-            backgroundColor:'#6FCF97',
-            data:[12,28,17,10,25,2.5],
-            barThickness: 64,
-        }
-
-    ]
-
-    }
-
-
+const BarChart =( {state} ) => {
 
 
     return (
-
 
         <Bar 
         data={state}
@@ -46,9 +28,9 @@ const BarChart =() => {
                         display:false,
                     },
                     ticks:{
-                        fontSize:7,
-                        fontWeight:'bolder',
-                        fontColor:'black'
+                        fontSize:6.6,
+                        fontStyle:800,
+                        fontColor:'#2B622A'
                     }
 
                 }]
