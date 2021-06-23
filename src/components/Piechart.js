@@ -28,5 +28,4 @@ const Piechart = ({state}) => {
 
 };
 
-
 export default Piechart;

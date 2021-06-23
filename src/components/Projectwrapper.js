@@ -3,6 +3,8 @@ import '../css/styles.min.css';
 import '../css/project.min.css';
 import Piechart from '../components/Piechart';
 import ProjctHeader from '../components/Projectheader';
+import ProjectSum from './ProjectSum';
+import BarChart from './BarChart';
 
 
 
@@ -53,6 +55,37 @@ const ProjectWrapper = () => {
 
     }
 
+    const projectComp = {
+
+        labels: ['Project Started', 'Project Completed','Project Visited'],
+        datasets:[
+            {
+                label: 'Projects',
+                backgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                    '#2B87E3',
+                ],
+                hoverBackgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                    '#2B87E3',
+                ],
+                data: [160,80,120]
+            }
+        ] 
+
+    }
+
+    const projectSummary = {
+        summaryName: 'Projects',
+        sumValue: 80000,
+        sumText: 'Includes completed, ongoing and proposed projects',
+    }
+
+
+    
+
 
     return (
 
@@ -63,12 +96,7 @@ const ProjectWrapper = () => {
                 <div className="project__infowrapper">
 
                     <div className="project__infostep">
-                        
-                        <div className="project__summary">
-                            <p className="project__sumtitle">Projects</p>
-                            <p className="project__sumvalue">80,000</p>
-                            <p className="project__sumtext">Includes completed, ongoing and proposed projects</p>
-                        </div>
+                            <ProjectSum data={projectSummary}/>
 
                         <div className="project__pie">
                                 <p className="project__sumtitle">Based on project type</p>
@@ -83,6 +111,20 @@ const ProjectWrapper = () => {
                     </div>  
 
                     <hr/>
+
+                    <div className="project__infostep">
+
+                        <div className="project__pie">
+                                <p className="project__sumtitle">Based on project completion rate</p>
+                                <Piechart state={projectComp}/>
+                        </div>
+
+                        <div className="project__pie">
+                            <p className="project__sumtitle">Based on project execution phase</p>
+                            <BarChart/>
+                        </div>
+                        
+                    </div> 
             
                 </div>
 
