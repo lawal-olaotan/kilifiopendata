@@ -91,7 +91,7 @@ const ProjectWrapper = () => {
 
                         <div className="project__pie">
                                 <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp} width={width}/>
+                                <Piechart state={projectComp}/>
                         </div>
 
                         <div className="project__pie">
@@ -103,7 +103,8 @@ const ProjectWrapper = () => {
             
                 </div>
 
-            </div>
+            
+        </div>
 
     );
 

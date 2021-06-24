@@ -1,7 +1,4 @@
 import React,{useState} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan } from "@fortawesome/free-solid-svg-icons";
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import ProjectTitle from './ProjectTitle';
 import ProjectSelect from './ProjectSelect';
@@ -28,7 +25,7 @@ const FinanceHeader = () => {
                             <ProjectSelect/>
                             <DateFilter/>
                         </div>
-            </div>
+                </div>
     )
 
 }
