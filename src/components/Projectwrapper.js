@@ -97,7 +97,7 @@ const ProjectWrapper = () => {
         ]
     }
 
-    
+    const width = 490
 
 
     return (
@@ -134,7 +134,7 @@ const ProjectWrapper = () => {
 
                         <div className="project__pie">
                             <p className="project__sumtitle">Based on project execution phase</p>
-                            <BarChart state={state}/>
+                            <BarChart state={state} width={width}/>
                         </div>
                         
                     </div> 

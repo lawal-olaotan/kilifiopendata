@@ -2,7 +2,7 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import '../css/project.min.css';
 
-const BarChart =( {state} ) => {
+const BarChart =( {state , width } ) => {
 
 
     return (
@@ -10,7 +10,7 @@ const BarChart =( {state} ) => {
         <Bar 
         data={state}
         height={220}
-        width={490}
+        width={width}
         options={{
             title:{
                 display:false,
