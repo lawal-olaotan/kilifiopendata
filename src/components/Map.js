@@ -35,13 +35,6 @@ const MapEle = () => {
         fillOpacity: 1,
       };
 
-    
-      const onEachCountry = (country, layer) => {
-        layer.options.fillColor = country.properties.color;
-        const name = country.properties.CONSTITUEN;
-        layer.bindPopup(`${name}`);
-      };
-
 
     return(
 

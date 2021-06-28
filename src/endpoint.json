@@ -1,12 +1,14 @@
 {
-    "Name":"kilifi Kenya",
-    "lon":39.939,
-    "lat":-3.297,
+    "name":"kilifi County",
+    "lon":39.64141845703125,
+    "lat": -3.1953637983293928,
     "projectNumber":"80,000",
     "totalSpent":"75,000,000,000",
+   " totalapproved":20,
+   "approvalrate":75,
     "subCounty":[
         {
-            "Name":"Ganze kilifi",
+            "Name":"Ganze Sub-County",
             "lat":-3.536730,
             "lon":39.692370,
             "projectNumber":"10,000",
@@ -126,7 +128,7 @@
             ]
         },
         {
-            "Name":"Malindi",
+            "Name":"Malindi Sub-County",
             "lat":"-3.213190",
             "lon":"40.118000",
             "projectNumber":"5,000",
@@ -135,7 +137,7 @@
             "citizenPriority": "30%"
         },
         {
-            "Name":"Kaloleni",
+            "Name":"Kaloleni Sub-County",
             "lat":"-3.744",
             "lon":"39.722",
             "projectNumber":"20,000",
@@ -144,7 +146,7 @@
             "citizenPriority": "10%"
         },
         {
-            "Name":"Kilifi North",
+            "Name":"Kilifi North Sub-County",
             "lat":"-3.581297874802858",
             "lon":"39.79346292313003",
             "projectNumber":"10,000",
@@ -153,7 +155,7 @@
             "citizenPriority": "40%"
         },
         {
-            "Name":"Magarini",
+            "Name":"Magarini Sub-County",
             "lat":"-3.023276431920616",
             "lon":"40.06700513752723",
             "projectNumber":"10,000",
@@ -162,7 +164,7 @@
             "citizenPriority": "60%"
         },
         {
-            "Name":"Kilifi South",
+            "Name":"Kilifi South Sub-County",
             "lat":"-3.776113008337626",
             "lon":"39.83224031160767",
             "projectNumber":"10,000",
@@ -171,7 +173,7 @@
             "citizenPriority": "30%"
         },
         {
-            "Name":"Rabai",
+            "Name":"Rabai Sub-County",
             "lat":"-3.932021734071574",
             "lon":"39.54882822876534",
             "projectNumber":"10,000",

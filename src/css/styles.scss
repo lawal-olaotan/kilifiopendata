@@ -5,9 +5,7 @@
 .header{
     background-color: #F7F8F2;
     padding: 0 2rem;
-    position: sticky;
-    top: 0pc;
-    z-index:3000;
+   
 }
 
 .top{
@@ -57,7 +55,10 @@
 }
 
 .nav{
-    display: flex;
+    display:flex;
+    position: sticky;
+    top: 0pc;
+    z-index: 3000;
     &__left{
         display: flex;
         width: 38%;

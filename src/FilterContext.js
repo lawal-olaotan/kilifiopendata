@@ -3,8 +3,10 @@ import data from './endpoint.json';
 import Items from "./entitles/Items";
 import wards from "./datas/wards.json";
 import subcounty from "./datas/sub_counties.json";
- const FilterContext = React.createContext();
+import Dataservice from './Dataservice';
 
+
+const FilterContext = React.createContext();
 
  const FilterProvider = ({ children }) => {
 
@@ -15,19 +17,22 @@ import subcounty from "./datas/sub_counties.json";
 
     const [currentComp, setCurrentComp] = useState([]);
     const [currentGeo, setCurrentGeo] = useState([]);
-    const [Geojsondata,setGeoJsonData] = useState(currentGeo);
+    const [Geojsondata,setGeoJsonData] = useState([]);
 
 
     useEffect(()=> {
-        const geodata = data
-        const subCounties = data.subCounty;
-        const departments = data.department;
-        setSubCountyList(subCounties)
-        setDepartmentList(departments);
-        setCurrentComp(data);
-        retrievGeoInfo(geodata,'County',8);
-        SetGeoJson();
 
+        const geodata = data
+        setCurrentComp(data);
+        retrievGeoInfo(geodata,'County',8.5);
+
+        Dataservice.GetAll()
+        .then(res => {
+            const subCont = res.data.data;
+            setSubCountyList(subCont);
+        })
+
+       
     } ,[]);
 
 
@@ -45,25 +50,78 @@ import subcounty from "./datas/sub_counties.json";
     const handleChange = e => {
 
         if(e.target.value !== 'Sub County'){
-
             const selSubCounty = e.target.value;
-        const subCounty = subCountyList.filter(subcounty => subcounty.Name === selSubCounty)[0]
-        const wards = subCounty.wards;
-        const department = subCounty.department
-        retrievGeoInfo(subCounty,'subCounty',10);
-        setDepartmentList(department)
-        setWardList(wards);
-        setCurrentComp(subCounty);
-        SetGeoJson();
+            const subCounty = subCountyList.filter(subcounty => subcounty.name === selSubCounty)[0];
+            const index = subCountyList.findIndex(sub => sub.name === selSubCounty);
+            const wards = subCounty.wards;
+            const geoSubCounty = data.subCounty;
+            const currentGeo = geoSubCounty.filter(geosub => geosub.Name === selSubCounty)[0];
+            retrievGeoInfo(currentGeo,'subCounty',10);
+            setWardList(wards);
+            getDept(selSubCounty,'constituency');
+            getProjectSum(selSubCounty,'constituency',subCounty,index);
+        }  
+    }
 
-        }
+     const getDept = (subCountyName,location) => {
+        Dataservice.GetDepartment(subCountyName,location)
+        .then (res =>{
+          const department = res.data.data;
+          setDepartmentList(department);
+        })  
+     }
+     
+
+     const getProjectSum = (subcounty,location,subCounty,index) => {
         
-       
+        Dataservice.GetStats(subcounty,location)
+        .then (res => {
+
+            let wardProject = res.data.data[index].wards;
+
+            let totalres = 0;
+            let pending = 0;
+            let totalapproved = 0;
+            let approvalrate = 0;
+
+
+            for(let i =0; i < wardProject.length; i++){
+                totalres += wardProject[i].all 
+                pending += wardProject[i].pending;
+                totalapproved += wardProject[i].approved;
+                approvalrate += wardProject[i].approved_pec / wardProject.length;
+            }
+
+            subCounty.projectNumber = totalres;
+            subCounty.totalSpent = pending;
+            subCounty.totalapproved = totalapproved;
+            subCounty.approvalrate = approvalrate.toFixed(1);
+
+            Involvement(subcounty,location,subCounty)
+             
+        })
+
+     }
+
+
+     const Involvement = (subcounty,location,subCounty) => {
+
+        Dataservice.Community(subcounty,location)
+        .then((res) => {
+            const  commData = res.data.data;
+            subCounty.CommmunityInvolvement = commData.women_involved.percentage
+            subCounty.citizenPriority = commData.youth_involved.percentage
+            console.log(commData);
+            setCurrentComp(subCounty);
+            
+        })
+
+
+
      }
 
 
      const handleWard = e => {
-
         if(e.target.value !== 'Wards'){
             const ward = e.target.value
             const wardInfo = wardList.filter(inner => inner.Name === ward)[0]
@@ -83,7 +141,7 @@ import subcounty from "./datas/sub_counties.json";
         }
         
      
-    }
+        }
 
     const retrievGeoInfo = (mapdata,type,zoom)=> {
         
@@ -107,8 +165,8 @@ import subcounty from "./datas/sub_counties.json";
             } 
     }
 
-    const findPlace = (features) => {
 
+    const findPlace = (features) => {
         for(let i =0; i < features.length; i++ ){
             let  feature = features[i]
 

@@ -37,9 +37,9 @@ const Community = () => {
     }
 
     const projectSummary = {
-        summaryName: 'Total Funds Spent(KES)',
-        sumValue: '75.6 Billion',
-        sumText: 'Includes funds from other sources',
+        summaryName: '% Community Involvement',
+        sumValue: '50%',
+        sumText: 'Includes all touch points (women involvements , youth involvements ... )',
     }
 
     
@@ -63,7 +63,7 @@ const Community = () => {
                             <ProjectSum data={projectSummary}/>
 
                             <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
+                                <p className="project__sumtitle">Based on Community Participation</p>
                                 <Piechart state={projectComp}/>
                             </div>
 

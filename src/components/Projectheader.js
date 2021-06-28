@@ -1,6 +1,4 @@
 import React,{useState} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan } from "@fortawesome/free-solid-svg-icons";
 
 import ProjectTitle from './ProjectTitle';
 import ProjectSelect from './ProjectSelect';
@@ -10,6 +8,7 @@ import DateFilter from './DateFilter';
 const ProjectHeader = () => {
 
     const [show,setShow] = useState(true);
+
     const Title = {
         Name : 'Project Report'
     }

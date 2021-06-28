@@ -1,10 +1,6 @@
 .header {
   background-color: #F7F8F2;
   padding: 0 2rem;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0pc;
-  z-index: 3000;
 }
 
 .top {
@@ -81,6 +77,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0pc;
+  z-index: 3000;
 }
 
 .nav__left {

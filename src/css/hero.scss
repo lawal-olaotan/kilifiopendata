@@ -1,7 +1,7 @@
 @import "./media-query";
 
 .hero{
-    height: 70vh;
+    height: 85vh;
     padding: 0 2rem;
     display: flex;
     align-items: center;
@@ -20,7 +20,7 @@
 
     }
     &__title{
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
     }
