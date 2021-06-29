@@ -24,7 +24,7 @@ const FilterContext = React.createContext();
 
         const geodata = data
         setCurrentComp(data);
-        retrievGeoInfo(geodata,'County',8.5);
+        retrievGeoInfo(geodata,'County',8.45);
 
         Dataservice.GetAll()
         .then(res => {
@@ -113,11 +113,21 @@ const FilterContext = React.createContext();
             subCounty.citizenPriority = commData.youth_involved.percentage
             console.log(commData);
             setCurrentComp(subCounty);
+            getStatus();
             
         })
 
 
 
+     }
+
+
+     const getStatus = () => {
+
+        Dataservice.GetStatus()
+        .then(res => {
+            console.log(res)
+        })
      }
 
 

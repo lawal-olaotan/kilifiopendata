@@ -24,11 +24,10 @@ const ProjectHeader = () => {
 
                         <div className={`project__filters ${show ? "" : "notactive"}`}>
                             <ProjectSelect/>
-                            <ProjectSelect/>
                             <DateFilter/>
                             <DateFilter/>
                         </div>
-                </div>
+        </div>
     )
 
 }

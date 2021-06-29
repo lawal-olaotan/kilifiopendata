@@ -1,5 +1,7 @@
 import React,{useContext} from 'react';
 import { FilterContext } from '../FilterContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -9,10 +11,18 @@ const Popup = () => {
     const {compdata} = useContext(FilterContext);
     const currentComp = compdata;
 
+    const loader = <FontAwesomeIcon icon={faSpinner} className="fa-spin"/>;
+
     return (
 
         <div className="hero__content">
-              
+
+              { currentComp.length === 0 ?(
+
+                <div>{loader}</div>
+
+              ):(
+                <div>
                 <div className="hero__title">{currentComp.name}</div>
 
                     <div className="hero__contenttable">
@@ -41,22 +51,26 @@ const Popup = () => {
                         </div>   
                     </div>
 
-                    <div className="hero__contenttable">
+                        <div className="hero__contenttable">
 
-                        <div className="hero__project">
-                            <span className="hero__protitle">{currentComp.CommmunityInvolvement}%</span>
-                            <p className="hero__prosubtitle">Women Involvement</p>
+                            <div className="hero__project">
+                                <span className="hero__protitle">{currentComp.CommmunityInvolvement}%</span>
+                                <p className="hero__prosubtitle">Women Involvement</p>
+                            </div>
+
+                            <div className="hero__project">
+                                <span className="hero__protitle">{currentComp.citizenPriority}%</span>
+                                <p className="hero__prosubtitle">Youth Involvement</p>
+                            </div>
+                                
                         </div>
 
-                        <div className="hero__project">
-                            <span className="hero__protitle">{currentComp.citizenPriority}%</span>
-                            <p className="hero__prosubtitle">Youth Involvement</p>
-                        </div>
-                            
-                    </div>
+                </div>
+            
+              )}
                     
-
-            </div>
+        
+        </div>
     )
 }
 

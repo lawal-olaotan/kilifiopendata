@@ -27,4 +27,9 @@ const Community = (subcounty,location) => {
     return data.get(`stats/involvement?${location}=${subcounty}`)
 }
 
-export default {GetAll,GetDepartment,GetStats,Community};
+const GetStatus = ()=> {
+
+    return data.get("/stats/wards?status=complete%20and%20in%20use");
+}
+
+export default {GetAll,GetDepartment,GetStats,Community,GetStatus};
