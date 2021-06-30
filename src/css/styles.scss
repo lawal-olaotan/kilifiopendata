@@ -15,6 +15,13 @@
     align-items: center;
     margin-bottom: 1.4rem;
 
+    &__title{
+        padding: .5rem;
+        font-size: .8rem;
+        font-weight: 600;
+        background: #0080004d;
+    }
+
 
     &__searchinput{
         display: flex;
@@ -68,6 +75,8 @@
         -o-border-radius: 10px;
         box-shadow:rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         z-index: 3500;
+        max-height: 356px;
+        overflow: scroll;
     }
 
             &__searchitem{
@@ -144,4 +153,8 @@
 
 .invisible{
     display: none;
+}
+
+.text-center{
+    text-align: center;
 }

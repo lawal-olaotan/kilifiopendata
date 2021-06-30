@@ -47,10 +47,10 @@ const FilterContext = React.createContext();
     // }
     
 
-    const handleChange = e => {
+    const handleChange = (value) => {
 
-        if(e.target.value !== 'Sub County'){
-            const selSubCounty = e.target.value;
+        if(value !== 'Sub County'){
+            const selSubCounty = value;
             const subCounty = subCountyList.filter(subcounty => subcounty.name === selSubCounty)[0];
             const index = subCountyList.findIndex(sub => sub.name === selSubCounty);
             const wards = subCounty.wards;
@@ -117,8 +117,6 @@ const FilterContext = React.createContext();
             
         })
 
-
-
      }
 
 
@@ -135,11 +133,9 @@ const FilterContext = React.createContext();
         if(e.target.value !== 'Wards'){
             const ward = e.target.value
             const wardInfo = wardList.filter(inner => inner.Name === ward)[0]
-            const wardDept = wardInfo.department;
-            setDepartmentList(wardDept);
+            getDept(ward,'ward');
             setCurrentComp(wardInfo);
             retrievGeoInfo(wardInfo,'ward',12);
-            SetGeoJson();
         }
     }
         
