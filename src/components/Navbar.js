@@ -25,12 +25,15 @@ const NavBar = () => {
           SetSearchResult(searchValue);
           getWards(subCountyList,searchTerm);
           setShow(!show)
+        }else{
+          setShow(false)
         }
           
       }
 
 
       const getWards= (subco,searchTerm)=> {
+        
             let wardArr= [];
             for(let i=0; i < subco.length; i++){
                const wards = subco[i].wards.values();
@@ -44,12 +47,14 @@ const NavBar = () => {
               const wardValue = wardArr.filter(wards => (wards.name.toLowerCase().includes(searchTerm.toLowerCase())));
               setWards(wardValue);
               setShow(!show)
+            }else{
+              setShow(false)
             }
       }
 
 
+      
     return (
-
         <header className="header">
 
             <div className="top">
@@ -87,7 +92,7 @@ const NavBar = () => {
                               ): (
                                 
                                 searchWards && searchWards.map((result)=> (
-                                <li className="top__searchitem">{result.name}</li>
+                                <li onClick={ ()=> {handleWard(result.name); setShow(false);} } className="top__searchitem">{result.name}</li>
                                 ))
                               
                               )}
@@ -115,7 +120,7 @@ const NavBar = () => {
                   </div>
 
                   <div className="nav__select" >
-                      <select className="nav__orgselect"  onChange={handleWard}>
+                      <select className="nav__orgselect"  onChange={(e)=> handleWard(e.target.value)}>
                         <option>Wards</option>
                         {wardList && wardList.map((ward)=> (
                           <option>{ward.name}</option>

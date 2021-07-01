@@ -11,196 +11,151 @@
             "Name":"Ganze Sub-County",
             "lat":-3.536730,
             "lon":39.692370,
-            "projectNumber":"10,000",
-            "totalSpent":"25,000,000,000",
-            "CommmunityInvolvement":"30%",
-            "citizenPriority": "20%",
             "wards":[
                 {
                    "Name":"Bamba",
                    "lat":-3.536730,
-                   "lon":39.692370,
-                   "projectNumber":"10,000",
-                   "totalSpent":"25,000,000,000",
-                        "department":[
-                            {
-                                "Name":"Fishing",
-                                "projectNumber":"40,000",
-                                "totalSpent":"25,000,000,000"
-                            },
-                            {
-                                "Name":"Transport",
-                                "projectNumber":"30,000",
-                                "totalSpent":"25,000,000,000"
-                            },{
-                                "Name":"Security",
-                                "projectNumber":"10,000",
-                                "totalSpent":"25,000,000,000"
-                            }
-                        ]
+                   "lon":39.692370 
                 },
                 {
                    "Name":"Ganze",
                    "lat":-3.536730,
-                   "lon":39.692370,
-                   "projectNumber":"10,000",
-                   "totalSpent":"25,000,000,000",
-                        "department":[
-                            {
-                                "Name":"Transport",
-                                "projectNumber":"40,000",
-                                "totalSpent":"25,000,000,000"
-                            },
-                            {
-                                "Name":"Culture",
-                                "projectNumber":"30,000",
-                                "totalSpent":"25,000,000,000"
-                            },{
-                                "Name":"Education",
-                                "projectNumber":"10,000",
-                                "totalSpent":"25,000,000,000"
-                            }
-                        ]
+                   "lon":39.692370
                 },
                 {
                    "Name":"Jaribuni",
                    "lat":-3.536730,
-                   "lon":39.692370,
-                   "projectNumber":"10,000",
-                   "totalSpent":"25,000,000,000",
-                        "department":[
-                            {
-                                "Name":"Sport",
-                                "projectNumber":"40,000",
-                                "totalSpent":"25,000,000,000"
-                            },
-                            {
-                                "Name":"Minning",
-                                "projectNumber":"30,000",
-                                "totalSpent":"25,000,000,000"
-                            },{
-                                "Name":"Fishing",
-                                "projectNumber":"10,000",
-                                "totalSpent":"25,000,000,000"
-                            }
-                        ]
+                   "lon":39.692370
                 },
                 {
                    "Name":"Sokoke",
                    "lat":-3.536730,
-                   "lon":39.692370,
-                   "projectNumber":"10,000",
-                   "totalSpent":"25,000,000,000",
-                        "department":[
-                            {
-                                "Name":"Agriculture",
-                                "projectNumber":"40,000",
-                                "totalSpent":"25,000,000,000"
-                            },
-                            {
-                                "Name":"Transport",
-                                "projectNumber":"30,000",
-                                "totalSpent":"25,000,000,000"
-                            },{
-                                "Name":"Fishing",
-                                "projectNumber":"10,000",
-                                "totalSpent":"25,000,000,000"
-                            }
-                        ]
+                   "lon":39.692370
                 }
                 
-            ],
-            "department":[
-                {
-                    "Name":"Sport",
-                    "projectNumber":"40,000",
-                    "totalSpent":"25,000,000,000"
-                },
-                {
-                    "Name":"Minning",
-                    "projectNumber":"30,000",
-                    "totalSpent":"25,000,000,000"
-                },{
-                    "Name":"ICT",
-                    "projectNumber":"10,000",
-                    "totalSpent":"25,000,000,000"
-                }
             ]
         },
         {
             "Name":"Malindi Sub-County",
-            "lat":"-3.213190",
-            "lon":"40.118000",
-            "projectNumber":"5,000",
-            "totalSpent":"10,000,000,000",
-            "CommmunityInvolvement":"60%",
-            "citizenPriority": "30%"
+            "lat":-3.213190,
+            "lon":40.118000
+           
         },
         {
             "Name":"Kaloleni Sub-County",
             "lat":"-3.744",
             "lon":"39.722",
-            "projectNumber":"20,000",
-            "totalSpent":"35,000,000,000",
-            "CommmunityInvolvement":"30%",
-            "citizenPriority": "10%"
+            "wards":[
+                {"Name": "Kaloleni",
+                "lat": -3.8141991639728654,
+                "lon": 39.632320404052734
+                },
+                {"Name": "Kayafungo",
+                "lat": -3.816682737048665,
+                "lon":  39.5163631439209
+                },
+                {"Name": "Mariakani",
+                "lat": -3.8660101427599476,
+                "lon": 39.473576545715325
+                },
+                {"Name": "Mwanamwinga",
+                "lat": -3.7522359866240578,
+                "lon": 39.546661376953125
+                }
+            ]
+           
         },
         {
             "Name":"Kilifi North Sub-County",
             "lat":"-3.581297874802858",
             "lon":"39.79346292313003",
-            "projectNumber":"10,000",
-            "totalSpent":"25,000,000,000",
-            "CommmunityInvolvement":"40%",
-            "citizenPriority": "40%"
+            "wards":[
+                {"Name": "Tezo",
+                "lat": -3.5338101318623734,
+                "lon": 39.84964370727539
+                },
+                {"Name": "Sokoni",
+                "lat": -3.62512714335925,
+                "lon":  39.873247146606445
+                },
+                {"Name": "Kibarani",
+                "lat": -3.6012279813684387,
+                "lon": 39.844322204589844
+                },
+                {"Name": "Dabaso",
+                "lat": -3.354202186673276,
+                "lon": 39.99845789337886
+                },
+                {"Name": "Watamu",
+                "lat": -3.3500354824389063,
+                "lon": 40.0162410736084
+                },
+                {"Name": "Matsangoni",
+                "lat": -3.4017015747197306,
+                "lon": 39.925689697265625
+                },
+                {"Name": "Mnarani",
+                    "lat": -3.6418304840146227,
+                    "lon": 39.847283363342285
+                }
+                
+            ]
+           
         },
         {
             "Name":"Magarini Sub-County",
             "lat":"-3.023276431920616",
-            "lon":"40.06700513752723",
-            "projectNumber":"10,000",
-            "totalSpent":"25,000,000,000",
-            "CommmunityInvolvement":"20%",
-            "citizenPriority": "60%"
+            "lon":"40.06700513752723"
         },
         {
             "Name":"Kilifi South Sub-County",
             "lat":"-3.776113008337626",
             "lon":"39.83224031160767",
-            "projectNumber":"10,000",
-            "totalSpent":"25,000,000,000",
-            "CommmunityInvolvement":"60%",
-            "citizenPriority": "30%"
+            "wards":[
+                {"Name": "Junju",
+                "lat": -3.8501674502679974,
+                "lon": 39.73355770111084
+                },
+                {"Name": "Mwarakaya",
+                "lat": -3.7998970691480882,
+                "lon":  39.6999979019165
+                },
+                {"Name": "Shimo La Tewa",
+                "lat": -3.947359820348865,
+                "lon": 39.74235534667969
+                },
+                {"Name": "chasimba",
+                "lat": -3.716777535844104,
+                "lon": 39.6999979019165
+                },
+                {"Name": "Mtepeni",
+                "lat": -3.9161758719358097,
+                "lon": 39.75951424873872
+                } 
+            ]
         },
         {
             "Name":"Rabai Sub-County",
             "lat":"-3.932021734071574",
             "lon":"39.54882822876534",
-            "projectNumber":"10,000",
-            "totalSpent":"25,000,000,000",
-            "CommmunityInvolvement":"50%",
-            "citizenPriority": "40%"
+            "wards":[
+                {"Name": "Mwawesa",
+                "lat": -3.924625521614381,
+                "lon": 39.62785720825195
+                },
+                {"Name": "Ruruma",
+                "lat": -3.9004776791681173,
+                "lon":  39.598116874694824
+                },
+                {"Name": "kambe-Ribe",
+                "lat": -3.8833511289297062,
+                "lon": 39.63292121887207
+                },
+                {"Name": "Rabai Kisurutini",
+                "lat": -3.9228273020359867,
+                "lon": 39.5921516418457
+                }
+            ]
         }
-    ],
-
-    "department":[
-        {
-            "Name":"ICT",
-            "projectNumber":"40,000",
-            "totalSpent":"25,000,000,000"
-        },
-        {
-            "Name":"Education",
-            "projectNumber":"30,000",
-            "totalSpent":"25,000,000,000"
-        },{
-            "Name":"Art",
-            "projectNumber":"10,000",
-            "totalSpent":"25,000,000,000"
-        }
-    ],
-    "CommmunityInvolvement":"50%",
-    "citizenPriority": "60%"
-   
-
+    ]
 }
