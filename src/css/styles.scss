@@ -5,7 +5,10 @@
 .header{
     background-color: #F7F8F2;
     padding: 1rem 2rem;
-   
+    position: sticky;
+    top: 0pc;
+    z-index: 3500;
+
 }
 
 .top{

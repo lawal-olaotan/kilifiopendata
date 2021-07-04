@@ -25,6 +25,10 @@ const FilterContext = React.createContext();
     const [deptComp,setDeptComp] = useState([]);
 
 
+    const [projType,setProjectType] = useState([]);
+    const [proLabel,setProjLabel] = useState([]);
+
+
     useEffect(()=> {
 
         const geodata = data
@@ -67,9 +71,11 @@ const FilterContext = React.createContext();
             getDept(selSubCounty,'constituency');
             getProjectSum(selSubCounty,'constituency',subCounty,index);
             setCountyGeo(CountyGeo);
+
+            setDeptComp([])
         }
         
-        setDeptComp([])
+        
     }
 
 
@@ -87,7 +93,6 @@ const FilterContext = React.createContext();
                 WardCounty = wardList.filter(subcounty => subcounty.name.toLowerCase() === ward.toLowerCase())[0];
                 const wardsGeo = subCountyGeo.wards;
                 wardGeo = wardsGeo.filter(geosub => geosub.Name.toLowerCase() === ward.toLowerCase())[0];
-                console.log(wardGeo)
                 SetGeoJson(); 
             }else{
 
@@ -137,6 +142,7 @@ const FilterContext = React.createContext();
         .then (res =>{
           const department = res.data.data;
           setDepartmentList(department);
+          projectType(department);
         })  
      }
      
@@ -197,6 +203,35 @@ const FilterContext = React.createContext();
 
 
 
+     const projectType = (department) => {
+
+        let typeLabel = [];
+        let typeData = [];
+        let pievalues = []
+        let totalvalue = 0
+
+        for(let labels of department){
+            typeLabel.push(labels.department)
+            
+        }
+
+        for(let data of department){
+            totalvalue += parseInt(data.total)
+            typeData.push(parseInt(data.total))
+        }
+
+        for (let pieval of typeData){
+            pievalues.push(parseInt(((pieval/totalvalue)*360).toFixed(0)))
+            
+        }
+
+        setProjectType(pievalues);
+        setProjLabel(typeLabel);
+
+     }
+
+
+
      const getStatus = () => {
 
         Dataservice.GetStatus()
@@ -243,7 +278,7 @@ const FilterContext = React.createContext();
         }
     }
 
-    console.log(deptComp);
+
     
     // all data nedded for the components and event functions
     const UiData = {
@@ -252,7 +287,8 @@ const FilterContext = React.createContext();
         depts: [departmentList,handleDept],
         geodatas:currentGeo,
         compdata:[currentComp,deptComp],
-        jsondata:Geojsondata
+        jsondata:Geojsondata,
+        proTypeData:[projType,proLabel]
     }
     
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>

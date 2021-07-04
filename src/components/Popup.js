@@ -10,7 +10,7 @@ const Popup = () => {
 
     const {compdata} = useContext(FilterContext);
     const [currentComp,deptComp]= compdata;
-    console.log(deptComp);
+ 
 
     const loader = <FontAwesomeIcon icon={faSpinner} className="fa-spin"/>;
 
@@ -27,7 +27,6 @@ const Popup = () => {
                 <div className="hero__title">{currentComp.name}</div>
                     {deptComp.length === 0 ? (
                         <div>
-
                             <div className="hero__contenttable">
 
                             <div className="hero__project">

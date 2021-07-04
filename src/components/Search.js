@@ -4,7 +4,7 @@ import {FilterContext} from '../FilterContext';
 
 const Search = () => {
 
-    const {subcounty,wards,depts} = useContext(FilterContext);
+    const {subcounty,wards} = useContext(FilterContext);
     const [subCountyList,handleChange] = subcounty;
     const [wardList,handleWard] = wards;
     const [searchResult, SetSearchResult] = useState([]);

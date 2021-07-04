@@ -12,6 +12,8 @@ const Piechart = ({state}) => {
         <div className="project__piewrapper">
             <Doughnut
             data={state}
+            height= {300}
+            width={600}
             options={{ 
                 responsive: true,
                 legend:{
