@@ -22,6 +22,7 @@ const FilterContext = React.createContext();
     const [subCountyGeo, setCountyGeo] = useState({});
 
     const [wardArray,setWardArray] = useState([]);
+    const [deptComp,setDeptComp] = useState([]);
 
 
     useEffect(()=> {
@@ -38,8 +39,7 @@ const FilterContext = React.createContext();
 
         Dataservice.GetStats(subcounty,'ward')
         .then (res=> {
-            const countiesStats = res.data.data;
-           
+            const countiesStats = res.data.data;        
             let countiesWards = []
             for(let i=0; i < countiesStats.length; i++){
                 const wards = countiesStats[i].wards.values();
@@ -67,7 +67,9 @@ const FilterContext = React.createContext();
             getDept(selSubCounty,'constituency');
             getProjectSum(selSubCounty,'constituency',subCounty,index);
             setCountyGeo(CountyGeo);
-        }  
+        }
+        
+        setDeptComp([])
     }
 
 
@@ -92,16 +94,13 @@ const FilterContext = React.createContext();
                 const countyGeoData = subCountyList
                 let  geoEnd = data.subCounty;
 
-              
-
                 let wardGeoArr = [];
                 let wardGeos = []
 
                 for(let i=0; i < countyGeoData.length; i++){
                     const wards = countyGeoData[i].wards.values();
                     for(let ward of wards ){
-                        wardGeoArr.push(ward);
-                        
+                        wardGeoArr.push(ward); 
                     }
                 }
 
@@ -114,27 +113,23 @@ const FilterContext = React.createContext();
                 }
 
                 WardCounty= wardGeoArr.filter(subcounty => subcounty.name.toLowerCase() === ward.toLowerCase())[0];
-                wardGeo = wardGeos.filter(geo => geo.Name.toLowerCase() === ward.toLowerCase())[0];
-                
-                 
+                wardGeo = wardGeos.filter(geo => geo.Name.toLowerCase() === ward.toLowerCase())[0];   
             }
-
-
             retrievGeoInfo(wardGeo,'ward',14);
-            getProjectSum(ward,'ward',WardCounty,index);
-              
+            getProjectSum(ward,'ward',WardCounty,index);  
         }
+
+        setDeptComp([])
     }
 
 
     const handleDept = e => {
         if(e.target.value !== 'Department'){
             const dept = e.target.value
-            const deptinfo = departmentList.filter(inner => inner.Name === dept)[0];
-            setCurrentComp(deptinfo);
+            const deptinfo = departmentList.filter(inner => inner.department === dept)[0];
+            setDeptComp(deptinfo);
         }
     }
-
 
 
      const getDept = (subCountyName,location) => {
@@ -183,8 +178,8 @@ const FilterContext = React.createContext();
             Involvement(subcounty,location,subCounty)
              
         })
+    }
 
-     }
 
      const Involvement = (subcounty,location,subCounty) => {
 
@@ -206,6 +201,7 @@ const FilterContext = React.createContext();
 
         Dataservice.GetStatus()
         .then(res => {
+            
         })
      }
 
@@ -246,6 +242,8 @@ const FilterContext = React.createContext();
             }
         }
     }
+
+    console.log(deptComp);
     
     // all data nedded for the components and event functions
     const UiData = {
@@ -253,7 +251,7 @@ const FilterContext = React.createContext();
         wards: [wardList,handleWard],
         depts: [departmentList,handleDept],
         geodatas:currentGeo,
-        compdata:currentComp,
+        compdata:[currentComp,deptComp],
         jsondata:Geojsondata
     }
     

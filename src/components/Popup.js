@@ -9,7 +9,8 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 const Popup = () => {
 
     const {compdata} = useContext(FilterContext);
-    const currentComp = compdata;
+    const [currentComp,deptComp]= compdata;
+    console.log(deptComp);
 
     const loader = <FontAwesomeIcon icon={faSpinner} className="fa-spin"/>;
 
@@ -24,46 +25,76 @@ const Popup = () => {
               ):(
                 <div>
                 <div className="hero__title">{currentComp.name}</div>
+                    {deptComp.length === 0 ? (
+                        <div>
+
+                            <div className="hero__contenttable">
+
+                            <div className="hero__project">
+                                <span className="hero__protitle">{currentComp.projectNumber}</span>
+                                <p className="hero__prosubtitle">Total Projects</p>
+                            </div>
+
+                            <div className="hero__project">
+                                <span className="hero__protitle">{currentComp.totalSpent}</span>
+                                <p className="hero__prosubtitle">Pending Projects</p>
+                            </div>
+                                
+                            </div>
+
+                            <div className="hero__contenttable">
+                            <div className="hero__project">
+                                <span className="hero__protitle">{currentComp.totalapproved}</span>
+                                <p className="hero__prosubtitle">Projects Approved</p>
+                            </div>
+
+                            <div className="hero__project">
+                                <span className="hero__protitle">{currentComp.approvalrate}%</span>
+                                <p className="hero__prosubtitle">Approval Rate</p>
+                            </div>   
+                            </div>
+
+                        </div>
+
+                    ) :(
+
+                        <div>
+
+                            <div className="hero__dept">{deptComp.department} Department</div>
+
+                            <div className="hero__contenttable">
+
+                                <div className="hero__project">
+                                    <span className="hero__protitle">{deptComp.total}</span>
+                                    <p className="hero__prosubtitle">Total Projects</p>
+                                </div>
+
+                                <div className="hero__project">
+                                    <span className="hero__protitle">{deptComp.percentage}%</span>
+                                    <p className="hero__prosubtitle">Project percentage</p>
+                                </div>
+                                    
+                            </div>
+
+                        </div>
+                
+                    )}
+                   
+                    
 
                     <div className="hero__contenttable">
 
                         <div className="hero__project">
-                            <span className="hero__protitle">{currentComp.projectNumber}</span>
-                            <p className="hero__prosubtitle">Total Projects</p>
+                            <span className="hero__protitle">{currentComp.CommmunityInvolvement}%</span>
+                            <p className="hero__prosubtitle">Women Involvement</p>
                         </div>
 
                         <div className="hero__project">
-                            <span className="hero__protitle">{currentComp.totalSpent}</span>
-                            <p className="hero__prosubtitle">Pending Projects</p>
+                            <span className="hero__protitle">{currentComp.citizenPriority}%</span>
+                            <p className="hero__prosubtitle">Youth Involvement</p>
                         </div>
                             
                     </div>
-
-                    <div className="hero__contenttable">
-                        <div className="hero__project">
-                            <span className="hero__protitle">{currentComp.totalapproved}</span>
-                            <p className="hero__prosubtitle">Projects Approved</p>
-                        </div>
-
-                        <div className="hero__project">
-                            <span className="hero__protitle">{currentComp.approvalrate}%</span>
-                            <p className="hero__prosubtitle">Approval Rate</p>
-                        </div>   
-                    </div>
-
-                        <div className="hero__contenttable">
-
-                            <div className="hero__project">
-                                <span className="hero__protitle">{currentComp.CommmunityInvolvement}%</span>
-                                <p className="hero__prosubtitle">Women Involvement</p>
-                            </div>
-
-                            <div className="hero__project">
-                                <span className="hero__protitle">{currentComp.citizenPriority}%</span>
-                                <p className="hero__prosubtitle">Youth Involvement</p>
-                            </div>
-                                
-                        </div>
 
                 </div>
             
