@@ -28,7 +28,7 @@ const FilterContext = React.createContext();
 
         const geodata = data
         setCurrentComp(data);
-        retrievGeoInfo(geodata,'County',8.45);
+        retrievGeoInfo(geodata,'County',8.5);
 
         Dataservice.GetAll()
         .then(res => {
@@ -58,7 +58,7 @@ const FilterContext = React.createContext();
         if(value !== 'Sub County'){
             const selSubCounty = value;
             const subCounty = subCountyList.filter(subcounty => subcounty.name === selSubCounty)[0];
-            const index = subCountyList.findIndex(sub => sub.name === selSubCounty);
+           let index = subCountyList.findIndex(sub => sub.name === selSubCounty);
             const wards = subCounty.wards;
             setWardList(wards);
             const geoSubCounty = data.subCounty;
@@ -76,28 +76,51 @@ const FilterContext = React.createContext();
         if(value !== 'Wards'){
             const ward = value;
             getDept(ward,'wards');
-            let WardCounty = {};
-            const index = ''
 
-            if(wardList.length === 0 ){
+            let WardCounty = {};
+            let wardGeo = {};
+            let index = ''
+
+            if(wardList.some(wards => wards.name === ward)){
+                WardCounty = wardList.filter(subcounty => subcounty.name.toLowerCase() === ward.toLowerCase())[0];
+                const wardsGeo = subCountyGeo.wards;
+                wardGeo = wardsGeo.filter(geosub => geosub.Name.toLowerCase() === ward.toLowerCase())[0];
+                console.log(wardGeo)
+                SetGeoJson(); 
+            }else{
+
                 const countyGeoData = subCountyList
+                let  geoEnd = data.subCounty;
+
+              
+
                 let wardGeoArr = [];
+                let wardGeos = []
 
                 for(let i=0; i < countyGeoData.length; i++){
                     const wards = countyGeoData[i].wards.values();
                     for(let ward of wards ){
                         wardGeoArr.push(ward);
+                        
                     }
                 }
-                WardCounty= wardGeoArr.filter(subcounty => subcounty.name === ward)[0];
-            }else{
-                WardCounty = wardList.filter(subcounty => subcounty.name === ward)[0];
-                const wardsGeo = subCountyGeo.wards;
-                const wardGeo = wardsGeo.filter(geosub => geosub.Name.toLowerCase() === ward.toLowerCase())[0];
-                retrievGeoInfo(wardGeo,'ward',14);
-                SetGeoJson();  
+
+                for(let j=0; j < geoEnd.length; j++){
+                    const wardsgeo = geoEnd[j].wards.values();
+                                 
+                    for(let ward of wardsgeo ){
+                        wardGeos.push(ward);
+                    }
+                }
+
+                WardCounty= wardGeoArr.filter(subcounty => subcounty.name.toLowerCase() === ward.toLowerCase())[0];
+                wardGeo = wardGeos.filter(geo => geo.Name.toLowerCase() === ward.toLowerCase())[0];
+                
+                 
             }
 
+
+            retrievGeoInfo(wardGeo,'ward',14);
             getProjectSum(ward,'ward',WardCounty,index);
               
         }
@@ -130,21 +153,21 @@ const FilterContext = React.createContext();
             let pending = 0;
             let totalapproved = 0;
             let approvalrate = 0;
+
             if(index === ''){
                 let currentWard = wardArray.filter(inner => inner.name === subcounty)[0];
-                console.log(wardArray);
-                totalres = currentWard.all || 'not available';
+
+                totalres = currentWard.all;
                 pending = currentWard.pending;
                 totalapproved = currentWard.approved;
-                approvalrate = currentWard.approved_pec;
+                approvalrate = currentWard.approved_percentage;
             }else{
                 let wardProject = res.data.data[index].wards;
-                    setWardArray(wardProject);
                     for(let i =0; i < wardProject.length; i++){
                         totalres += wardProject[i].all 
                         pending += wardProject[i].pending;
                         totalapproved += wardProject[i].approved;
-                        approvalrate += wardProject[i].approved_pec / wardProject.length;
+                        approvalrate += wardProject[i].approved_percentage / wardProject.length;
                         
                     }
 
@@ -154,6 +177,8 @@ const FilterContext = React.createContext();
             subCounty.totalSpent = pending;
             subCounty.totalapproved = totalapproved;
             subCounty.approvalrate = approvalrate.toFixed(1);
+           
+            
 
             Involvement(subcounty,location,subCounty)
              
