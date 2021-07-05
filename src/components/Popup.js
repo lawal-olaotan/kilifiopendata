@@ -27,7 +27,7 @@ const Popup = () => {
 
               ):(
                 <div>
-                <div className="hero__title">{currentComp.name}</div>
+                <div className="hero__title">{currentGeo.Name}</div>
                 <div style={{background:(currentGeo.color)}} className="hero__colorbar"></div>
 
                     {deptComp.length === 0 ? (
