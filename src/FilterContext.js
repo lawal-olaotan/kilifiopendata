@@ -103,7 +103,7 @@ const FilterContext = React.createContext();
             setWardList(wards);
             const geoSubCounty = data.subCounty;
             const CountyGeo = geoSubCounty.filter(geosub => geosub.Name.toLowerCase() === selSubCounty.toLowerCase())[0];
-            retrievGeoInfo(CountyGeo,'subCounty',10);
+            retrievGeoInfo(CountyGeo,'subCounty',11);
             getDept(selSubCounty,'constituency');
             getProjectSum(selSubCounty,'constituency',subCounty,index);
             setCountyGeo(CountyGeo);
@@ -285,7 +285,8 @@ const FilterContext = React.createContext();
             lon: mapdata.lon,
             lat: mapdata.lat,
             type : type,
-            zoom : zoom
+            zoom : zoom,
+            color: mapdata.color
         }
         setCurrentGeo(geodata);
     }

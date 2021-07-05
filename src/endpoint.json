@@ -2,15 +2,13 @@
     "name":"kilifi County",
     "lon":40.2932,
     "lat": -3.1539,
-    "projectNumber":"80,000",
-    "totalSpent":"75,000,000,000",
-   " totalapproved":20,
-   "approvalrate":75,
+    "color":"transparent",
     "subCounty":[
         {
             "Name":"Ganze Sub-County",
             "lat":-3.536730,
             "lon":39.692370,
+            "color":"rgba(236,199,34,42)",
             "wards":[
                 {
                    "Name":"Bamba",
@@ -39,6 +37,7 @@
             "Name":"Malindi Sub-County",
             "lat":-3.213190,
             "lon":40.118000,
+            "color":"rgba(141,27,109,44)",
             "wards":[
                 {"Name": "Jilore",
                 "lat": -3.1847372849216034,
@@ -67,6 +66,7 @@
             "Name":"Kaloleni Sub-County",
             "lat":"-3.744",
             "lon":"39.722",
+            "color":"rgba(61,91,42,53)",
             "wards":[
                 {"Name": "Kaloleni",
                 "lat": -3.8141991639728654,
@@ -91,6 +91,7 @@
             "Name":"Kilifi North Sub-County",
             "lat":"-3.581297874802858",
             "lon":"39.79346292313003",
+            "color":"rgba(79,235,55,54)",
             "wards":[
                 {"Name": "Tezo",
                 "lat": -3.5338101318623734,
@@ -128,6 +129,7 @@
             "Name":"Magarini Sub-County",
             "lat":"-3.023276431920616",
             "lon":"40.06700513752723",
+            "color":"rgba(20,174,204,30)",
             "wards":[
                 {"Name": "Adu",
                 "lat": -2.84862349001268,
@@ -160,6 +162,7 @@
             "Name":"Kilifi South Sub-County",
             "lat":"-3.776113008337626",
             "lon":"39.83224031160767",
+            "color":"rgba(236,73,9,33)",
             "wards":[
                 {"Name": "Junju",
                 "lat": -3.8501674502679974,
@@ -187,6 +190,7 @@
             "Name":"Rabai Sub-County",
             "lat":"-3.932021734071574",
             "lon":"39.54882822876534",
+            "color":"rgba(20,96,153,31)",
             "wards":[
                 {"Name": "Mwawesa",
                 "lat": -3.924625521614381,

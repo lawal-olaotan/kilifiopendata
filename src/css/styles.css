@@ -87,7 +87,7 @@
 .top__searchbox {
   background: #F7F8F2;
   padding: 1rem;
-  width: 45%;
+  width: 83%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,7 +99,7 @@
       align-self: flex-end;
   position: absolute;
   top: 1.4pc;
-  right: 6.2pc;
+  right: .26pc;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;

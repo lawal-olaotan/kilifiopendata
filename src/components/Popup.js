@@ -8,8 +8,11 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const Popup = () => {
 
-    const {compdata} = useContext(FilterContext);
+    const {compdata,geodatas} = useContext(FilterContext);
     const [currentComp,deptComp]= compdata;
+    const currentGeo = geodatas
+
+    console.log(currentGeo);
  
 
     const loader = <FontAwesomeIcon icon={faSpinner} className="fa-spin"/>;
@@ -25,6 +28,8 @@ const Popup = () => {
               ):(
                 <div>
                 <div className="hero__title">{currentComp.name}</div>
+                <div style={{background:(currentGeo.color)}} className="hero__colorbar"></div>
+
                     {deptComp.length === 0 ? (
                         <div>
                             <div className="hero__contenttable">

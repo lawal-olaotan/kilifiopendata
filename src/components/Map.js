@@ -44,7 +44,7 @@ const MapEle = () => {
                             <ChangeView data={data} zoom={zoom} Geojsondata={Geojsondata}/>
                             <TileLayer
                                 attribution="©<a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
-                                url="https://api.mapbox.com/styles/v1/olaotan1041995/ckq80krhmab6d18rlc29va4t2/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoib2xhb3RhbjEwNDE5OTUiLCJhIjoiY2tweTRodWsxMGg5eDJ2bndyODlobGlxaCJ9.stHQ92521Ab8YYw5cLAg3Q"/>
+                                url="https://api.mapbox.com/styles/v1/olaotan1041995/ckqqhiygm07pb18lj9qn6npgm/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoib2xhb3RhbjEwNDE5OTUiLCJhIjoiY2tweTRodWsxMGg5eDJ2bndyODlobGlxaCJ9.stHQ92521Ab8YYw5cLAg3Q"/>
               
                             {Geojsondata !== undefined ? (
                                 <GeoJSON data={Geojsondata.Features} style={mapStyle} />
