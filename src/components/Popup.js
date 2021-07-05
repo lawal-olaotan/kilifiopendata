@@ -20,7 +20,7 @@ const Popup = () => {
 
               { currentComp.length === 0 ?(
 
-                <div>{loader}</div>
+                <div className="hero__loader">{loader}</div>
 
               ):(
                 <div>

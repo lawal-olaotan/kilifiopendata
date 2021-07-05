@@ -32,7 +32,6 @@ const FilterContext = React.createContext();
     useEffect(()=> {
 
         const geodata = data
-        setCurrentComp(data);
         retrievGeoInfo(geodata,'County',8.5);
 
         Dataservice.GetAll()
@@ -52,6 +51,43 @@ const FilterContext = React.createContext();
                     setWardArray(countiesWards);
                 }
             }
+        })
+
+
+        Dataservice.GetSubcounties()
+        .then (res => {
+
+            const countyData = res.data.data; 
+
+            // paramaters  
+            let totalres = 0;
+            let pending = 0;
+            let totalapproved = 0;
+            let approvalrate =0
+
+            for(let k=0; k < countyData.length; k++){
+
+                totalres += countyData[k].all;
+                pending += countyData[k].pending;
+                totalapproved += countyData[k].approved;
+                approvalrate += countyData[k].approved_percentage/countyData.length
+            }
+
+
+            data.projectNumber = totalres;
+            data.totalSpent = pending;
+            data.totalapproved = totalapproved;
+            data.approvalrate = approvalrate.toFixed(1);
+            setCurrentComp(data);
+
+            
+        })
+
+
+
+        Dataservice.GetAllinvolvement()
+        .then (res => {
+            console.log(res);
         })
 
        
@@ -195,6 +231,8 @@ const FilterContext = React.createContext();
             subCounty.CommmunityInvolvement = commData.women_involved.percentage
             subCounty.citizenPriority = commData.youth_involved.percentage
             setCurrentComp(subCounty);
+
+
             getStatus();
             
         })

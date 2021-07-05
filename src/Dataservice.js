@@ -27,9 +27,19 @@ const Community = (subcounty,location) => {
     return data.get(`stats/involvement?${location}=${subcounty}`)
 }
 
+const  GetAllinvolvement = () => {
+    return data.get("stats/involvement")
+}
+
 const GetStatus = ()=> {
 
     return data.get("/stats/wards?status=complete%20and%20in%20use");
 }
 
-export default {GetAll,GetDepartment,GetStats,Community,GetStatus};
+
+const GetSubcounties = () => {
+
+    return data.get("/stats/sub_counties")
+}
+
+export default {GetAll,GetDepartment,GetStats,Community,GetStatus,GetSubcounties,GetAllinvolvement};
