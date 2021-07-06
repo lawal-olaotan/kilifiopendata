@@ -23,10 +23,10 @@ const ProjectWrapper = () => {
         sumText: 'Includes completed, ongoing and proposed projects',
     }
 
-   let  pielabel = ['Construction Based', 'Technology Based','Human Resource','Research Based'];
-    let piedata = [100,70,40,150];
+//    let  pielabel = ['Construction Based', 'Technology Based','Human Resource','Research Based'];
+//     let piedata = [100,70,40,150];
 
-    console.log(projType);
+    
 
     const projectType = {
         labels:proLabel ,
@@ -64,9 +64,6 @@ const ProjectWrapper = () => {
         ]   
     }
 
-
-    const deptWidth = 600;
-    const deptHeight = 300;
 
     
     // const projectExecution = {

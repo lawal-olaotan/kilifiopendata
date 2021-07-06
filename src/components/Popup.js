@@ -12,9 +12,7 @@ const Popup = () => {
     const [currentComp,deptComp]= compdata;
     const currentGeo = geodatas
 
-    console.log(currentGeo);
- 
-
+  
     const loader = <FontAwesomeIcon icon={faSpinner} className="fa-spin"/>;
 
     return (
@@ -27,8 +25,9 @@ const Popup = () => {
 
               ):(
                 <div>
-                <div className="hero__title">{currentGeo.Name}</div>
-                <div style={{background:(currentGeo.color)}} className="hero__colorbar"></div>
+                <div className="hero__title">{currentGeo.Name}{currentGeo.type === 'ward' ? (<span> Ward</span>):(console.log('nothing'))}</div>
+
+                <div style={{background:(currentGeo.color)}} className="hero__colorbar">{currentGeo.subName}</div>
 
                     {deptComp.length === 0 ? (
                         <div>

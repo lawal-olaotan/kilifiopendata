@@ -25,8 +25,12 @@ const FilterContext = React.createContext();
     const [deptComp,setDeptComp] = useState([]);
 
 
+
     const [projType,setProjectType] = useState([]);
     const [proLabel,setProjLabel] = useState([]);
+
+
+
 
 
     useEffect(()=> {
@@ -42,16 +46,21 @@ const FilterContext = React.createContext();
 
         Dataservice.GetStats(subcounty,'ward')
         .then (res=> {
-            const countiesStats = res.data.data;        
+            const countiesStats = res.data.data;
+            
             let countiesWards = []
             for(let i=0; i < countiesStats.length; i++){
                 const wards = countiesStats[i].wards.values();
                 for(let ward of wards ){
                     countiesWards.push(ward);
-                    setWardArray(countiesWards);
-                }
+                }   
             }
+
+            setWardArray(countiesWards);
+
         })
+
+       
 
 
         Dataservice.GetSubcounties()
@@ -78,17 +87,20 @@ const FilterContext = React.createContext();
             data.totalSpent = pending;
             data.totalapproved = totalapproved;
             data.approvalrate = approvalrate.toFixed(1);
-            setCurrentComp(data);
+            
 
             
         })
 
-
-
         Dataservice.GetAllinvolvement()
         .then (res => {
-            console.log(res);
+            const comm = res.data.data
+            data.CommmunityInvolvement = comm.women_involved.percentage
+            data.citizenPriority = comm.youth_involved.percentage
+            setCurrentComp(data);
         })
+
+       
 
        
     } ,[]);
@@ -154,15 +166,25 @@ const FilterContext = React.createContext();
                 }
 
                 WardCounty= wardGeoArr.filter(subcounty => subcounty.name.toLowerCase() === ward.toLowerCase())[0];
-                wardGeo = wardGeos.filter(geo => geo.Name.toLowerCase() === ward.toLowerCase())[0];   
+                wardGeo = wardGeos.filter(geo => geo.Name.toLowerCase() === ward.toLowerCase())[0];
+                   
             }
+            const find = ({name,wards})=> name.includes(value) || wards && wards.some(find);
+            const subName = subCountyList.filter(find)[0];
+            wardGeo.subName = subName.name;
+
             retrievGeoInfo(wardGeo,'ward',14);
-            getProjectSum(ward,'ward',WardCounty,index);  
+            getProjectSum(ward,'ward',WardCounty,index);
         }
 
         setDeptComp([])
+
+
+            
     }
 
+
+    
 
     const handleDept = e => {
         if(e.target.value !== 'Department'){
@@ -214,30 +236,22 @@ const FilterContext = React.createContext();
             subCounty.totalSpent = pending;
             subCounty.totalapproved = totalapproved;
             subCounty.approvalrate = approvalrate.toFixed(1);
-           
             
+           
+        
+            Dataservice.Community(subcounty,location)
+            .then((res) => {
+                const  commData = res.data.data;
+                subCounty.CommmunityInvolvement = commData.women_involved.percentage
+                subCounty.citizenPriority = commData.youth_involved.percentage;
+                setCurrentComp(subCounty);
+            })
 
-            Involvement(subcounty,location,subCounty)
+           
+            // getStatus();
              
         })
     }
-
-
-     const Involvement = (subcounty,location,subCounty) => {
-
-        Dataservice.Community(subcounty,location)
-        .then((res) => {
-            const  commData = res.data.data;
-            subCounty.CommmunityInvolvement = commData.women_involved.percentage
-            subCounty.citizenPriority = commData.youth_involved.percentage
-            setCurrentComp(subCounty);
-
-
-            getStatus();
-            
-        })
-
-     }
 
 
 
@@ -270,13 +284,13 @@ const FilterContext = React.createContext();
 
 
 
-     const getStatus = () => {
+    //  const getStatus = () => {
 
-        Dataservice.GetStatus()
-        .then(res => {
+    //     Dataservice.GetStatus()
+    //     .then(res => {
             
-        })
-     }
+    //     })
+    //  }
 
 
     const retrievGeoInfo = (mapdata,type,zoom)=> {
@@ -286,7 +300,8 @@ const FilterContext = React.createContext();
             lat: mapdata.lat,
             type : type,
             zoom : zoom,
-            color: mapdata.color
+            color: mapdata.color,
+            subName : mapdata.subName
         }
         setCurrentGeo(geodata);
     }

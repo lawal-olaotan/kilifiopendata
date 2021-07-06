@@ -81,6 +81,11 @@
   margin-bottom: 1rem;
 }
 
+.hero__dept {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 .fa-spin {
   font-size: 64px;
   -webkit-box-align: center;
