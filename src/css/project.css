@@ -120,4 +120,8 @@
 .notactive {
   display: none;
 }
+
+.margin-bottom {
+  margin-bottom: 5rem;
+}
 /*# sourceMappingURL=project.css.map */

@@ -28,7 +28,7 @@ const BarChart =( {state , width } ) => {
                         display:false,
                     },
                     ticks:{
-                        fontSize:6.6,
+                        fontSize:6.4,
                         fontStyle:800,
                         fontColor:'#2B622A'
                     }

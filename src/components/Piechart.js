@@ -3,7 +3,7 @@ import {Doughnut} from 'react-chartjs-2';
 import '../css/project.min.css';
 
 
-const Piechart = ({state}) => {
+const Piechart = ({state, height, width}) => {
 
     
 
@@ -12,8 +12,8 @@ const Piechart = ({state}) => {
         <div className="project__piewrapper">
             <Doughnut
             data={state}
-            height= {300}
-            width={600}
+            height= {height}
+            width={width}
             options={{ 
                 responsive: true,
                 legend:{

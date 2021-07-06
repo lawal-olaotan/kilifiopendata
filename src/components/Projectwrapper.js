@@ -12,9 +12,11 @@ import BarChart from './BarChart';
 const ProjectWrapper = () => {
 
 
-    const {compdata,proTypeData} = useContext(FilterContext);
+    const {compdata,proTypeData,ProPhase,ProStatus} = useContext(FilterContext);
     const [currentComp]= compdata;
     const [projType,proLabel] = proTypeData;
+    const [phasedata,phaselabel] = ProPhase
+    const [projStatusLabel,projStatusData] = ProStatus;
    
 
     const projectSummary = {
@@ -90,7 +92,7 @@ const ProjectWrapper = () => {
 
     const projectComp = {
 
-        labels: ['Project Started', 'Project Completed','Project Visited'],
+        labels: phaselabel,
         datasets:[
             {
                 label: 'Projects',
@@ -104,7 +106,7 @@ const ProjectWrapper = () => {
                     '#EBA10F',
                     '#2B87E3',
                 ],
-                data: [160,80,120]
+                data:phasedata
             }
         ] 
 
@@ -113,18 +115,18 @@ const ProjectWrapper = () => {
 
     const state = {
         
-        labels: ['Completed & in use','Incomplete & in use','Incomplete & not in use','Ongoing & in use','Ongoing & not in use','Does not exist'],
+        labels: projStatusLabel,
         datasets:[{
             label:'Project Status',
             backgroundColor:'#6FCF97',
-            data:[12,28,17,10,25,2.5],
-            barThickness: 64,
+            data:projStatusData,
+            barThickness: 69,
         }
 
         ]
     }
 
-    const width = 490
+    const width =698
 
 
     return (
@@ -136,18 +138,14 @@ const ProjectWrapper = () => {
                 <div className="project__infowrapper">
 
                     <div className="project__infostep">
-                            <ProjectSum data={projectSummary}/>
+
+                        <ProjectSum data={projectSummary}/>
 
                         <div className="project__pie">
-                                <p className="project__sumtitle">Based on project Sector</p>
-                                <Piechart state={projectType}/>
+                            <p className="project__sumtitle">Based on Project Status</p>
+                            <BarChart state={state} width={width}/>
                         </div>
-
-
-                        {/* <div className="project__pie">
-                            <p className="project__sumtitle">Based on project execution phase</p>
-                            <Piechart state={projectExecution}/>
-                        </div> */}
+                        
                         
                     </div>  
 
@@ -155,14 +153,14 @@ const ProjectWrapper = () => {
 
                     <div className="project__infostep">
 
-                        <div className="project__pie">
-                                <p className="project__sumtitle">Based on project completion rate</p>
-                                <Piechart state={projectComp}/>
+                        <div className="project__pie ">
+                                <p className="project__sumtitle margin-bottom">Based on project execution phase</p>
+                                <Piechart state={projectComp} height={150} width={300}/>
                         </div>
 
                         <div className="project__pie">
-                            <p className="project__sumtitle">Based on project execution phase</p>
-                            <BarChart state={state} width={width}/>
+                                <p className="project__sumtitle">Based on project Sector</p>
+                                <Piechart state={projectType} height={300} width={600}/>
                         </div>
                         
                     </div> 

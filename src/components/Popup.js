@@ -25,7 +25,7 @@ const Popup = () => {
 
               ):(
                 <div>
-                <div className="hero__title">{currentGeo.Name}{currentGeo.type === 'ward' ? (<span> Ward</span>):(console.log('nothing'))}</div>
+                <div className="hero__title">{currentGeo.Name}{currentGeo.type === 'ward' ? (<span> Ward</span>):(console.log())}</div>
 
                 <div style={{background:(currentGeo.color)}} className="hero__colorbar">{currentGeo.subName}</div>
 

@@ -25,9 +25,20 @@ const FilterContext = React.createContext();
     const [deptComp,setDeptComp] = useState([]);
 
 
-
+    // Project wrapper state
     const [projType,setProjectType] = useState([]);
     const [proLabel,setProjLabel] = useState([]);
+
+    const [phasedata,setPhaseData] = useState([]);
+    const [phaselabel,setPhaseLabel] = useState([]);
+
+
+    const [projStatusLabel,setProjStatusLabel] = useState([]);
+    const [projStatusData,setProjStatusData] = useState([]);
+
+
+
+   
 
 
 
@@ -106,6 +117,8 @@ const FilterContext = React.createContext();
     } ,[]);
 
 
+
+
     const handleChange = (value) => {
         if(value !== 'Sub County'){
             const selSubCounty = value;
@@ -119,12 +132,12 @@ const FilterContext = React.createContext();
             getDept(selSubCounty,'constituency');
             getProjectSum(selSubCounty,'constituency',subCounty,index);
             setCountyGeo(CountyGeo);
-
+            getStatus(selSubCounty,'constituency');
             setDeptComp([])
         }
-        
-        
+         
     }
+
 
 
     const handleWard = (value) => {
@@ -175,6 +188,8 @@ const FilterContext = React.createContext();
 
             retrievGeoInfo(wardGeo,'ward',14);
             getProjectSum(ward,'ward',WardCounty,index);
+            getStatus(ward,'ward')
+            
         }
 
         setDeptComp([])
@@ -191,6 +206,7 @@ const FilterContext = React.createContext();
             const dept = e.target.value
             const deptinfo = departmentList.filter(inner => inner.department === dept)[0];
             setDeptComp(deptinfo);
+            getStatus(dept,'department')
         }
     }
 
@@ -204,6 +220,8 @@ const FilterContext = React.createContext();
         })  
      }
      
+
+
      const getProjectSum = (subcounty,location,subCounty,index) => {
         
         Dataservice.GetStats(subcounty,location)
@@ -246,11 +264,48 @@ const FilterContext = React.createContext();
                 subCounty.citizenPriority = commData.youth_involved.percentage;
                 setCurrentComp(subCounty);
             })
-
-           
-            // getStatus();
              
         })
+    }
+
+    const getStatus = (subcounty,location)=> {
+
+        Dataservice.GetStatus(subcounty,location)
+        .then(res => {
+            const statusData = res.data.data;
+            const ProjectStatusDatas = statusData.projects_status
+
+
+            const phasedProject = parseInt((statusData.phased/statusData.all)*360)
+            const nonPhasedProject = parseInt((statusData.none_phased/statusData.all)*360)
+
+            const phasedLabel = ['No Phased Project', 'Phased Project']
+            const phaseData = [nonPhasedProject,phasedProject];
+             
+            setPhaseLabel(phasedLabel);
+            setPhaseData(phaseData);
+
+
+            let projectStatusLabel = [];
+            let projectStatusData = [];
+
+            for(let projectstatusData of ProjectStatusDatas){
+                projectStatusData.push(projectstatusData.percentage)
+                
+            }
+
+            for(let projectStatusLable of ProjectStatusDatas){
+                projectStatusLabel.push(projectStatusLable.title)
+                
+            }
+
+            setProjStatusLabel(projectStatusLabel)
+            setProjStatusData(projectStatusData)
+
+        
+        })
+
+
     }
 
 
@@ -264,7 +319,6 @@ const FilterContext = React.createContext();
 
         for(let labels of department){
             typeLabel.push(labels.department)
-            
         }
 
         for(let data of department){
@@ -282,15 +336,6 @@ const FilterContext = React.createContext();
 
      }
 
-
-
-    //  const getStatus = () => {
-
-    //     Dataservice.GetStatus()
-    //     .then(res => {
-            
-    //     })
-    //  }
 
 
     const retrievGeoInfo = (mapdata,type,zoom)=> {
@@ -342,7 +387,9 @@ const FilterContext = React.createContext();
         geodatas:currentGeo,
         compdata:[currentComp,deptComp],
         jsondata:Geojsondata,
-        proTypeData:[projType,proLabel]
+        proTypeData:[projType,proLabel],
+        ProPhase: [phasedata,phaselabel],
+        ProStatus: [projStatusLabel,projStatusData]
     }
     
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>

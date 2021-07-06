@@ -31,14 +31,11 @@ const  GetAllinvolvement = () => {
     return data.get("stats/involvement")
 }
 
-const GetStatus = ()=> {
-
-    return data.get("/stats/wards?status=complete%20and%20in%20use");
+const GetStatus = (subcounty,location) => {
+    return data.get(`stats/projects_status?${location}=${subcounty}`)
 }
 
-
 const GetSubcounties = () => {
-
     return data.get("/stats/sub_counties")
 }
 
