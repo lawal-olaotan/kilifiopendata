@@ -154,12 +154,12 @@ const ProjectWrapper = () => {
                     <div className="project__infostep">
 
                         <div className="project__pie ">
-                                <p className="project__sumtitle margin-bottom">Based on project execution phase</p>
+                                <p className="project__sumtitle margin-bottom">Based on Project Execution Phase</p>
                                 <Piechart state={projectComp} height={150} width={300}/>
                         </div>
 
                         <div className="project__pie">
-                                <p className="project__sumtitle">Based on project Sector</p>
+                                <p className="project__sumtitle">Based on Project Department</p>
                                 <Piechart state={projectType} height={300} width={600}/>
                         </div>
                         
