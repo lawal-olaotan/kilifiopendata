@@ -20,7 +20,7 @@ const Piechart = ({state, height, width}) => {
                     display:true,
                     position:'right',
                     labels:{
-                        boxWidth: 16,
+                        boxWidth: 12,
                     }
                 }
             }}

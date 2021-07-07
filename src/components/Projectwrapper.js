@@ -16,7 +16,7 @@ const ProjectWrapper = () => {
     const [currentComp]= compdata;
     const [projType,proLabel] = proTypeData;
     const [phasedata,phaselabel] = ProPhase
-    const [projStatusLabel,projStatusData] = ProStatus;
+    const [projStatusLabel,projStatusData,statusComp] = ProStatus;
    
 
     const projectSummary = {
@@ -25,8 +25,26 @@ const ProjectWrapper = () => {
         sumText: 'Includes completed, ongoing and proposed projects',
     }
 
-//    let  pielabel = ['Construction Based', 'Technology Based','Human Resource','Research Based'];
-//     let piedata = [100,70,40,150];
+
+    const statusSummary = {
+        summaryName:`Total Projects in ${currentComp.name}`,
+        sumValue: currentComp.projectNumber,
+        sumText: 'Includes completed, ongoing and proposed projects'
+    }
+
+    const statusProjects = {
+        summaryName:`Total ${statusComp.title} projects in ${currentComp.name}`,
+        sumValue: statusComp.count,
+        sumText: `Includes all ${statusComp.title} projects`
+    }
+
+    const statusperc = {
+        summaryName:`% of ${statusComp.title} projects in ${currentComp.name}`,
+        sumValue: `${statusComp.percentage}%`,
+        sumText: `Includes all ${statusComp.title} project rates in ${currentComp.name}`
+    }
+
+
 
     
 
@@ -137,6 +155,8 @@ const ProjectWrapper = () => {
 
                 <div className="project__infowrapper">
 
+                {statusComp.length === 0 ? (
+
                     <div className="project__infostep">
 
                         <ProjectSum data={projectSummary}/>
@@ -144,10 +164,28 @@ const ProjectWrapper = () => {
                         <div className="project__pie">
                             <p className="project__sumtitle">Based on Project Status</p>
                             <BarChart state={state} width={width}/>
+                            
                         </div>
-                        
-                        
-                    </div>  
+                    
+                    </div> 
+
+
+                ) : ( 
+
+                    <div className="project__infostep">
+
+                        <ProjectSum data={statusSummary}/>
+                        <ProjectSum data={statusProjects}/>
+                        <ProjectSum data={statusperc}/>
+
+                    </div> 
+
+
+                )}
+
+                    
+
+
 
                     <hr/>
 

@@ -36,6 +36,11 @@ const FilterContext = React.createContext();
     const [projStatusLabel,setProjStatusLabel] = useState([]);
     const [projStatusData,setProjStatusData] = useState([]);
 
+    // for handling project status toggle effect
+    const [projectStatus,setProjectStatus] = useState([]);
+
+    const [statusComp,setStatusComp] = useState([]);
+
 
 
    
@@ -134,6 +139,7 @@ const FilterContext = React.createContext();
             setCountyGeo(CountyGeo);
             getStatus(selSubCounty,'constituency');
             setDeptComp([])
+            setStatusComp([]);
         }
          
     }
@@ -193,6 +199,7 @@ const FilterContext = React.createContext();
         }
 
         setDeptComp([])
+        setStatusComp([]);
 
 
             
@@ -207,6 +214,20 @@ const FilterContext = React.createContext();
             const deptinfo = departmentList.filter(inner => inner.department === dept)[0];
             setDeptComp(deptinfo);
             getStatus(dept,'department')
+            setStatusComp([]);
+        }
+    }
+
+
+
+    const handleStatus = e => {
+        if(e.target.value !== 'Project Status'){
+            const statusKey = e.target.value;
+            const currentStatus = projectStatus.filter(inner => inner.title === statusKey)[0];
+            console.log(currentStatus);
+            setStatusComp(currentStatus);
+            // getDept(statusKey,'status');
+
         }
     }
 
@@ -274,7 +295,7 @@ const FilterContext = React.createContext();
         .then(res => {
             const statusData = res.data.data;
             const ProjectStatusDatas = statusData.projects_status
-
+            setProjectStatus(ProjectStatusDatas)
 
             const phasedProject = parseInt((statusData.phased/statusData.all)*360)
             const nonPhasedProject = parseInt((statusData.none_phased/statusData.all)*360)
@@ -389,7 +410,8 @@ const FilterContext = React.createContext();
         jsondata:Geojsondata,
         proTypeData:[projType,proLabel],
         ProPhase: [phasedata,phaselabel],
-        ProStatus: [projStatusLabel,projStatusData]
+        ProStatus: [projStatusLabel,projStatusData,statusComp],
+        ProStatusList: [projectStatus,handleStatus]
     }
     
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>
