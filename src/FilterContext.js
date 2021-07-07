@@ -42,9 +42,8 @@ const FilterContext = React.createContext();
     const [statusComp,setStatusComp] = useState([]);
 
 
-
-   
-
+    // community bar chart data 
+    const [communityPieData,setCommunityPie] = useState([]);
 
 
 
@@ -276,15 +275,80 @@ const FilterContext = React.createContext();
             subCounty.totalapproved = totalapproved;
             subCounty.approvalrate = approvalrate.toFixed(1);
             
-           
+             let commArray = []
         
             Dataservice.Community(subcounty,location)
             .then((res) => {
+                
                 const  commData = res.data.data;
+
+                const communityIn = commData.community_involved;
+                const communityInLabel = ['Involved','Not Involved']
+                const communityInData = [parseInt(((communityIn.percentage/100)*360).toFixed(1)), parseInt((((100 - communityIn.percentage)/100)*360).toFixed(1))];
+
+
+                const disabledIn = commData.disabled_involved;
+                const disabledInData = [parseInt(((disabledIn.percentage/100)*360).toFixed(1)), parseInt((((100 - disabledIn.percentage)/100)*360).toFixed(1))];
+                
+
+                const projectIn = commData.implemented_timely; 
+                const ProjectInData = [parseInt(((projectIn.percentage/100)*360).toFixed(1)), parseInt((((100 - projectIn.percentage)/100)*360).toFixed(1))];
+
+                const meetingIn = commData.meeting_involved; 
+                const meeetingInData = [parseInt(((meetingIn.percentage/100)*360).toFixed(1)), parseInt((((100 - meetingIn.percentage)/100)*360).toFixed(1))];
+
+                const materialsIn = commData.quality_materials; 
+                const materialsInData = [parseInt(((materialsIn.percentage/100)*360).toFixed(1)), parseInt((((100 - materialsIn.percentage)/100)*360).toFixed(1))];
+
+                const womenIn = commData.women_involved;
+                const womenInData = [parseInt(((womenIn.percentage/100)*360).toFixed(1)), parseInt((((100 - womenIn.percentage)/100)*360).toFixed(1))];
+
+                const YouthIn = commData.youth_involved;
+                const youthInData = [parseInt(((YouthIn.percentage/100)*360).toFixed(1)), parseInt((((100 - YouthIn.percentage)/100)*360).toFixed(1))];
+                
+
+
                 subCounty.CommmunityInvolvement = commData.women_involved.percentage
                 subCounty.citizenPriority = commData.youth_involved.percentage;
                 setCurrentComp(subCounty);
+
+                for(let property in commData){
+                    commArray.push(commData[property]);  
+                }
+
+                let total = 0;
+                for(let item of commArray){
+                    total += item.percentage
+                }
+                const communityPar = (total/commArray.length).toFixed(1)
+        
+
+                const communityData = {
+                    average_pec: communityPar,
+                    label : communityInLabel,
+                    community_data:communityInData,
+                    disabled_data:disabledInData,
+                    project_data : ProjectInData,
+                    meeting_data : meeetingInData,
+                    materials_data : materialsInData,
+                    women_data: womenInData,
+                    youth_data: youthInData 
+                }
+
+                setCommunityPie(communityData);
+      
             })
+
+            
+
+            
+
+            
+
+           
+
+
+
              
         })
     }
@@ -411,7 +475,8 @@ const FilterContext = React.createContext();
         proTypeData:[projType,proLabel],
         ProPhase: [phasedata,phaselabel],
         ProStatus: [projStatusLabel,projStatusData,statusComp],
-        ProStatusList: [projectStatus,handleStatus]
+        ProStatusList: [projectStatus,handleStatus],
+        communityList:communityPieData,
     }
     
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>

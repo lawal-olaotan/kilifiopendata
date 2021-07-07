@@ -1,46 +1,170 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import '../css/styles.min.css';
 import '../css/project.min.css';
 import Piechart from '../components/Piechart';
 import ProjectTitle from './ProjectTitle';
 import ProjectSum from './ProjectSum';
+import { FilterContext } from '../FilterContext';
 
 
 
 
 const Community = () => {
 
+    const {communityList} = useContext(FilterContext);
+    const communityPieData =  communityList;
+
+    console.log(communityPieData);
+
+    const projectSummary = {
+        summaryName: '% Community Involvement',
+        sumValue: `${communityPieData.average_pec}%`,
+        sumText: 'Includes all touch points (women involvements , youth involvements ... )',
+    }
+
 
 
     const projectComp = {
 
-        labels: ['County', 'Private Sector','County Budget','Others(NGOS, CBOs,FBOs)'],
+        labels: communityPieData.label,
         datasets:[
             {
                 label: 'Projects',
                 backgroundColor:[
                     '#90CBA9',
                     '#EBA10F',
-                    '#2B87E3',
-                    '#9B51E0',
                 ],
                 hoverBackgroundColor:[
                     '#90CBA9',
                     '#EBA10F',
-                    '#2B87E3',
-                    '#9B51E0',
                 ],
-                data: [140,80,80,60]
+                data: communityPieData.community_data
             }
         ] 
 
     }
 
-    const projectSummary = {
-        summaryName: '% Community Involvement',
-        sumValue: '50%',
-        sumText: 'Includes all touch points (women involvements , youth involvements ... )',
+
+    const womenComp = {
+
+        labels: communityPieData.label,
+        datasets:[
+            {
+                label: 'Projects',
+                backgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                hoverBackgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                data: communityPieData.women_data
+            }
+        ] 
+
     }
+
+    const youthComp = {
+
+        labels: communityPieData.label,
+        datasets:[
+            {
+                label: 'Projects',
+                backgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                hoverBackgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                data: communityPieData.youth_data
+            }
+        ] 
+
+    }
+    
+    const disabledComp = {
+
+        labels: communityPieData.label,
+        datasets:[
+            {
+                label: 'Projects',
+                backgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                hoverBackgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                data: communityPieData.disabled_data
+            }
+        ] 
+
+    }
+
+    const meetingComp = {
+
+        labels: communityPieData.label,
+        datasets:[
+            {
+                label: 'Projects',
+                backgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                hoverBackgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                data: communityPieData.meeting_data
+            }
+        ] 
+
+    }
+
+    const ImpleComp = {
+
+        labels: communityPieData.label,
+        datasets:[
+            {
+                label: 'Projects',
+                backgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                hoverBackgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                data: communityPieData.project_data
+            }
+        ] 
+
+    }
+
+    const materialsComp = {
+
+        labels: communityPieData.label,
+        datasets:[
+            {
+                label: 'Projects',
+                backgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                hoverBackgroundColor:[
+                    '#90CBA9',
+                    '#EBA10F',
+                ],
+                data: communityPieData.materials_data
+            }
+        ] 
+
+    }
+   
 
     
 
@@ -68,8 +192,8 @@ const Community = () => {
                             </div>
 
                             <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp} />
+                                <p className="project__sumtitle">Based on Women Participation</p>
+                                <Piechart state={womenComp}/>
                             </div>
 
                         </div>  
@@ -79,18 +203,18 @@ const Community = () => {
                     <div className="project__infostep">
 
                         <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
+                                <p className="project__sumtitle">Based on Youth Participation</p>
+                                <Piechart state={youthComp}/>
                         </div>
 
                         <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
+                                <p className="project__sumtitle">Based on Disabled Participation</p>
+                                <Piechart state={disabledComp}/>
                         </div>
 
                         <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
+                                <p className="project__sumtitle">Based on Meetings Participation</p>
+                                <Piechart state={meetingComp}/>
                         </div>
 
                     </div>
@@ -99,41 +223,20 @@ const Community = () => {
 
                     <div className="project__infostep">
 
-                        <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
+                        {/* <div className="project__pie">
+                                <p className="project__sumtitle">Based on project Implemetation Involvement</p>
+                                <Piechart state={ImpleComp}/>
                         </div>
 
                         <div className="project__pie">
+                                <p className="project__sumtitle">Based on overall quality of materials</p>
+                                <Piechart state={materialsComp}/>
+                        </div> */}
+
+                        {/* <div className="project__pie">
                                 <p className="project__sumtitle">Based on Source of funding</p>
                                 <Piechart state={projectComp}/>
-                        </div>
-
-                        <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
-                        </div>
-
-                    </div>
-
-                    <hr/>
-
-                    <div className="project__infostep">
-
-                        <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
-                        </div>
-
-                        <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
-                        </div>
-
-                        <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
-                        </div>
+                        </div> */}
 
                     </div>
             

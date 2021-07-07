@@ -45,9 +45,6 @@ const ProjectWrapper = () => {
     }
 
 
-
-    
-
     const projectType = {
         labels:proLabel ,
         datasets:[
@@ -83,30 +80,6 @@ const ProjectWrapper = () => {
             }
         ]   
     }
-
-
-    
-    // const projectExecution = {
-
-    //     labels: ['No phased Project', 'Phase I','Phase II'],
-    //     datasets:[
-    //         {
-    //             label: 'Projects',
-    //             backgroundColor:[
-    //                 '#90CBA9',
-    //                 '#EBA10F',
-    //                 '#2B87E3',
-    //             ],
-    //             hoverBackgroundColor:[
-    //                 '#90CBA9',
-    //                 '#EBA10F',
-    //                 '#2B87E3',
-    //             ],
-    //             data: [170,40,150]
-    //         }
-    //     ] 
-
-    // }
 
     const projectComp = {
 
@@ -163,8 +136,7 @@ const ProjectWrapper = () => {
 
                         <div className="project__pie">
                             <p className="project__sumtitle">Based on Project Status</p>
-                            <BarChart state={state} width={width}/>
-                            
+                            <BarChart state={state} width={width}/>  
                         </div>
                     
                     </div> 
