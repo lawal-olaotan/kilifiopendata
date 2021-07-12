@@ -228,7 +228,7 @@ const Community = () => {
 
                         <div className="project__pie">
                                 <p className="project__sumtitle">Based on overall quality of materials</p>
-                                <Piechart state={materialsComp} height={150} width={300} />
+                                <Piechart state={materialsComp} height={172} width={345} />
                         </div>
 
                         {/* <div className="project__pie">

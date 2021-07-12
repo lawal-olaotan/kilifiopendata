@@ -47,7 +47,7 @@ const Citizen = () => {
 
 
     const totalPriority = {
-        summaryName: 'Total Priortized Project',
+        summaryName: 'Total Priortized Projects',
         sumValue: citizenCompData.totalProject,
         sumText: 'Includes all projects priortized to the community', 
     }

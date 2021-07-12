@@ -44,10 +44,15 @@ const FilterContext = React.createContext();
 
     // community bar chart data 
     const [communityPieData,setCommunityPie] = useState([]);
+    const [communityPop,setCommunityPop] = useState([]);
 
     // citizen poirioty Data 
-
     const [citizenCompData, setCitizenCompData] = useState([]);
+
+
+    // project stats state 
+
+    const [projectStats,setProjectStats] = useState([]);
 
 
 
@@ -55,7 +60,7 @@ const FilterContext = React.createContext();
 
         const geodata = data
         retrievGeoInfo(geodata,'County',8.5);
-        
+        setCurrentComp(data);
 
         Dataservice.GetAll()
         .then(res => {
@@ -102,29 +107,36 @@ const FilterContext = React.createContext();
                 approvalrate += countyData[k].approved_percentage/countyData.length
             }
 
+            let ProjectSum = {
+                projectNumber : totalres,
+                totalSpent : pending,
+                totalapproved : totalapproved,
+                approvalrate : approvalrate.toFixed(1)
+            }
 
-            data.projectNumber = totalres;
-            data.totalSpent = pending;
-            data.totalapproved = totalapproved;
-            data.approvalrate = approvalrate.toFixed(1);
-            
+            setProjectStats(ProjectSum);
 
+
+            // data.projectNumber = totalres;
+            // data.totalSpent = pending;
+            // data.totalapproved = totalapproved;
+            // data.approvalrate = approvalrate.toFixed(1);
             
         })
+
 
         Dataservice.GetAllinvolvement()
         .then (res => {
             const comm = res.data.data
-            data.CommmunityInvolvement = comm.women_involved.percentage
-            data.citizenPriority = comm.youth_involved.percentage
-
-            setCurrentComp(data);
+            let newData = {}
+            newData.CommmunityInvolvement = comm.women_involved.percentage
+            newData.citizenPriority = comm.youth_involved.percentage
+            
+            setCommunityPop(newData);
+            
             
         })
 
-
-
-       
 
        
     } ,[]);
@@ -144,10 +156,12 @@ const FilterContext = React.createContext();
             const CountyGeo = geoSubCounty.filter(geosub => geosub.Name.toLowerCase() === selSubCounty.toLowerCase())[0];
             retrievGeoInfo(CountyGeo,'subCounty',11);
             getDept(selSubCounty,'constituency');
-            getProjectSum(selSubCounty,'constituency',subCounty,index);
+            setCurrentComp(subCounty);
+            getProjectSum(selSubCounty,'constituency',index);
             setCountyGeo(CountyGeo);
             getStatus(selSubCounty,'constituency');
             citizenPriorities(selSubCounty,'constituency')
+            getCommunityData(selSubCounty,'constituency')
             setDeptComp([])
             setStatusComp([]);
         }
@@ -203,9 +217,11 @@ const FilterContext = React.createContext();
             wardGeo.subName = subName.name;
 
             retrievGeoInfo(wardGeo,'ward',14);
-            getProjectSum(ward,'ward',WardCounty,index);
+            setCurrentComp(WardCounty);
+            getProjectSum(ward,'ward',index);
             getStatus(ward,'ward')
             citizenPriorities(ward,'ward')
+            getCommunityData(ward,'ward')
             
         }
 
@@ -225,6 +241,7 @@ const FilterContext = React.createContext();
             const deptinfo = departmentList.filter(inner => inner.department === dept)[0];
             setDeptComp(deptinfo);
             getStatus(dept,'department')
+            getCommunityData(dept,'department')
             setStatusComp([]);
         }
     }
@@ -290,7 +307,7 @@ const FilterContext = React.createContext();
      
 
 
-     const getProjectSum = (subcounty,location,subCounty,index) => {
+     const getProjectSum = (subcounty,location,index) => {
         
         Dataservice.GetStats(subcounty,location)
         .then (res => {
@@ -301,7 +318,6 @@ const FilterContext = React.createContext();
 
             if(index === ''){
                 let currentWard = wardArray.filter(inner => inner.name === subcounty)[0];
-
                 totalres = currentWard.all;
                 pending = currentWard.pending;
                 totalapproved = currentWard.approved;
@@ -315,17 +331,28 @@ const FilterContext = React.createContext();
                         approvalrate += wardProject[i].approved_percentage / wardProject.length;
                         
                     }
-
             }
 
-            subCounty.projectNumber = totalres;
-            subCounty.totalSpent = pending;
-            subCounty.totalapproved = totalapproved;
-            subCounty.approvalrate = approvalrate.toFixed(1);
-            
-             let commArray = []
-        
-            Dataservice.Community(subcounty,location)
+            let ProjectSum = {
+                projectNumber : totalres,
+                totalSpent : pending,
+                totalapproved : totalapproved,
+                approvalrate : approvalrate.toFixed(1)
+            }
+
+            setProjectStats(ProjectSum);
+
+                  
+        })
+    }
+
+   
+
+    const getCommunityData = (subcounty,location) => {
+
+        let commArray = []
+
+        Dataservice.Community(subcounty,location)
             .then((res) => {
                 
                 const  commData = res.data.data;
@@ -354,11 +381,11 @@ const FilterContext = React.createContext();
                 const YouthIn = commData.youth_involved;
                 const youthInData = [parseInt(((YouthIn.percentage/100)*360).toFixed(1)), parseInt((((100 - YouthIn.percentage)/100)*360).toFixed(1))];
                 
+                const newData = {}
 
-
-                subCounty.CommmunityInvolvement = commData.women_involved.percentage
-                subCounty.citizenPriority = commData.youth_involved.percentage;
-                setCurrentComp(subCounty);
+                newData.CommmunityInvolvement = commData.women_involved.percentage
+                newData.citizenPriority = commData.youth_involved.percentage;
+                setCommunityPop(newData);
 
                 for(let property in commData){
                     commArray.push(commData[property]);  
@@ -385,8 +412,9 @@ const FilterContext = React.createContext();
 
                 setCommunityPie(communityData);
       
-            })         
-        })
+            })   
+
+
     }
 
     const getStatus = (subcounty,location)=> {
@@ -506,7 +534,7 @@ const FilterContext = React.createContext();
         wards: [wardList,handleWard],
         depts: [departmentList,handleDept],
         geodatas:currentGeo,
-        compdata:[currentComp,deptComp],
+        compdata:[currentComp,deptComp,communityPop,projectStats],
         jsondata:Geojsondata,
         proTypeData:[projType,proLabel],
         ProPhase: [phasedata,phaselabel],

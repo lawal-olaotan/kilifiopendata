@@ -13,22 +13,24 @@ const ProjectWrapper = () => {
 
 
     const {compdata,proTypeData,ProPhase,ProStatus} = useContext(FilterContext);
-    const [currentComp]= compdata;
+    const [currentComp,deptComp,communityPop,projectStats]= compdata;
     const [projType,proLabel] = proTypeData;
     const [phasedata,phaselabel] = ProPhase
     const [projStatusLabel,projStatusData,statusComp] = ProStatus;
-   
+
+    console.log(deptComp);
 
     const projectSummary = {
         summaryName: 'Projects',
-        sumValue: currentComp.projectNumber,
         sumText: 'Includes completed, ongoing and proposed projects',
     }
+
+     projectSummary.sumValue = deptComp.length === 0 ? projectStats.projectNumber : deptComp.total
 
 
     const statusSummary = {
         summaryName:`Total Projects in ${currentComp.name}`,
-        sumValue: currentComp.projectNumber,
+        sumValue: projectStats.projectNumber,
         sumText: 'Includes completed, ongoing and proposed projects'
     }
 

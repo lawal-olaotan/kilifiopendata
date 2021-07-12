@@ -9,7 +9,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 const Popup = () => {
 
     const {compdata,geodatas} = useContext(FilterContext);
-    const [currentComp,deptComp]= compdata;
+    const [currentComp,deptComp,communityPop,projectStats]= compdata;
     const currentGeo = geodatas
 
   
@@ -34,12 +34,12 @@ const Popup = () => {
                             <div className="hero__contenttable">
 
                             <div className="hero__project">
-                                <span className="hero__protitle">{currentComp.projectNumber}</span>
+                                <span className="hero__protitle">{projectStats.projectNumber}</span>
                                 <p className="hero__prosubtitle">Total Projects</p>
                             </div>
 
                             <div className="hero__project">
-                                <span className="hero__protitle">{currentComp.totalSpent}</span>
+                                <span className="hero__protitle">{projectStats.totalSpent}</span>
                                 <p className="hero__prosubtitle">Pending Projects</p>
                             </div>
                                 
@@ -47,12 +47,12 @@ const Popup = () => {
 
                             <div className="hero__contenttable">
                             <div className="hero__project">
-                                <span className="hero__protitle">{currentComp.totalapproved}</span>
+                                <span className="hero__protitle">{projectStats.totalapproved}</span>
                                 <p className="hero__prosubtitle">Projects Approved</p>
                             </div>
 
                             <div className="hero__project">
-                                <span className="hero__protitle">{currentComp.approvalrate}%</span>
+                                <span className="hero__protitle">{projectStats.approvalrate}%</span>
                                 <p className="hero__prosubtitle">Approval Rate</p>
                             </div>   
                             </div>
@@ -88,12 +88,12 @@ const Popup = () => {
                     <div className="hero__contenttable">
 
                         <div className="hero__project">
-                            <span className="hero__protitle">{currentComp.CommmunityInvolvement}%</span>
+                            <span className="hero__protitle">{communityPop.CommmunityInvolvement}%</span>
                             <p className="hero__prosubtitle">Women Involvement</p>
                         </div>
 
                         <div className="hero__project">
-                            <span className="hero__protitle">{currentComp.citizenPriority}%</span>
+                            <span className="hero__protitle">{communityPop.citizenPriority}%</span>
                             <p className="hero__prosubtitle">Youth Involvement</p>
                         </div>
                             
