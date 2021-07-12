@@ -1,6 +1,6 @@
 import axios from 'axios'; 
 
-const token = '4|OPhaU4Zbc4X5WxYfKPRHMKFJ5puaSvoKlWhmuuYu'
+const token = '2|E34QWMPVH4U2BXkPOz8jSBX2Wqs5vZsX58fggvfZ'
 
 const data = axios.create({
     baseURL: "https://kilifi.sand-box.online/api",
@@ -39,4 +39,8 @@ const GetSubcounties = () => {
     return data.get("/stats/sub_counties")
 }
 
-export default {GetAll,GetDepartment,GetStats,Community,GetStatus,GetSubcounties,GetAllinvolvement};
+const citizenPriority = (subcounty,location) => {
+    return data.get(`stats/priorities?${location}=${subcounty}`)
+}
+
+export default {GetAll,GetDepartment,GetStats,Community,GetStatus,GetSubcounties,GetAllinvolvement,citizenPriority};

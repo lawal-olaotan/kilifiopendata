@@ -14,8 +14,6 @@ const Community = () => {
     const {communityList} = useContext(FilterContext);
     const communityPieData =  communityList;
 
-    console.log(communityPieData);
-
     const projectSummary = {
         summaryName: '% Community Involvement',
         sumValue: `${communityPieData.average_pec}%`,
@@ -147,7 +145,7 @@ const Community = () => {
 
     const materialsComp = {
 
-        labels: communityPieData.label,
+        labels: ['Great', 'Poor'],
         datasets:[
             {
                 label: 'Projects',
@@ -223,19 +221,19 @@ const Community = () => {
 
                     <div className="project__infostep">
 
-                        {/* <div className="project__pie">
+                        <div className="project__pie">
                                 <p className="project__sumtitle">Based on project Implemetation Involvement</p>
-                                <Piechart state={ImpleComp}/>
+                                <Piechart state={ImpleComp} height={150} width={300} />
                         </div>
 
                         <div className="project__pie">
                                 <p className="project__sumtitle">Based on overall quality of materials</p>
-                                <Piechart state={materialsComp}/>
-                        </div> */}
+                                <Piechart state={materialsComp} height={150} width={300} />
+                        </div>
 
                         {/* <div className="project__pie">
                                 <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={projectComp}/>
+                                <Piechart state={ImpleComp}/>
                         </div> */}
 
                     </div>

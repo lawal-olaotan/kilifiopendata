@@ -1,20 +1,23 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import '../css/styles.min.css';
 import '../css/project.min.css';
 import Piechart from '../components/Piechart';
 import ProjectTitle from './ProjectTitle';
 import ProjectSum from './ProjectSum';
+import { FilterContext } from '../FilterContext';
 
 
 
 
 const Citizen = () => {
 
+    const {citizenList} = useContext(FilterContext);
+    const citizenCompData = citizenList
 
 
     const projectComp = {
 
-        labels: ['County', 'Private Sector','County Budget','Others(NGOS, CBOs,FBOs)'],
+        labels: citizenCompData.pielable,
         datasets:[
             {
                 label: 'Projects',
@@ -30,18 +33,24 @@ const Citizen = () => {
                     '#2B87E3',
                     '#9B51E0',
                 ],
-                data: [140,80,80,60]
+                data: citizenCompData.pieData
             }
         ] 
 
     }
 
     const projectSummary = {
-        summaryName: 'Total Funds Spent(KES)',
-        sumValue: '75.6 Billion',
-        sumText: 'Includes funds from other sources',
+        summaryName: 'Project Priority',
+        sumValue: `${citizenCompData.percent}%`,
+        sumText: 'Includes all projects presented to the community',
     }
 
+
+    const totalPriority = {
+        summaryName: 'Total Priortized Project',
+        sumValue: citizenCompData.totalProject,
+        sumText: 'Includes all projects priortized to the community', 
+    }
 
 
     const Title = {
@@ -60,15 +69,17 @@ const Citizen = () => {
                         <div className="project__infostep">
                             <ProjectSum data={projectSummary}/>
 
+                            <ProjectSum data={totalPriority}/>
+
                             <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
+                                <p className="project__sumtitle">Based on project Importance</p>
                                 <Piechart state={projectComp}/>
                             </div>
 
-                            <div className="project__pie">
+                            {/* <div className="project__pie">
                                 <p className="project__sumtitle">Based on Source of funding</p>
                                 <Piechart state={projectComp}/>
-                            </div>
+                            </div> */}
 
                         </div>  
 

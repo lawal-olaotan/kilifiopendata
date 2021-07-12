@@ -45,6 +45,9 @@ const FilterContext = React.createContext();
     // community bar chart data 
     const [communityPieData,setCommunityPie] = useState([]);
 
+    // citizen poirioty Data 
+
+    const [citizenCompData, setCitizenCompData] = useState([]);
 
 
 
@@ -52,12 +55,14 @@ const FilterContext = React.createContext();
 
         const geodata = data
         retrievGeoInfo(geodata,'County',8.5);
+        
 
         Dataservice.GetAll()
         .then(res => {
             const subCont = res.data.data;
             setSubCountyList(subCont);
         })
+
 
         Dataservice.GetStats(subcounty,'ward')
         .then (res=> {
@@ -112,8 +117,12 @@ const FilterContext = React.createContext();
             const comm = res.data.data
             data.CommmunityInvolvement = comm.women_involved.percentage
             data.citizenPriority = comm.youth_involved.percentage
+
             setCurrentComp(data);
+            
         })
+
+
 
        
 
@@ -124,6 +133,7 @@ const FilterContext = React.createContext();
 
 
     const handleChange = (value) => {
+
         if(value !== 'Sub County'){
             const selSubCounty = value;
             const subCounty = subCountyList.filter(subcounty => subcounty.name === selSubCounty)[0];
@@ -137,6 +147,7 @@ const FilterContext = React.createContext();
             getProjectSum(selSubCounty,'constituency',subCounty,index);
             setCountyGeo(CountyGeo);
             getStatus(selSubCounty,'constituency');
+            citizenPriorities(selSubCounty,'constituency')
             setDeptComp([])
             setStatusComp([]);
         }
@@ -194,6 +205,7 @@ const FilterContext = React.createContext();
             retrievGeoInfo(wardGeo,'ward',14);
             getProjectSum(ward,'ward',WardCounty,index);
             getStatus(ward,'ward')
+            citizenPriorities(ward,'ward')
             
         }
 
@@ -223,7 +235,6 @@ const FilterContext = React.createContext();
         if(e.target.value !== 'Project Status'){
             const statusKey = e.target.value;
             const currentStatus = projectStatus.filter(inner => inner.title === statusKey)[0];
-            console.log(currentStatus);
             setStatusComp(currentStatus);
             // getDept(statusKey,'status');
 
@@ -238,6 +249,43 @@ const FilterContext = React.createContext();
           setDepartmentList(department);
           projectType(department);
         })  
+     }
+
+
+     const citizenPriorities = (subcounty,location) => {
+
+        Dataservice.citizenPriority(subcounty,location)
+        .then (res => {
+            const citizenData = res.data.data;
+            const citizenpercent = citizenData.percentage;
+            const citizenPriorValue = citizenData.priority;
+
+            const otherPriority = citizenData.other_priorities;
+
+            let otherPriorityArr = []
+            for(let m=0; m < otherPriority.length; m++){
+                const otherPriorityValues = otherPriority[m].priorities.values();
+
+                for(let otherPriorityValue of otherPriorityValues ){
+                    otherPriorityArr.push(otherPriorityValue);
+                }   
+            }
+
+            const totalPriorityValue = parseInt(citizenPriorValue + otherPriorityArr.length)
+            const citizenLabel = ['priority','Not Priority']
+            const citizenPieData = [parseInt(((citizenPriorValue/totalPriorityValue)*360).toFixed(2)), parseInt(((otherPriorityArr.length/totalPriorityValue)*360).toFixed(2))];
+
+            const CitizenComponenet = {
+                percent : citizenpercent,
+                pielable : citizenLabel,
+                pieData: citizenPieData,
+                totalProject : citizenPriorValue
+            }
+
+            setCitizenCompData(CitizenComponenet);
+            
+            
+        })
      }
      
 
@@ -337,19 +385,7 @@ const FilterContext = React.createContext();
 
                 setCommunityPie(communityData);
       
-            })
-
-            
-
-            
-
-            
-
-           
-
-
-
-             
+            })         
         })
     }
 
@@ -444,7 +480,7 @@ const FilterContext = React.createContext();
             }else if (currentGeo.type === 'subCounty'){
                 findPlace(subcounty.features);
             }else{
-                console.log('nodata')         
+                console.log('')         
             } 
     }
 
@@ -477,6 +513,7 @@ const FilterContext = React.createContext();
         ProStatus: [projStatusLabel,projStatusData,statusComp],
         ProStatusList: [projectStatus,handleStatus],
         communityList:communityPieData,
+        citizenList:citizenCompData
     }
     
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>
