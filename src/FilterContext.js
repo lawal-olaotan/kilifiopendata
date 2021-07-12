@@ -233,7 +233,7 @@ const FilterContext = React.createContext();
     }
 
 
-    
+
 
     const handleDept = e => {
         if(e.target.value !== 'Department'){
@@ -242,6 +242,7 @@ const FilterContext = React.createContext();
             setDeptComp(deptinfo);
             getStatus(dept,'department')
             getCommunityData(dept,'department')
+            citizenPriorities(dept,'department')
             setStatusComp([]);
         }
     }
@@ -253,6 +254,7 @@ const FilterContext = React.createContext();
             const statusKey = e.target.value;
             const currentStatus = projectStatus.filter(inner => inner.title === statusKey)[0];
             setStatusComp(currentStatus);
+
             // getDept(statusKey,'status');
 
         }

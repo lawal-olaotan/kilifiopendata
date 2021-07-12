@@ -18,14 +18,11 @@ const ProjectWrapper = () => {
     const [phasedata,phaselabel] = ProPhase
     const [projStatusLabel,projStatusData,statusComp] = ProStatus;
 
-    console.log(deptComp);
-
     const projectSummary = {
         summaryName: 'Projects',
         sumText: 'Includes completed, ongoing and proposed projects',
     }
-
-     projectSummary.sumValue = deptComp.length === 0 ? projectStats.projectNumber : deptComp.total
+    projectSummary.sumValue = deptComp.length === 0 ? projectStats.projectNumber : deptComp.total
 
 
     const statusSummary = {
