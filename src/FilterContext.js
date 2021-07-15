@@ -51,8 +51,10 @@ const FilterContext = React.createContext();
 
 
     // project stats state 
-
     const [projectStats,setProjectStats] = useState([]);
+
+    // mobile nav state 
+    const [showNavbar, setShowNavbar] = useState(true);
 
 
 
@@ -164,7 +166,10 @@ const FilterContext = React.createContext();
             getCommunityData(selSubCounty,'constituency')
             setDeptComp([])
             setStatusComp([]);
+            setShowNavbar(!showNavbar)
         }
+
+        
          
     }
 
@@ -186,7 +191,6 @@ const FilterContext = React.createContext();
                 wardGeo = wardsGeo.filter(geosub => geosub.Name.toLowerCase() === ward.toLowerCase())[0];
                 SetGeoJson(); 
             }else{
-
                 const countyGeoData = subCountyList
                 let  geoEnd = data.subCounty;
 
@@ -222,6 +226,7 @@ const FilterContext = React.createContext();
             getStatus(ward,'ward')
             citizenPriorities(ward,'ward')
             getCommunityData(ward,'ward')
+            setShowNavbar(!showNavbar)
             
         }
 
@@ -231,6 +236,9 @@ const FilterContext = React.createContext();
 
             
     }
+
+
+    // const Nav
 
 
 
@@ -244,6 +252,7 @@ const FilterContext = React.createContext();
             getCommunityData(dept,'department')
             citizenPriorities(dept,'department')
             setStatusComp([]);
+            setShowNavbar(!showNavbar)
         }
     }
 
