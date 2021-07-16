@@ -1,3 +1,8 @@
+
+
+@import "./media-query";
+
+
 .project{
     width: 100%;
     background-color: #F7F8F2;
@@ -8,11 +13,18 @@
    flex-direction: column;
 
     &__wrapper{
-        width: 70%;
+     
         background-color: #FFF;
         padding: 2%;
         box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
         margin-bottom: 4rem;
+
+        @include mobile{
+            width: 88%;
+        }
+        @include tablet {
+            width: 70%;
+        }
     }
 
     &__header{
@@ -22,16 +34,28 @@
     }
 
     &__title{
-        font-size: 2rem;
+        @include mobile{
+            font-size:1.5rem;
+        }
+
+        @include tablet{
+            font-size: 2rem;
+        } 
     }
 
     &__hidefilter{
-        padding: .8rem;
+       
         background: black;
         color: white;
         border-radius: 8px;
         outline: none;
         border: none;
+        @include mobile{
+            padding: .6rem;
+        }
+        @include tablet{
+            padding: .8rem;
+        }
     }
 
     &__filters{
@@ -39,11 +63,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
     }
 
     &__extra{
-        width: 255px;
+        margin: 0;
+        @include mobile{
+            width: 50%;
+        }
+        @include tablet{
+            width: 255px;
+        }
     }
 
     &__headerwrapper{
@@ -53,6 +82,17 @@
     &__infostep{
         display: flex;
         justify-content: space-between;
+        
+
+        @include mobile{
+            flex-wrap: wrap;
+            width: 100%;
+            flex-direction: column;
+        }
+        @include tablet {
+            width: unset;
+            flex-direction: row;
+        }
     }
 
     &__sumtitle{
@@ -66,7 +106,14 @@
     }
 
     &__summary{
-        width: 25%;
+        @include mobile{
+            width: 100%;
+            text-align: center;
+        }
+        @include tablet{
+            width: 25%;
+            text-align: unset;
+        }
     }
 
     &__infostep{

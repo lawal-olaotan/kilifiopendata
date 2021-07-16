@@ -34,7 +34,8 @@ const BarChart =( {state , width } ) => {
                     }
 
                 }]
-            }
+            },
+            responsive:true
         }}
         />
        

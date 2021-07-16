@@ -15,7 +15,7 @@ const Piechart = ({state, height, width}) => {
             height= {height}
             width={width}
             options={{ 
-                responsive: true,
+                responsive: false,
                 legend:{
                     display:true,
                     position:'right',

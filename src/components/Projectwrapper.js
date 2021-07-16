@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,useState} from 'react';
 import '../css/styles.min.css';
 import '../css/project.min.css';
 import { FilterContext } from '../FilterContext';
@@ -11,12 +11,13 @@ import BarChart from './BarChart';
 
 const ProjectWrapper = () => {
 
-
     const {compdata,proTypeData,ProPhase,ProStatus} = useContext(FilterContext);
     const [currentComp,deptComp,communityPop,projectStats]= compdata;
     const [projType,proLabel] = proTypeData;
     const [phasedata,phaselabel] = ProPhase
     const [projStatusLabel,projStatusData,statusComp] = ProStatus;
+
+    const [barParameter,setBarParameter] = useState([])
 
     const projectSummary = {
         summaryName: 'Projects',
@@ -102,6 +103,24 @@ const ProjectWrapper = () => {
 
     }
 
+    const BarThickness = () => {
+
+        let mobileSize = window.matchMedia('(max-width:475px)');
+        let barParams = {}
+
+        if(mobileSize.matches){
+            // barParams.width = 300;
+            // barParams.size = 27
+            console.log('on mobile')
+        }else{
+            // barParams.width = 698;
+            // barParams.size = 69; 
+            console.log('on desktop')
+        }
+
+        setBarParameter(barParams)
+    }
+
 
     const state = {
         
@@ -110,19 +129,17 @@ const ProjectWrapper = () => {
             label:'Project Status',
             backgroundColor:'#6FCF97',
             data:projStatusData,
-            barThickness: 69,
-        }
-
-        ]
+            barThickness:69,
+        }]
     }
 
-    const width =698
+    const width = 698
 
 
     return (
-
+       
         <div className="project__wrapper">
-
+             {/* {BarThickness} */}
                 <ProjctHeader/>
 
                 <div className="project__infowrapper">

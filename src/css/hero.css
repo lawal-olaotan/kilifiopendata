@@ -16,17 +16,40 @@
 
 .hero__content {
   z-index: 1000;
-  width: 28%;
-  margin: 2rem 0;
   padding: 1rem 2rem;
-  background: white;
+  background: #F7F8F2;
   border: 1px solid green;
 }
 
+@media screen and (min-width: 320px) {
+  .hero__content {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero__content {
+    width: 28%;
+    margin: 2rem 0;
+  }
+}
+
 .hero__title {
-  font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 320px) {
+  .hero__title {
+    font-size: 1.65rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero__title {
+    font-size: 2.2rem;
+  }
 }
 
 .hero__contenttable {
@@ -77,8 +100,19 @@
 
 .hero__colorbar {
   height: 10px;
-  width: 50%;
   margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 320px) {
+  .hero__colorbar {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero__colorbar {
+    width: 50%;
+  }
 }
 
 .hero__dept {

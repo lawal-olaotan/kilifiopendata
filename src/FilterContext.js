@@ -166,7 +166,7 @@ const FilterContext = React.createContext();
             getCommunityData(selSubCounty,'constituency')
             setDeptComp([])
             setStatusComp([]);
-            setShowNavbar(!showNavbar)
+            setShowNavbar(true);
         }
 
         
@@ -226,7 +226,7 @@ const FilterContext = React.createContext();
             getStatus(ward,'ward')
             citizenPriorities(ward,'ward')
             getCommunityData(ward,'ward')
-            setShowNavbar(!showNavbar)
+            setShowNavbar(true)
             
         }
 
@@ -238,7 +238,9 @@ const FilterContext = React.createContext();
     }
 
 
-    // const Nav
+    const NavState = () => {
+        setShowNavbar(!showNavbar);
+    }
 
 
 
@@ -252,7 +254,7 @@ const FilterContext = React.createContext();
             getCommunityData(dept,'department')
             citizenPriorities(dept,'department')
             setStatusComp([]);
-            setShowNavbar(!showNavbar)
+            setShowNavbar(true)
         }
     }
 
@@ -537,8 +539,6 @@ const FilterContext = React.createContext();
         }
     }
 
-
-    
     // all data nedded for the components and event functions
     const UiData = {
         subcounty:[subCountyList,handleChange],
@@ -552,7 +552,8 @@ const FilterContext = React.createContext();
         ProStatus: [projStatusLabel,projStatusData,statusComp],
         ProStatusList: [projectStatus,handleStatus],
         communityList:communityPieData,
-        citizenList:citizenCompData
+        citizenList:citizenCompData,
+        navStatus : [NavState,showNavbar]
     }
     
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>

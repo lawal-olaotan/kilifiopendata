@@ -1,4 +1,4 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext} from 'react';
 import '../css/styles.min.css';
 import logo from '../logo.svg';
 import {FilterContext} from '../FilterContext';
@@ -8,29 +8,17 @@ import Search from '../components/Search';
 
 const NavBar = () => {
 
-     const {subcounty,wards,depts} = useContext(FilterContext);
+     const {subcounty,wards,depts,navStatus} = useContext(FilterContext);
       const [subCountyList,handleChange] = subcounty;
       const [wardList,handleWard] = wards;
       const [departmentList,handleDept] = depts;
-      const [showNavbar, setShowNavbar] = useState(true);
-
-
-      
-
-
-
-
-
-         
+      const [ NavState,showNavbar] = navStatus
+  
     return (
-      // <header className="header">
-
             <nav className="top">
                   <div className="top__logowrapper">
                       <img src={logo} className="App-logo" alt="logo" />
                   </div>
-
-            
               <div className={`top__navmenu ${showNavbar ? '' : 'flexvisible'}`}>
 
                 <div className="nav__left">
@@ -63,18 +51,12 @@ const NavBar = () => {
                         </select>
                     </div>
                 </div>
-
                 <Search/>
-
-                <FontAwesomeIcon icon={faTimesCircle} className="icon navicon" onClick={()=> setShowNavbar(!showNavbar) } />
+                <FontAwesomeIcon icon={faTimesCircle} className="icon navicon" onClick={NavState} />
 
               </div>
-
-
-
-
                 <div className="toggle_btn"> 
-                  <FontAwesomeIcon icon={faBars} className="icon" onClick={()=> setShowNavbar(!showNavbar) } />
+                  <FontAwesomeIcon icon={faBars} className="icon" onClick={NavState} />
                 </div>
             </nav>
 

@@ -12,17 +12,35 @@
 
     &__content{
         z-index: 1000;
-        width: 28%;
-        margin: 2rem 0;
-            padding: 1rem 2rem;
-        background: white;
+        padding: 1rem 2rem;
+        background: #F7F8F2;
         border: 1px solid green;
+
+        @include mobile{
+            width: 100%;
+            margin: 0;
+        }
+
+        @include tablet{
+            width: 28%;
+            margin: 2rem 0;
+        }
 
     }
     &__title{
-        font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+        
+        font-weight: 600;
+        margin-bottom: 1rem;
+
+        @include mobile{
+            font-size: 1.65rem;
+            
+        }
+
+        @include tablet{
+            font-size: 2.2rem;
+
+        }
     }
 
     &__contenttable{
@@ -59,8 +77,15 @@
 
     &__colorbar{
         height: 10px;
-        width: 50%;
         margin-bottom: 1rem;
+
+        @include mobile{
+            width: 80%;
+        }
+
+        @include tablet{
+            width: 50%;
+        }
     }
 
    &__dept{

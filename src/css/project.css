@@ -18,12 +18,23 @@
 }
 
 .project__wrapper {
-  width: 70%;
   background-color: #FFF;
   padding: 2%;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
           box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   margin-bottom: 4rem;
+}
+
+@media screen and (min-width: 320px) {
+  .project__wrapper {
+    width: 88%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__wrapper {
+    width: 70%;
+  }
 }
 
 .project__header {
@@ -38,17 +49,36 @@
           align-items: center;
 }
 
-.project__title {
-  font-size: 2rem;
+@media screen and (min-width: 320px) {
+  .project__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__title {
+    font-size: 2rem;
+  }
 }
 
 .project__hidefilter {
-  padding: .8rem;
   background: black;
   color: white;
   border-radius: 8px;
   outline: none;
   border: none;
+}
+
+@media screen and (min-width: 320px) {
+  .project__hidefilter {
+    padding: .6rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__hidefilter {
+    padding: .8rem;
+  }
 }
 
 .project__filters {
@@ -65,7 +95,19 @@
 }
 
 .project__extra {
-  width: 255px;
+  margin: 0;
+}
+
+@media screen and (min-width: 320px) {
+  .project__extra {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__extra {
+    width: 255px;
+  }
 }
 
 .project__headerwrapper {
@@ -81,6 +123,28 @@
           justify-content: space-between;
 }
 
+@media screen and (min-width: 320px) {
+  .project__infostep {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__infostep {
+    width: unset;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .project__sumtitle {
   font-weight: 650;
   margin-bottom: 1rem;
@@ -91,8 +155,18 @@
   font-weight: 800;
 }
 
-.project__summary {
-  width: 25%;
+@media screen and (min-width: 320px) {
+  .project__summary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__summary {
+    width: 25%;
+    text-align: unset;
+  }
 }
 
 .project__infostep {
