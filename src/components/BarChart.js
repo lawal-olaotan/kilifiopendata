@@ -14,9 +14,9 @@ const BarChart =( {state,bartick} ) => {
         data={state}
         plugins={[ChartDataLabels]}
         options={{
-            // layout:{
-            //     padding:10
-            // },
+            layout:{
+                padding:12
+            },
             title:{
                 display:false,
             },

@@ -192,7 +192,7 @@ const ProjectWrapper = () => {
                         <ProjectSum data={projectSummary}/>
 
                         <div className="project__pie">
-                            {/* <p className="project__sumtitle">Based on Project Status</p> */}
+                            <p className="project__sumtitle">Based on Project Status</p>
 
                             <div className="project__bar">
                                 <BarChart state={state} bartick={barParams}/> 
