@@ -1,17 +1,22 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import '../css/project.min.css';
 
-const BarChart =( {state , width } ) => {
+
+
+const BarChart =( {state,bartick} ) => {
 
 
     return (
 
         <Bar 
         data={state}
-        height={220}
-        width={width}
+        plugins={[ChartDataLabels]}
         options={{
+            // layout:{
+            //     padding:10
+            // },
             title:{
                 display:false,
             },
@@ -19,7 +24,7 @@ const BarChart =( {state , width } ) => {
             scales:{
                 yAxes:[{
                     display:false,
-                    beginAtZero: true
+                    beginAtZero: true,
                 }],
                 xAxes:[{
                     display:true,
@@ -27,15 +32,12 @@ const BarChart =( {state , width } ) => {
                     gridLines:{
                         display:false,
                     },
-                    ticks:{
-                        fontSize:6.4,
-                        fontStyle:800,
-                        fontColor:'#2B622A'
-                    }
+                    ticks:bartick
 
                 }]
             },
-            responsive:true
+            // responsive:true,
+            maintainAspectRatio:false
         }}
         />
        

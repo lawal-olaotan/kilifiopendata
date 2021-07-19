@@ -1,4 +1,4 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext,useEffect,useState} from 'react';
 import '../css/styles.min.css';
 import '../css/project.min.css';
 import { FilterContext } from '../FilterContext';
@@ -7,9 +7,40 @@ import ProjctHeader from '../components/Projectheader';
 import ProjectSum from './ProjectSum';
 import BarChart from './BarChart';
 
+const Barsize = () => {
+
+    const mobileSize = window.matchMedia("(max-width: 425px)")
+    let bartick = {};
+    if (mobileSize.matches){
+        bartick = {
+            autoSkip: false,
+            maxRotation: 90,
+            minRotation: 90,
+            fontSize:10,
+            fontStyle:900,
+            fontColor:'#2B622A'
+    }
+       
+    }else{
+        bartick = {
+            autoSkip: true,
+            maxRotation: 0,
+            minRotation: 0,
+            fontSize:6.55,
+            fontStyle:900,
+            fontColor:'#2B622A'
+        }
+       
+    }
+    return bartick
+
+}
+
 
 
 const ProjectWrapper = () => {
+
+    const [barParams, setBarParams] = useState(Barsize());
 
     const {compdata,proTypeData,ProPhase,ProStatus} = useContext(FilterContext);
     const [currentComp,deptComp,communityPop,projectStats]= compdata;
@@ -17,10 +48,27 @@ const ProjectWrapper = () => {
     const [phasedata,phaselabel] = ProPhase
     const [projStatusLabel,projStatusData,statusComp] = ProStatus;
 
-    const [barParameter,setBarParameter] = useState([])
+    useEffect(() => {
+        
+        function reSize(){
+            setBarParams(Barsize());
+        }
+
+        window.addEventListener('resize', reSize)
+
+        return _ => {
+            window.removeEventListener('resize', reSize)
+          
+      }
+        
+    })
+
+    console.log(barParams);
+
+
 
     const projectSummary = {
-        summaryName: 'Projects',
+        summaryName: 'Total Projects',
         sumText: 'Includes completed, ongoing and proposed projects',
     }
     projectSummary.sumValue = deptComp.length === 0 ? projectStats.projectNumber : deptComp.total
@@ -103,39 +151,32 @@ const ProjectWrapper = () => {
 
     }
 
-    const BarThickness = () => {
-
-        let mobileSize = window.matchMedia('(max-width:475px)');
-        let barParams = {}
-
-        if(mobileSize.matches){
-            // barParams.width = 300;
-            // barParams.size = 27
-            console.log('on mobile')
-        }else{
-            // barParams.width = 698;
-            // barParams.size = 69; 
-            console.log('on desktop')
-        }
-
-        setBarParameter(barParams)
-    }
-
 
     const state = {
-        
         labels: projStatusLabel,
         datasets:[{
             label:'Project Status',
             backgroundColor:'#6FCF97',
             data:projStatusData,
-            barThickness:69,
+            datalabels: {
+                align: 'end',
+                anchor: 'end',
+                clamp:true,
+                color: '#000',
+                offset:0.5,
+                formatter: function(value, context) {
+                    return  value.toFixed(0) +  '%';
+                },
+                clip:false,
+                
+              }
         }]
     }
 
-    const width = 698
+    
 
 
+    
     return (
        
         <div className="project__wrapper">
@@ -151,8 +192,12 @@ const ProjectWrapper = () => {
                         <ProjectSum data={projectSummary}/>
 
                         <div className="project__pie">
-                            <p className="project__sumtitle">Based on Project Status</p>
-                            <BarChart state={state} width={width}/>  
+                            {/* <p className="project__sumtitle">Based on Project Status</p> */}
+
+                            <div className="project__bar">
+                                <BarChart state={state} bartick={barParams}/> 
+                            </div>
+
                         </div>
                     
                     </div> 
@@ -184,7 +229,7 @@ const ProjectWrapper = () => {
                                 <Piechart state={projectComp} height={150} width={300}/>
                         </div>
 
-                        <div className="project__pie">
+                        <div className="project__pie project__bar">
                                 <p className="project__sumtitle">Based on Project Department</p>
                                 <Piechart state={projectType} height={300} width={600}/>
                         </div>

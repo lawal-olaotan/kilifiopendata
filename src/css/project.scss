@@ -12,8 +12,25 @@
     padding: 3rem 0;
    flex-direction: column;
 
+   &__bar{
+    position: relative;
+    overflow: visible;
+
+       @include mobile{
+        width: 90vw;
+        max-height: 40vh;
+        
+    }
+       @include tablet{
+        width: 50vw;
+        max-height: 25vh;
+        
+    }
+          
+    
+   }
+
     &__wrapper{
-     
         background-color: #FFF;
         padding: 2%;
         box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -23,7 +40,7 @@
             width: 88%;
         }
         @include tablet {
-            width: 70%;
+            width: 74%;
         }
     }
 
@@ -98,6 +115,13 @@
     &__sumtitle{
         font-weight: 650;
         margin-bottom: 1rem;
+
+        @include mobile{
+            text-align: center;
+        }
+        @include tablet{
+            text-align: unset;
+        }
     }
 
     &__sumvalue{

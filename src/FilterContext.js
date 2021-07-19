@@ -8,7 +8,11 @@ import Dataservice from './Dataservice';
 
 const FilterContext = React.createContext();
 
+
+
  const FilterProvider = ({ children }) => {
+
+   
 
     const [subCountyList,setSubCountyList] = useState([]);
     
@@ -56,13 +60,15 @@ const FilterContext = React.createContext();
     // mobile nav state 
     const [showNavbar, setShowNavbar] = useState(true);
 
-
-
+    
     useEffect(()=> {
+
+        
 
         const geodata = data
         retrievGeoInfo(geodata,'County',8.5);
         setCurrentComp(data);
+
 
         Dataservice.GetAll()
         .then(res => {
@@ -82,19 +88,13 @@ const FilterContext = React.createContext();
                     countiesWards.push(ward);
                 }   
             }
-
-            setWardArray(countiesWards);
+            setWardArray(countiesWards); 
 
         })
 
-       
-
-
         Dataservice.GetSubcounties()
         .then (res => {
-
             const countyData = res.data.data; 
-
             // paramaters  
             let totalres = 0;
             let pending = 0;
@@ -115,15 +115,7 @@ const FilterContext = React.createContext();
                 totalapproved : totalapproved,
                 approvalrate : approvalrate.toFixed(1)
             }
-
             setProjectStats(ProjectSum);
-
-
-            // data.projectNumber = totalres;
-            // data.totalSpent = pending;
-            // data.totalapproved = totalapproved;
-            // data.approvalrate = approvalrate.toFixed(1);
-            
         })
 
 
@@ -133,17 +125,20 @@ const FilterContext = React.createContext();
             let newData = {}
             newData.CommmunityInvolvement = comm.women_involved.percentage
             newData.citizenPriority = comm.youth_involved.percentage
-            
             setCommunityPop(newData);
-            
-            
         })
 
-
        
+
+
     } ,[]);
 
+   
+    
 
+
+  
+    
 
 
     const handleChange = (value) => {
@@ -539,6 +534,10 @@ const FilterContext = React.createContext();
         }
     }
 
+
+  
+
+    
     // all data nedded for the components and event functions
     const UiData = {
         subcounty:[subCountyList,handleChange],

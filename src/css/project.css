@@ -17,6 +17,24 @@
           flex-direction: column;
 }
 
+.project__bar {
+  position: relative;
+}
+
+@media screen and (min-width: 320px) {
+  .project__bar {
+    width: 90vw;
+    height: 40vh;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__bar {
+    width: 50vw;
+    height: 25vh;
+  }
+}
+
 .project__wrapper {
   background-color: #FFF;
   padding: 2%;
@@ -33,7 +51,7 @@
 
 @media screen and (min-width: 768px) {
   .project__wrapper {
-    width: 70%;
+    width: 74%;
   }
 }
 
@@ -148,6 +166,18 @@
 .project__sumtitle {
   font-weight: 650;
   margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 320px) {
+  .project__sumtitle {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__sumtitle {
+    text-align: unset;
+  }
 }
 
 .project__sumvalue {
