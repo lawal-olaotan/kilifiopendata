@@ -60,6 +60,9 @@ const FilterContext = React.createContext();
     // mobile nav state 
     const [showNavbar, setShowNavbar] = useState(true);
 
+    // real count for project status 
+    const [statCount, setStatsCount] = useState([]);
+
     
     useEffect(()=> {
 
@@ -430,7 +433,11 @@ const FilterContext = React.createContext();
         Dataservice.GetStatus(subcounty,location)
         .then(res => {
             const statusData = res.data.data;
+
+            
+
             const ProjectStatusDatas = statusData.projects_status
+            console.log(ProjectStatusDatas);
             setProjectStatus(ProjectStatusDatas)
 
             const phasedProject = parseInt((statusData.phased/statusData.all)*360)
@@ -445,11 +452,19 @@ const FilterContext = React.createContext();
 
             let projectStatusLabel = [];
             let projectStatusData = [];
+            let projectRealData = [];
 
             for(let projectstatusData of ProjectStatusDatas){
                 projectStatusData.push(projectstatusData.percentage)
                 
             }
+
+            for(let projectstatusData of ProjectStatusDatas){
+                projectRealData.push(projectstatusData.count)
+                
+            }
+
+
 
             for(let projectStatusLable of ProjectStatusDatas){
                 projectStatusLabel.push(projectStatusLable.title)
@@ -458,7 +473,7 @@ const FilterContext = React.createContext();
 
             setProjStatusLabel(projectStatusLabel)
             setProjStatusData(projectStatusData)
-
+            setStatsCount(projectRealData);
         
         })
 
@@ -552,7 +567,8 @@ const FilterContext = React.createContext();
         ProStatusList: [projectStatus,handleStatus],
         communityList:communityPieData,
         citizenList:citizenCompData,
-        navStatus : [NavState,showNavbar]
+        navStatus : [NavState,showNavbar],
+        statsCount: statCount
     }
     
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>

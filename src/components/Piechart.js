@@ -1,9 +1,10 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
+import  'chartjs-plugin-datalabels';
 import '../css/project.min.css';
 
 
-const Piechart = ({state, height, width}) => {
+const Piechart = ({state, height, width,call}) => {
 
     
 
@@ -15,7 +16,25 @@ const Piechart = ({state, height, width}) => {
             height= {height}
             width={width}
             options={{ 
-                responsive: false,
+                plugins:{
+                    datalabels:{
+                        display:false
+                    }
+                },
+                tooltips:{
+                    displayColors:false,
+                    backgroundColor:'#FFF',
+                    titleFontColor:'#000',
+                    bodyFontColor:'black',
+                    footerFontColor:'black',
+                    borderColor : 'green',
+                    borderWidth: 1,
+                    xPadding: 12,
+                    yPadding: 12,
+                    callbacks : call,
+                },
+                maintainAspectRatio:false,
+                responsive: true,
                 legend:{
                     display:true,
                     position:'right',

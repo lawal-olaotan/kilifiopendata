@@ -19,6 +19,7 @@
 
 .project__bar {
   position: relative;
+  overflow: visible;
 }
 
 @media screen and (min-width: 320px) {
@@ -31,7 +32,7 @@
 @media screen and (min-width: 768px) {
   .project__bar {
     width: 50vw;
-    height: 25vh;
+    height: 30vh;
   }
 }
 
@@ -201,6 +202,44 @@
 
 .project__infostep {
   margin-bottom: 2rem;
+}
+
+.project__pie {
+  position: relative;
+  height: 200px;
+  width: 300px;
+}
+
+.project__biggerpie {
+  position: relative;
+}
+
+.project__chart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 320px) {
+  .project__chart {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__chart {
+    width: 40%;
+  }
 }
 
 .financehead {

@@ -18,12 +18,12 @@
 
        @include mobile{
         width: 90vw;
-        max-height: 40vh;
+        height: 40vh;
         
     }
        @include tablet{
         width: 50vw;
-        max-height: 25vh;
+      height: 30vh;
         
     }
           
@@ -142,6 +142,34 @@
 
     &__infostep{
         margin-bottom: 2rem;
+    }
+
+    &__pie{
+        position: relative;
+        height: 200px;
+        width: 300px;
+    }
+    &__biggerpie{
+        position: relative;
+
+    }
+
+    &__chart{
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @include mobile{
+            width: 100%;
+           
+        }
+
+        @include tablet{
+            width: 40%;
+        }
+      
     }
 
     // &__piewrapper{

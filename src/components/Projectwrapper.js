@@ -63,7 +63,6 @@ const ProjectWrapper = () => {
         
     })
 
-    console.log(barParams);
 
 
 
@@ -151,6 +150,22 @@ const ProjectWrapper = () => {
 
     }
 
+    const myCallbacks = {
+
+        label : function(item,data){
+            console.log(data);
+            console.log(item);
+            return '';
+        },
+       
+
+        title : function(item,data){
+            return 'Project Department'
+        }
+    }
+
+    // const phaseTitle = ''
+
 
     const state = {
         labels: projStatusLabel,
@@ -191,7 +206,7 @@ const ProjectWrapper = () => {
 
                         <ProjectSum data={projectSummary}/>
 
-                        <div className="project__pie">
+                        <div>
                             <p className="project__sumtitle">Based on Project Status</p>
 
                             <div className="project__bar">
@@ -207,7 +222,7 @@ const ProjectWrapper = () => {
 
                     <div className="project__infostep">
 
-                        <ProjectSum data={statusSummary}/>
+                        <ProjectSum data={statusSummary} />
                         <ProjectSum data={statusProjects}/>
                         <ProjectSum data={statusperc}/>
 
@@ -215,23 +230,23 @@ const ProjectWrapper = () => {
 
 
                 )}
-
-                    
-
-
-
                     <hr/>
 
                     <div className="project__infostep">
-
-                        <div className="project__pie ">
+                        <div className="project__chart">
                                 <p className="project__sumtitle margin-bottom">Based on Project Execution Phase</p>
-                                <Piechart state={projectComp} height={150} width={300}/>
+                                <div className="project__pie">
+                                    <Piechart state={projectComp} call={myCallbacks}/>   
+                                </div>
+                                
                         </div>
 
-                        <div className="project__pie project__bar">
+                        <div>
                                 <p className="project__sumtitle">Based on Project Department</p>
-                                <Piechart state={projectType} height={300} width={600}/>
+                                <div className="project__biggerpie">
+                                    <Piechart state={projectType} width={600} height={300}/>  
+                                </div>
+                                
                         </div>
                         
                     </div> 
