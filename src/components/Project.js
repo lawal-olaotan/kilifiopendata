@@ -18,8 +18,8 @@ const Project = () => {
         <div className="project">
             <ProjectWrapper/>
             {/* <FinancialWrapper/> */}
-            <Community/>
-            <Citizen/>
+            {/* <Community/>
+            <Citizen/> */}
         </div>
     )
 

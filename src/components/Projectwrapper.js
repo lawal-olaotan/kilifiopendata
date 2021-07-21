@@ -42,11 +42,15 @@ const ProjectWrapper = () => {
 
     const [barParams, setBarParams] = useState(Barsize());
 
-    const {compdata,proTypeData,ProPhase,ProStatus} = useContext(FilterContext);
+    const {compdata,proTypeData,ProPhase,ProStatus,myStatusStats,deptTool} = useContext(FilterContext);
     const [currentComp,deptComp,communityPop,projectStats]= compdata;
     const [projType,proLabel] = proTypeData;
     const [phasedata,phaselabel] = ProPhase
     const [projStatusLabel,projStatusData,statusComp] = ProStatus;
+    const  statuStats = myStatusStats;
+    const  deptStats = deptTool;
+
+    console.log(deptStats);
 
     useEffect(() => {
         
@@ -123,7 +127,8 @@ const ProjectWrapper = () => {
                     '#3C4B97',
 
                 ],
-                data:projType
+                data:projType,
+                
             }
         ]   
     }
@@ -150,19 +155,32 @@ const ProjectWrapper = () => {
 
     }
 
-    const myCallbacks = {
 
-        label : function(item,data){
-            console.log(data);
-            console.log(item);
-            return '';
-        },
-       
+ 
 
-        title : function(item,data){
-            return 'Project Department'
-        }
-    }
+    // const myCallbacks = {
+
+    //     label : function(item,data){
+            
+    //         let currentindex = item.index
+    //         let currentCount = statuStats.count[currentindex]
+
+    //         return `Total Projects : ${currentCount}`;
+    //     },
+    //     title : function(item,data){
+    //         let currentindex = item[0].index
+    //         const title = data.labels[currentindex]
+
+    //         return title
+    //     },
+    //     footer:function(item,data){
+
+    //         let currentindex = item[0].index
+    //         let currentPecent = statuStats.percentage[currentindex]
+            
+    //         return `Percentage : ${currentPecent} %`;
+    //     }
+    // }
 
     // const phaseTitle = ''
 
@@ -236,15 +254,18 @@ const ProjectWrapper = () => {
                         <div className="project__chart">
                                 <p className="project__sumtitle margin-bottom">Based on Project Execution Phase</p>
                                 <div className="project__pie">
-                                    <Piechart state={projectComp} call={myCallbacks}/>   
-                                </div>
-                                
+                                    <Piechart state={projectComp} ToolData={statuStats}/>
+                                    <div className="project__pieval">
+                                        <p className="project__pietitle">Phased Project</p>
+                                        <h4 className="project__pievalue">35%</h4> 
+                                    </div>
+                                </div>    
                         </div>
 
                         <div>
                                 <p className="project__sumtitle">Based on Project Department</p>
                                 <div className="project__biggerpie">
-                                    <Piechart state={projectType} width={600} height={300}/>  
+                                    <Piechart state={projectType} width={600} height={300} ToolData={deptStats}/>  
                                 </div>
                                 
                         </div>

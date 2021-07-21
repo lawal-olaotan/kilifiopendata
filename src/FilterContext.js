@@ -63,6 +63,13 @@ const FilterContext = React.createContext();
     // real count for project status 
     const [statCount, setStatsCount] = useState([]);
 
+    const [statuStats, setStatusStats] = useState([]);
+
+    const [deptStats, setDeptStats] = useState([]);
+
+
+
+
     
     useEffect(()=> {
 
@@ -434,10 +441,21 @@ const FilterContext = React.createContext();
         .then(res => {
             const statusData = res.data.data;
 
+            const statusCount = [statusData.none_phased,statusData.phased]
+            const statPerc = [(100 - statusData.phased_percentage).toFixed(1), statusData.phased_percentage]
+
+
+            let statusTool = {
+                count : statusCount,
+                percentage : statPerc
+            }
+
+            setStatusStats(statusTool);
+            
+            
             
 
             const ProjectStatusDatas = statusData.projects_status
-            console.log(ProjectStatusDatas);
             setProjectStatus(ProjectStatusDatas)
 
             const phasedProject = parseInt((statusData.phased/statusData.all)*360)
@@ -484,9 +502,12 @@ const FilterContext = React.createContext();
 
      const projectType = (department) => {
 
+        console.log(department);
+
         let typeLabel = [];
         let typeData = [];
-        let pievalues = []
+        let pievalues = [];
+        let percentValues =  [];
         let totalvalue = 0
 
         for(let labels of department){
@@ -496,15 +517,27 @@ const FilterContext = React.createContext();
         for(let data of department){
             totalvalue += parseInt(data.total)
             typeData.push(parseInt(data.total))
+
         }
 
         for (let pieval of typeData){
             pievalues.push(parseInt(((pieval/totalvalue)*360).toFixed(0)))
+            percentValues.push(parseInt(((pieval/totalvalue)*100).toFixed(0)))
             
         }
 
         setProjectType(pievalues);
         setProjLabel(typeLabel);
+
+        const DeptToolTip = {
+            count : typeData,
+            percentage : percentValues
+        }
+
+        setDeptStats(DeptToolTip);
+
+
+        
 
      }
 
@@ -568,7 +601,10 @@ const FilterContext = React.createContext();
         communityList:communityPieData,
         citizenList:citizenCompData,
         navStatus : [NavState,showNavbar],
-        statsCount: statCount
+        statsCount: statCount,
+        myStatusStats : statuStats,
+        deptTool : deptStats,
+
     }
     
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>

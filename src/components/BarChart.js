@@ -31,6 +31,7 @@ const BarChart =( {state,bartick} ) => {
                 borderWidth: 1,
                 xPadding: 12,
                 yPadding: 12,
+                caretSize :0,
                 callbacks:{
                     label : function(item,data){
                         let barIndex = item.index;
@@ -42,7 +43,8 @@ const BarChart =( {state,bartick} ) => {
                        let label = `Percentage: ${barvalue} %`;
                         return label;
                     }
-                }
+                },
+                
             },
             title:{
                 display:false,

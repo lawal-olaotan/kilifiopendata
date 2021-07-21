@@ -166,37 +166,29 @@
 
 .project__sumtitle {
   font-weight: 650;
+  text-align: center;
   margin-bottom: 1rem;
-}
-
-@media screen and (min-width: 320px) {
-  .project__sumtitle {
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .project__sumtitle {
-    text-align: unset;
-  }
 }
 
 .project__sumvalue {
   font-size: 2.8rem;
   font-weight: 800;
+  text-align: center;
+}
+
+.project__summary {
+  text-align: center;
 }
 
 @media screen and (min-width: 320px) {
   .project__summary {
     width: 100%;
-    text-align: center;
   }
 }
 
 @media screen and (min-width: 768px) {
   .project__summary {
     width: 25%;
-    text-align: unset;
   }
 }
 
@@ -240,6 +232,22 @@
   .project__chart {
     width: 40%;
   }
+}
+
+.project__pieval {
+  position: absolute;
+  top: 2.75pc;
+  left: 2.75pc;
+  text-align: center;
+  z-index: -2;
+}
+
+.project__pietitle {
+  font-size: .65rem;
+}
+
+.project__pievalue {
+  margin: 0;
 }
 
 .financehead {

@@ -114,29 +114,27 @@
 
     &__sumtitle{
         font-weight: 650;
+        text-align: center;
         margin-bottom: 1rem;
-
-        @include mobile{
-            text-align: center;
-        }
-        @include tablet{
-            text-align: unset;
-        }
     }
+
+
 
     &__sumvalue{
         font-size: 2.8rem;
         font-weight: 800;
+        text-align: center;
     }
 
     &__summary{
+
+        text-align: center;
         @include mobile{
             width: 100%;
-            text-align: center;
+       
         }
         @include tablet{
             width: 25%;
-            text-align: unset;
         }
     }
 
@@ -170,6 +168,22 @@
             width: 40%;
         }
       
+    }
+
+    &__pieval{
+        position: absolute;
+        top: 2.75pc;
+        left: 2.75pc;
+        text-align: center;
+        z-index: -2;
+    }
+
+    &__pietitle{
+        font-size: .65rem;
+    }
+
+    &__pievalue{
+        margin: 0;
     }
 
     // &__piewrapper{

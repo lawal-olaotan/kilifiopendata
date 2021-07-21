@@ -4,9 +4,7 @@ import  'chartjs-plugin-datalabels';
 import '../css/project.min.css';
 
 
-const Piechart = ({state, height, width,call}) => {
-
-    
+const Piechart = ({state, height, width,ToolData}) => {
 
     return(
 
@@ -31,15 +29,51 @@ const Piechart = ({state, height, width,call}) => {
                     borderWidth: 1,
                     xPadding: 12,
                     yPadding: 12,
-                    callbacks : call,
+                    caretSize :0,
+                    callbacks :{
+
+                        label : function(item,data){
+
+                            if(ToolData !== undefined){
+                                let currentindex = item.index
+                                let currentCount = ToolData.count[currentindex]
+
+                                return `Total Projects : ${currentCount}`;
+                            }
+                          
+                
+                            
+                        },
+                        title : function(item,data){
+                            let currentindex = item[0].index
+                            const title = data.labels[currentindex]
+                
+                            return title
+                        },
+                        footer:function(item,data){
+                            
+                            if(ToolData !== undefined){
+                                let currentindex = item[0].index
+                                let currentPecent = ToolData.percentage[currentindex]
+                                return `Percentage : ${currentPecent} %`;
+                            } 
+                        }
+                    },
+                    positioners:{
+                        
+                    }
+                    
                 },
                 maintainAspectRatio:false,
+                cutoutPercentage:'65',
+                
                 responsive: true,
                 legend:{
                     display:true,
                     position:'right',
                     labels:{
                         boxWidth: 12,
+
                     }
                 }
             }}
