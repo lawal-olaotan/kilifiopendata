@@ -335,22 +335,6 @@
   }
 }
 
-.container {
-  position: relative;
-}
-
-@media screen and (min-width: 320px) {
-  .container {
-    overflow: hidden;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    overflow: none;
-  }
-}
-
 @media screen and (min-width: 320px) {
   .toggle_btn {
     display: block;

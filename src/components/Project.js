@@ -1,26 +1,41 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import { FilterContext } from '../FilterContext';
 import '../css/styles.min.css';
 import '../css/project.min.css';
 import ProjectWrapper from './Projectwrapper';
-// import FinancialWrapper from './FinancialWrapper';
-import Community from './Community';
-import Citizen from './Citizen'
+// import Community from './Community';
+// import Citizen from './Citizen'
 
 
 
 
 
 const Project = () => {
-
-
+    const {projectView} = useContext(FilterContext)
+    const showProject = projectView
+   
     return(
+        <div>
+        {showProject ? (
+            <div>
+                
 
-        <div className="project">
+            </div>
+        ):(
+
+            <div className='project'>
             <ProjectWrapper/>
             {/* <FinancialWrapper/> */}
             {/* <Community/>
             <Citizen/> */}
+            </div>  
+
+        )}
+
+          
+
         </div>
+        
     )
 
 }

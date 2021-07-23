@@ -60,6 +60,9 @@ const FilterContext = React.createContext();
     // mobile nav state 
     const [showNavbar, setShowNavbar] = useState(true);
 
+    // show Project section state 
+    const [showProject,setShowProject] = useState(true);
+
     // real count for project status 
     const [statCount, setStatsCount] = useState([]);
 
@@ -67,9 +70,12 @@ const FilterContext = React.createContext();
 
     const [deptStats, setDeptStats] = useState([]);
 
+    const [pietitle,setPieTitle] = useState('');
+    const [piePercet, setPiePercent] = useState('');
 
 
-
+    const [deptTipTitle,SetDeptTipTitle] = useState('');
+    const [deptTipValue,setDeptTipValue] = useState('');
     
     useEffect(()=> {
 
@@ -172,6 +178,7 @@ const FilterContext = React.createContext();
             setDeptComp([])
             setStatusComp([]);
             setShowNavbar(true);
+            setShowProject(false)
         }
 
         
@@ -232,6 +239,7 @@ const FilterContext = React.createContext();
             citizenPriorities(ward,'ward')
             getCommunityData(ward,'ward')
             setShowNavbar(true)
+            setShowProject(false);
             
         }
 
@@ -259,7 +267,7 @@ const FilterContext = React.createContext();
             getCommunityData(dept,'department')
             citizenPriorities(dept,'department')
             setStatusComp([]);
-            setShowNavbar(true)
+            setShowNavbar(false)
         }
     }
 
@@ -280,6 +288,7 @@ const FilterContext = React.createContext();
      const getDept = (subCountyName,location) => {
         Dataservice.GetDepartment(subCountyName,location)
         .then (res =>{
+           
           const department = res.data.data;
           setDepartmentList(department);
           projectType(department);
@@ -442,7 +451,7 @@ const FilterContext = React.createContext();
             const statusData = res.data.data;
 
             const statusCount = [statusData.none_phased,statusData.phased]
-            const statPerc = [(100 - statusData.phased_percentage).toFixed(1), statusData.phased_percentage]
+            const statPerc = [ parseInt(100 - statusData.phased_percentage),parseInt(statusData.phased_percentage) ]
 
 
             let statusTool = {
@@ -489,6 +498,11 @@ const FilterContext = React.createContext();
                 
             }
 
+            
+            setPieTitle(phasedLabel[0])
+            setPiePercent(statusTool.percentage[0])
+        
+
             setProjStatusLabel(projectStatusLabel)
             setProjStatusData(projectStatusData)
             setStatsCount(projectRealData);
@@ -510,22 +524,33 @@ const FilterContext = React.createContext();
         let percentValues =  [];
         let totalvalue = 0
 
-        for(let labels of department){
-            typeLabel.push(labels.department)
-        }
 
+      
+
+        for(let labels of department){
+            typeLabel.push(labels.department.split(' ')[0])
+        }
+           
         for(let data of department){
             totalvalue += parseInt(data.total)
             typeData.push(parseInt(data.total))
 
         }
 
+        for(let data of department){
+            percentValues.push(parseInt(data.percentage))
+
+        }
+        
+
+
         for (let pieval of typeData){
             pievalues.push(parseInt(((pieval/totalvalue)*360).toFixed(0)))
-            percentValues.push(parseInt(((pieval/totalvalue)*100).toFixed(0)))
+            // percentValues.push(parseInt(((pieval/totalvalue)*100).toFixed(0)))
             
         }
 
+    
         setProjectType(pievalues);
         setProjLabel(typeLabel);
 
@@ -535,6 +560,10 @@ const FilterContext = React.createContext();
         }
 
         setDeptStats(DeptToolTip);
+
+        SetDeptTipTitle(typeLabel[0])
+        setDeptTipValue(percentValues[0])
+
 
 
         
@@ -604,6 +633,11 @@ const FilterContext = React.createContext();
         statsCount: statCount,
         myStatusStats : statuStats,
         deptTool : deptStats,
+        pieTitle : [pietitle,setPieTitle],
+        PiePercent : [piePercet, setPiePercent],
+        deptTipTitles :[deptTipTitle,SetDeptTipTitle] ,
+        deptTipValues : [deptTipValue,setDeptTipValue],
+        projectView : showProject
 
     }
     

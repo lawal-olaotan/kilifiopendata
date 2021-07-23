@@ -41,16 +41,20 @@ const Barsize = () => {
 const ProjectWrapper = () => {
 
     const [barParams, setBarParams] = useState(Barsize());
+    
 
-    const {compdata,proTypeData,ProPhase,ProStatus,myStatusStats,deptTool} = useContext(FilterContext);
+    const {compdata,proTypeData,ProPhase,ProStatus,myStatusStats,deptTool,pieTitle,PiePercent,deptTipTitles,deptTipValues} = useContext(FilterContext);
+    const [pietitle,setPieTitle] = pieTitle
+    const [piePercet, setPiePercent] = PiePercent
     const [currentComp,deptComp,communityPop,projectStats]= compdata;
     const [projType,proLabel] = proTypeData;
     const [phasedata,phaselabel] = ProPhase
     const [projStatusLabel,projStatusData,statusComp] = ProStatus;
     const  statuStats = myStatusStats;
     const  deptStats = deptTool;
+    const [deptTipTitle,SetDeptTipTitle]= deptTipTitles
+    const [deptTipValue,setDeptTipValue] = deptTipValues
 
-    console.log(deptStats);
 
     useEffect(() => {
         
@@ -155,34 +159,14 @@ const ProjectWrapper = () => {
 
     }
 
-
+    let pieHover;
  
+    if(statuStats.length !== 0){
+         pieHover = statuStats.percentage[0]
+    }
+   
+    
 
-    // const myCallbacks = {
-
-    //     label : function(item,data){
-            
-    //         let currentindex = item.index
-    //         let currentCount = statuStats.count[currentindex]
-
-    //         return `Total Projects : ${currentCount}`;
-    //     },
-    //     title : function(item,data){
-    //         let currentindex = item[0].index
-    //         const title = data.labels[currentindex]
-
-    //         return title
-    //     },
-    //     footer:function(item,data){
-
-    //         let currentindex = item[0].index
-    //         let currentPecent = statuStats.percentage[currentindex]
-            
-    //         return `Percentage : ${currentPecent} %`;
-    //     }
-    // }
-
-    // const phaseTitle = ''
 
 
     const state = {
@@ -252,20 +236,32 @@ const ProjectWrapper = () => {
 
                     <div className="project__infostep">
                         <div className="project__chart">
-                                <p className="project__sumtitle margin-bottom">Based on Project Execution Phase</p>
+                                <p className="project__sumtitle">Based on Project Execution Phase</p>
                                 <div className="project__pie">
-                                    <Piechart state={projectComp} ToolData={statuStats}/>
-                                    <div className="project__pieval">
-                                        <p className="project__pietitle">Phased Project</p>
-                                        <h4 className="project__pievalue">35%</h4> 
-                                    </div>
+                                    <Piechart state={projectComp} ToolData={statuStats} setPieTitle={setPieTitle} setPiePercent={setPiePercent}/>
+                                    
+                                        { pietitle !== '' && piePercet !== undefined ? (
+                                            <div className="project__pieval">
+                                            <p className="project__pietitle">{pietitle}</p>
+                                            <h4 className="project__pievalue">{piePercet}%</h4> 
+                                            </div>
+                                        ):(
+                                           ''
+                                        )
+                                        }
+
+                                             
                                 </div>    
                         </div>
 
-                        <div>
+                        <div className="project__pieData">
                                 <p className="project__sumtitle">Based on Project Department</p>
                                 <div className="project__biggerpie">
-                                    <Piechart state={projectType} width={600} height={300} ToolData={deptStats}/>  
+                                    <Piechart state={projectType} ToolData={deptStats} setPieTitle={SetDeptTipTitle} setPiePercent={setDeptTipValue}/> 
+                                    <div className="project__deptval project__pieval">
+                                        <p className="project__pietitle">{deptTipTitle}</p>
+                                        <h4 className="project__pievalue">{deptTipValue}%</h4> 
+                                    </div>
                                 </div>
                                 
                         </div>

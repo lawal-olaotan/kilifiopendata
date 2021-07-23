@@ -6,7 +6,7 @@
 .project{
     width: 100%;
     background-color: #F7F8F2;
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
     padding: 3rem 0;
@@ -138,6 +138,19 @@
         }
     }
 
+    &__pieData{
+      
+        @include mobile{
+            width: 100%;
+            overflow: scroll;
+        }
+
+        @include tablet{
+            width: auto;
+            overflow: none;
+        }
+    }
+
     &__infostep{
         margin-bottom: 2rem;
     }
@@ -149,6 +162,8 @@
     }
     &__biggerpie{
         position: relative;
+        height: 200px;
+        width: 350px;
 
     }
 
@@ -172,18 +187,38 @@
 
     &__pieval{
         position: absolute;
-        top: 2.75pc;
-        left: 2.75pc;
+        top: 3.3pc;
+        left: 2pc;
         text-align: center;
-        z-index: -2;
+        font-family: 'Poppins', sans-serif;
+        width: 100px;
+        
     }
 
     &__pietitle{
-        font-size: .65rem;
+        margin: 0;
+        font-size: .5rem;
+        font-weight: 500;
+       
     }
 
     &__pievalue{
         margin: 0;
+        margin-bottom: .5rem;
+        font-size: 1.4rem;
+       
+    }
+
+    &__depttitle{
+        font-size: .75rem;
+        margin: 0;
+     
+    }
+
+    &__deptval{
+        width: 150px;
+        top: 3.25pc;
+        left: .72pc;
     }
 
     // &__piewrapper{
@@ -225,3 +260,11 @@
 // .margin-top{
 //     margin-top: 5rem;
 // }
+
+
+canvas{position:relative; z-index:1;}
+
+
+.projectVisible{
+    display: flex;
+}
