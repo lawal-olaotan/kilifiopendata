@@ -1,9 +1,9 @@
 import React,{useContext} from 'react';
 import { FilterContext } from '../FilterContext';
+import ProjectWrapper from './Projectwrapper';
+import Community from './Community';
 import '../css/styles.min.css';
 import '../css/project.min.css';
-import ProjectWrapper from './Projectwrapper';
-// import Community from './Community';
 // import Citizen from './Citizen'
 
 
@@ -17,17 +17,12 @@ const Project = () => {
     return(
         <div>
         {showProject ? (
-            <div>
-                
-
-            </div>
+            <div></div>
         ):(
-
             <div className='project'>
-            <ProjectWrapper/>
-            {/* <FinancialWrapper/> */}
-            {/* <Community/>
-            <Citizen/> */}
+                <ProjectWrapper/>
+                {/* <Community/> */}
+                {/* <Citizen/> */}
             </div>  
 
         )}

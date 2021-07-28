@@ -10,7 +10,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 3rem 0;
+  padding: 2.5rem 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -71,12 +71,14 @@
 @media screen and (min-width: 320px) {
   .project__title {
     font-size: 1.5rem;
+    text-align: center;
   }
 }
 
 @media screen and (min-width: 768px) {
   .project__title {
     font-size: 2rem;
+    text-align: unset;
   }
 }
 
@@ -279,7 +281,49 @@
 .project__deptval {
   width: 150px;
   top: 3.25pc;
-  left: .72pc;
+  left: .65pc;
+}
+
+.project__piedepttitle {
+  font-size: .8rem;
+}
+
+.project__sumtext {
+  font-size: .8rem;
+}
+
+.project__threepie {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 320px) {
+  .project__threepie {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .project__threepie {
+    width: 35%;
+  }
+}
+
+.project__position {
+  position: absolute;
+  top: 3.4pc;
+  left: 4.5pc;
 }
 
 .financehead {
@@ -317,5 +361,9 @@ canvas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.deptfonttitle {
+  font-size: .8rem;
 }
 /*# sourceMappingURL=project.css.map */

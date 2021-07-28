@@ -1,28 +1,37 @@
 import React,{useContext} from 'react';
-import '../css/styles.min.css';
-import '../css/project.min.css';
+import { FilterContext } from '../FilterContext';
 import Piechart from '../components/Piechart';
 import ProjectTitle from './ProjectTitle';
 import ProjectSum from './ProjectSum';
-import { FilterContext } from '../FilterContext';
+import '../css/styles.min.css';
+import '../css/project.min.css';
+
 
 
 
 
 const Community = () => {
 
-    const {communityList} = useContext(FilterContext);
+    const {communityList,commInTipTitles,commInTipPercs,commInTools,womenInTools,womenTipTitles,womenInTipPercs} = useContext(FilterContext);
     const communityPieData =  communityList;
 
-    const projectSummary = {
+    const [commInTipTitle, setCommInTipTitle] = commInTipTitles
+    const [commInTipPerc, setCommInTipPerc] = commInTipPercs
+    const communityInTip = commInTools 
+    
+    const womenInTip = womenInTools;
+    const [womenInTipPerc, setWomenInTipPerc] = womenInTipPercs;
+    const [womenInTipTitle, setWomenInTipTitle] = womenTipTitles;
+  
+
+
+    const projectSum = {
         summaryName: '% Community Involvement',
         sumValue: `${communityPieData.average_pec}%`,
         sumText: 'Includes all touch points (women involvements , youth involvements ... )',
     }
 
-
-
-    const projectComp = {
+    const commComp = {
 
         labels: communityPieData.label,
         datasets:[
@@ -36,10 +45,9 @@ const Community = () => {
                     '#90CBA9',
                     '#EBA10F',
                 ],
-                data: communityPieData.community_data
+                data:communityPieData.community_data
             }
         ] 
-
     }
 
 
@@ -63,110 +71,106 @@ const Community = () => {
 
     }
 
-    const youthComp = {
+    // const youthComp = {
 
-        labels: communityPieData.label,
-        datasets:[
-            {
-                label: 'Projects',
-                backgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                hoverBackgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                data: communityPieData.youth_data
-            }
-        ] 
+    //     labels: communityPieData.label,
+    //     datasets:[
+    //         {
+    //             label: 'Projects',
+    //             backgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             hoverBackgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             data: communityPieData.youth_data
+    //         }
+    //     ] 
 
-    }
+    // }
     
-    const disabledComp = {
+    // const disabledComp = {
 
-        labels: communityPieData.label,
-        datasets:[
-            {
-                label: 'Projects',
-                backgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                hoverBackgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                data: communityPieData.disabled_data
-            }
-        ] 
+    //     labels: communityPieData.label,
+    //     datasets:[
+    //         {
+    //             label: 'Projects',
+    //             backgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             hoverBackgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             data: communityPieData.disabled_data
+    //         }
+    //     ] 
 
-    }
+    // }
 
-    const meetingComp = {
+    // const meetingComp = {
 
-        labels: communityPieData.label,
-        datasets:[
-            {
-                label: 'Projects',
-                backgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                hoverBackgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                data: communityPieData.meeting_data
-            }
-        ] 
+    //     labels: communityPieData.label,
+    //     datasets:[
+    //         {
+    //             label: 'Projects',
+    //             backgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             hoverBackgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             data: communityPieData.meeting_data
+    //         }
+    //     ] 
 
-    }
+    // }
 
-    const ImpleComp = {
+    // const ImpleComp = {
 
-        labels: communityPieData.label,
-        datasets:[
-            {
-                label: 'Projects',
-                backgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                hoverBackgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                data: communityPieData.project_data
-            }
-        ] 
+    //     labels: communityPieData.label,
+    //     datasets:[
+    //         {
+    //             label: 'Projects',
+    //             backgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             hoverBackgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             data: communityPieData.project_data
+    //         }
+    //     ] 
 
-    }
+    // }
 
-    const materialsComp = {
+    // const materialsComp = {
 
-        labels: ['Great', 'Poor'],
-        datasets:[
-            {
-                label: 'Projects',
-                backgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                hoverBackgroundColor:[
-                    '#90CBA9',
-                    '#EBA10F',
-                ],
-                data: communityPieData.materials_data
-            }
-        ] 
+    //     labels: ['Great', 'Poor'],
+    //     datasets:[
+    //         {
+    //             label: 'Projects',
+    //             backgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             hoverBackgroundColor:[
+    //                 '#90CBA9',
+    //                 '#EBA10F',
+    //             ],
+    //             data: communityPieData.materials_data
+    //         }
+    //     ] 
 
-    }
+    // }
    
-
-    
-
-
 
     const Title = {
         Name : 'Community Involvement'
@@ -182,21 +186,47 @@ const Community = () => {
                 <div className="project__infowrapper">
 
                         <div className="project__infostep">
-                            <ProjectSum data={projectSummary}/>
+                            <ProjectSum data={projectSum}/>
 
-                            <div className="project__pie">
+                            <div className="project__threepie">
+
                                 <p className="project__sumtitle">Based on Community Participation</p>
-                                <Piechart state={projectComp}/>
+                                <div className="project__pie">
+                                    <Piechart state={commComp}  ToolData={communityInTip} setPieTitle={setCommInTipTitle} setPiePercent={setCommInTipPerc}/> 
+                                   
+                                    { commInTipTitle !== '' && commInTipPerc !== undefined ? (
+                                            <div className="project__position">
+                                                <p className="project__pietitle">{commInTipTitle}</p>
+                                                <h4 className="project__pievalue">{commInTipPerc}%</h4> 
+                                            </div>
+                                        ):(<div></div>)
+                                    } 
+                                        
+                                </div>
+                                
                             </div>
 
-                            <div className="project__pie">
+
+
+                            <div className="project__threepie">
                                 <p className="project__sumtitle">Based on Women Participation</p>
-                                <Piechart state={womenComp}/>
+
+                                <div className="project__pie">
+                                    <Piechart state={womenComp} ToolData={womenInTip} setPieTitle={setWomenInTipTitle} setPiePercent={setWomenInTipPerc}/>
+                                    { commInTipTitle !== '' && commInTipPerc !== undefined ? (
+                                            <div className="project__position">
+                                                <p className="project__pietitle">{womenInTipTitle}</p>
+                                                <h4 className="project__pievalue">{womenInTipPerc}%</h4> 
+                                            </div>
+                                        ):(<div></div>)
+                                    } 
+                                </div>
+ 
                             </div>
 
                         </div>  
 
-                    <hr/>
+                        <hr/>
 
                     <div className="project__infostep">
 
@@ -205,21 +235,21 @@ const Community = () => {
                                 <Piechart state={youthComp}/>
                         </div>
 
-                        <div className="project__pie">
+                        {/* <div className="project__pie">
                                 <p className="project__sumtitle">Based on Disabled Participation</p>
                                 <Piechart state={disabledComp}/>
-                        </div>
+                        </div> */}
 
-                        <div className="project__pie">
+                        {/* <div className="project__pie">
                                 <p className="project__sumtitle">Based on Meetings Participation</p>
                                 <Piechart state={meetingComp}/>
-                        </div>
+                        </div> */}
 
                     </div>
 
                     <hr/>
 
-                    <div className="project__infostep">
+                    {/* <div className="project__infostep">
 
                         <div className="project__pie">
                                 <p className="project__sumtitle">Based on project Implemetation Involvement</p>
@@ -230,13 +260,7 @@ const Community = () => {
                                 <p className="project__sumtitle">Based on overall quality of materials</p>
                                 <Piechart state={materialsComp} height={172} width={345} />
                         </div>
-
-                        {/* <div className="project__pie">
-                                <p className="project__sumtitle">Based on Source of funding</p>
-                                <Piechart state={ImpleComp}/>
-                        </div> */}
-
-                    </div>
+                    </div> */}
             
                 </div>
 

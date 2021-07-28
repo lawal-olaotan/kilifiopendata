@@ -42,7 +42,6 @@ const ProjectWrapper = () => {
 
     const [barParams, setBarParams] = useState(Barsize());
     
-
     const {compdata,proTypeData,ProPhase,ProStatus,myStatusStats,deptTool,pieTitle,PiePercent,deptTipTitles,deptTipValues} = useContext(FilterContext);
     const [pietitle,setPieTitle] = pieTitle
     const [piePercet, setPiePercent] = PiePercent
@@ -66,7 +65,6 @@ const ProjectWrapper = () => {
 
         return _ => {
             window.removeEventListener('resize', reSize)
-          
       }
         
     })
@@ -159,11 +157,7 @@ const ProjectWrapper = () => {
 
     }
 
-    let pieHover;
- 
-    if(statuStats.length !== 0){
-         pieHover = statuStats.percentage[0]
-    }
+    
    
     
 
@@ -238,30 +232,30 @@ const ProjectWrapper = () => {
                         <div className="project__chart">
                                 <p className="project__sumtitle">Based on Project Execution Phase</p>
                                 <div className="project__pie">
-                                    <Piechart state={projectComp} ToolData={statuStats} setPieTitle={setPieTitle} setPiePercent={setPiePercent}/>
-                                    
+                                    <Piechart state={projectComp} ToolData={statuStats}  setPieTitle={setPieTitle} setPiePercent={setPiePercent}/>
                                         { pietitle !== '' && piePercet !== undefined ? (
                                             <div className="project__pieval">
                                             <p className="project__pietitle">{pietitle}</p>
                                             <h4 className="project__pievalue">{piePercet}%</h4> 
                                             </div>
-                                        ):(
-                                           ''
-                                        )
-                                        }
-
-                                             
+                                        ):('')
+                                        }          
                                 </div>    
                         </div>
 
                         <div className="project__pieData">
                                 <p className="project__sumtitle">Based on Project Department</p>
                                 <div className="project__biggerpie">
-                                    <Piechart state={projectType} ToolData={deptStats} setPieTitle={SetDeptTipTitle} setPiePercent={setDeptTipValue}/> 
-                                    <div className="project__deptval project__pieval">
-                                        <p className="project__pietitle">{deptTipTitle}</p>
+                                    <Piechart state={projectType}  ToolData={deptStats} setPieTitle={SetDeptTipTitle} setPiePercent={setDeptTipValue}/> 
+                                    { deptTipTitle !== '' && deptTipValue !== '' ? (
+                                        <div className="project__deptval project__pieval">
+                                        <p className="project__pietitle deptfonttitle">{deptTipTitle}</p>
                                         <h4 className="project__pievalue">{deptTipValue}%</h4> 
-                                    </div>
+                                        </div>
+
+                                    ) : ('')
+
+                                    }
                                 </div>
                                 
                         </div>

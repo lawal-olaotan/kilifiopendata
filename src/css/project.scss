@@ -9,7 +9,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem 0;
+    padding: 2.5rem 0;
    flex-direction: column;
 
    &__bar{
@@ -53,10 +53,12 @@
     &__title{
         @include mobile{
             font-size:1.5rem;
+            text-align: center;
         }
 
         @include tablet{
             font-size: 2rem;
+            text-align: unset;
         } 
     }
 
@@ -218,7 +220,44 @@
     &__deptval{
         width: 150px;
         top: 3.25pc;
-        left: .72pc;
+        left: .65pc;    
+    }
+    
+
+    &__piedepttitle{
+        font-size: .8rem;
+    }
+    
+
+    &__sumtext {
+        font-size: .8rem;
+    }
+
+    &__threepie{
+
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @include mobile{
+            width: 100%;
+           
+        }
+        @include tablet {
+            width: 35%;
+        }
+      
+
+
+    }
+
+    &__position{
+        position: absolute;
+        top: 3.4pc;
+        left: 4.5pc;
     }
 
     // &__piewrapper{
@@ -267,4 +306,8 @@ canvas{position:relative; z-index:1;}
 
 .projectVisible{
     display: flex;
+}
+
+.deptfonttitle{
+    font-size: .8rem;
 }

@@ -1,10 +1,19 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
-import  'chartjs-plugin-datalabels';
+
 import '../css/project.min.css';
 
 
-const Piechart = ({state, height, width,ToolData,setPieTitle,setPiePercent}) => {
+
+const Piechart = ({state,ToolData,setPieTitle,setPiePercent}) => {
+
+    // function addData(chart, label, data) {
+    //     chart.data.labels.push(label);
+    //     chart.data.datasets.forEach((dataset) => {
+    //         dataset.data.push(data);
+    //     });
+    //     chart.update();
+    // }
 
 
     return(
@@ -12,8 +21,6 @@ const Piechart = ({state, height, width,ToolData,setPieTitle,setPiePercent}) => 
         <div className="project__piewrapper">
             <Doughnut
                 data={state}
-                height= {height}
-                width={width}
                 options={{ 
                     plugins:{
                         datalabels:{
@@ -44,7 +51,6 @@ const Piechart = ({state, height, width,ToolData,setPieTitle,setPiePercent}) => 
                                 if(ToolData !== undefined){
                                     let currentindex = item.index
                                     let currentCount = ToolData.count[currentindex];
-
                                     return `Total Projects : ${currentCount}`;
                                 }
                                 
