@@ -1,9 +1,11 @@
-import React,{useState,useEffect} from  'react';
+import React,{useState,useEffect,useRef} from  'react';
 import data from './endpoint.json';
 import Items from "./entitles/Items";
 import wards from "./datas/wards.json";
 import subcounty from "./datas/sub_counties.json";
-import Dataservice from './Dataservice';
+import { Community, GetAll, GetAllinvolvement, GetDepartment, GetStats, GetStatus, GetSubcounties, citizenPriority} from './Dataservice';
+
+
 
 
 const FilterContext = React.createContext();
@@ -12,7 +14,7 @@ const FilterContext = React.createContext();
 
  const FilterProvider = ({ children }) => {
 
-   
+    const MountRef = useRef(true)
 
     const [subCountyList,setSubCountyList] = useState([]);
     
@@ -83,28 +85,32 @@ const FilterContext = React.createContext();
     const [commInTipPerc, setCommInTipPerc] = useState('')
 
 
-    const [womenInTip,setWomenInTip] = useState([])
-    const [womenInTipTitle, setWomenInTipTitle] = useState('')
-    const [womenInTipPerc, setWomenInTipPerc] = useState('')
+    const [womenInTip,setWomenInTip] = useState([]);
+    const [womenInTipTitle, setWomenInTipTitle] = useState('');
+    const [womenInTipPerc, setWomenInTipPerc] = useState('');
+
+
+    // // chart js instance
+    // const [chartInstance, setChartInstance] = useState(null);
 
 
 
     
     useEffect(()=> {
-
+        
         const geodata = data
         retrievGeoInfo(geodata,'County',8.5);
         setCurrentComp(data);
 
 
-        Dataservice.GetAll()
+        GetAll()
         .then(res => {
             const subCont = res.data.data;
             setSubCountyList(subCont);
         })
 
 
-        Dataservice.GetStats(subcounty,'ward')
+        GetStats(subcounty,'ward')
         .then (res=> {
             const countiesStats = res.data.data;
             
@@ -119,7 +125,7 @@ const FilterContext = React.createContext();
 
         })
 
-        Dataservice.GetSubcounties()
+        GetSubcounties()
         .then (res => {
             const countyData = res.data.data; 
             // paramaters  
@@ -146,7 +152,7 @@ const FilterContext = React.createContext();
         })
 
 
-        Dataservice.GetAllinvolvement()
+        GetAllinvolvement()
         .then (res => {
             const comm = res.data.data;
             let newData = {};
@@ -155,15 +161,33 @@ const FilterContext = React.createContext();
             setCommunityPop(newData);
         })
 
-
-        // return () =>  Dataservice.close();
+        // updatePie(0)
         
+        return () => { 
+            MountRef.current = false
+          }
 
     } ,[]);
 
+
+    //  const updatePie = (dataindex,piedata) => {
+
+    //     console.log(chartInstance);
+    //     console.log(piedata);
+
+    //     if(chartInstance !== null){
+    //         chartInstance.data.datasets[dataindex].data= piedata;
+    //         chartInstance.update()
+            
+    //     }
+        
+        
+    //  };
+
+
    
     
-    const handleChange = (value) => {
+    const handleChange = async(value) => {
 
         if(value !== 'Sub County'){
             const selSubCounty = value;
@@ -179,7 +203,7 @@ const FilterContext = React.createContext();
             setCountyGeo(CountyGeo);
             getStatus(selSubCounty,'constituency');
             // citizenPriorities(selSubCounty,'constituency')
-            getCommunityData(selSubCounty,'constituency')
+            await getCommunityData(selSubCounty,'constituency')
             setDeptComp([])
             setStatusComp([]);
             setShowNavbar(true);
@@ -235,13 +259,13 @@ const FilterContext = React.createContext();
             const find = ({name,wards})=> name.includes(value) || wards && wards.some(find);
             const subName = subCountyList.filter(find)[0];
             wardGeo.subName = subName.name;
-
+            getCommunityData(ward,'ward')
             retrievGeoInfo(wardGeo,'ward',14);
             setCurrentComp(WardCounty);
             getProjectSum(ward,'ward',index);
             getStatus(ward,'ward')
             // citizenPriorities(ward,'ward')
-            getCommunityData(ward,'ward')
+           
             setShowNavbar(true)
             setShowProject(false);
             
@@ -286,7 +310,7 @@ const FilterContext = React.createContext();
 
     const getDept = (subCountyName,location) => {
 
-        Dataservice.GetDepartment(subCountyName,location)
+        GetDepartment(subCountyName,location)
         .then (res =>{
             const department = res.data.data;
             setDepartmentList(department);
@@ -334,7 +358,7 @@ const FilterContext = React.createContext();
 
      const getProjectSum = (subcounty,location,index) => {
         
-        Dataservice.GetStats(subcounty,location)
+        GetStats(subcounty,location)
         .then (res => {
             let totalres = 0;
             let pending = 0;
@@ -376,7 +400,7 @@ const FilterContext = React.createContext();
     
     const getStatus = (subcounty,location)=> {
 
-        Dataservice.GetStatus(subcounty,location)
+        GetStatus(subcounty,location)
         .then(res => {
             const statusData = res.data.data;
 
@@ -499,16 +523,23 @@ const FilterContext = React.createContext();
 
         let commArray = []
 
-        Dataservice.Community(subcounty,location)
+        Community(subcounty,location)
           .then( res => {
-                
+
+            if (!MountRef.current) {return null}
                 const  commData = res.data.data;
+
+               
+
+
                 const communityInLabel = ['Involved','Not Involved']
 
 
                 const communityIn = commData.community_involved;
                 const communityInData = [parseInt((communityIn.percentage/100)*360),parseInt(((100 - communityIn.percentage)/100)*360)];
                 const communityInPercentage = [parseInt(communityIn.percentage), parseInt(100 - communityIn.percentage)];
+
+               
                 
                 // communityToolTip
                 const commInToolTip = {
@@ -580,10 +611,10 @@ const FilterContext = React.createContext();
                     average_pec: communityPar,
                     label : communityInLabel,
                     community_data:communityInData,
-                    // disabled_data:disabledInData,
-                    // project_data : ProjectInData,
-                    // meeting_data : meeetingInData,
-                    // materials_data : materialsInData,
+                    disabled_data:disabledInData,
+                    project_data : ProjectInData,
+                    meeting_data : meeetingInData,
+                    materials_data : materialsInData,
                     women_data: womenInData,
                     youth_data: youthInData 
                 }
@@ -592,12 +623,10 @@ const FilterContext = React.createContext();
                 setCommunityPie(communityData);
                 setCommunityPop(newData);
       
-            })   
-
-
+            })  
+            
+            
     };
-
-
 
 
     const retrievGeoInfo = (mapdata,type,zoom)=> {
@@ -639,6 +668,8 @@ const FilterContext = React.createContext();
         }
     }
 
+    // chart
+
 
   
 
@@ -672,6 +703,7 @@ const FilterContext = React.createContext();
         womenInTools : womenInTip,
         womenTipTitles:[womenInTipTitle, setWomenInTipTitle],
         womenInTipPercs : [womenInTipPerc, setWomenInTipPerc],
+        // chartState : setChartInstance
 
     }
 

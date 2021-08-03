@@ -43,4 +43,4 @@ const citizenPriority = (subcounty,location) => {
     return data.get(`stats/priorities?${location}=${subcounty}`)
 }
 
-export default {GetAll,GetDepartment,GetStats,Community,GetStatus,GetSubcounties,GetAllinvolvement,citizenPriority};
+export {GetAll,GetDepartment,GetStats,Community,GetStatus,GetSubcounties,GetAllinvolvement,citizenPriority};

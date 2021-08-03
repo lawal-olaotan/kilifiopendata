@@ -21,7 +21,7 @@ const Project = () => {
         ):(
             <div className='project'>
                 <ProjectWrapper/>
-                {/* <Community/> */}
+                <Community/>
                 {/* <Citizen/> */}
             </div>  
 

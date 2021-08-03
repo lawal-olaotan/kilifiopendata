@@ -14,6 +14,7 @@ const Community = () => {
 
     const {communityList,commInTipTitles,commInTipPercs,commInTools,womenInTools,womenTipTitles,womenInTipPercs} = useContext(FilterContext);
     const communityPieData =  communityList;
+   
 
     const [commInTipTitle, setCommInTipTitle] = commInTipTitles
     const [commInTipPerc, setCommInTipPerc] = commInTipPercs
@@ -186,11 +187,13 @@ const Community = () => {
                 <div className="project__infowrapper">
 
                         <div className="project__infostep">
+
                             <ProjectSum data={projectSum}/>
 
                             <div className="project__threepie">
 
                                 <p className="project__sumtitle">Based on Community Participation</p>
+
                                 <div className="project__pie">
                                     <Piechart state={commComp}  ToolData={communityInTip} setPieTitle={setCommInTipTitle} setPiePercent={setCommInTipPerc}/> 
                                    
@@ -205,8 +208,6 @@ const Community = () => {
                                 </div>
                                 
                             </div>
-
-
 
                             <div className="project__threepie">
                                 <p className="project__sumtitle">Based on Women Participation</p>
@@ -230,10 +231,12 @@ const Community = () => {
 
                     <div className="project__infostep">
 
-                        <div className="project__pie">
+                        {/* <div className="project__pie">
                                 <p className="project__sumtitle">Based on Youth Participation</p>
                                 <Piechart state={youthComp}/>
-                        </div>
+                        </div> */}
+
+                        
 
                         {/* <div className="project__pie">
                                 <p className="project__sumtitle">Based on Disabled Participation</p>
