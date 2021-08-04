@@ -1,4 +1,4 @@
-import React,{useMemo,useState} from 'react';
+import React,{useMemo,useState,useEffect} from 'react';
 import {Doughnut} from 'react-chartjs-2';
 
 import '../css/project.min.css';
@@ -10,7 +10,9 @@ const Piechart = ({state,ToolData,setPieTitle,setPiePercent}) => {
     const [call,setCall] = useState([])
 
 
-
+    const chartState = useMemo(() => {
+        return state;
+    }, [state])
 
     useMemo(() => {
 
@@ -56,7 +58,7 @@ const Piechart = ({state,ToolData,setPieTitle,setPiePercent}) => {
 
         <div className="project__piewrapper">
             <Doughnut
-                data={state}
+                data={chartState}
                 options={{ 
                     plugins:{
                         datalabels:{

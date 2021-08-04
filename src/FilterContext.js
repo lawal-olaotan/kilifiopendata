@@ -170,21 +170,7 @@ const FilterContext = React.createContext();
     } ,[]);
 
 
-    //  const updatePie = (dataindex,piedata) => {
-
-    //     console.log(chartInstance);
-    //     console.log(piedata);
-
-    //     if(chartInstance !== null){
-    //         chartInstance.data.datasets[dataindex].data= piedata;
-    //         chartInstance.update()
-            
-    //     }
-        
-        
-    //  };
-
-
+  
    
     
     const handleChange = async(value) => {
@@ -536,6 +522,7 @@ const FilterContext = React.createContext();
 
 
                 const communityIn = commData.community_involved;
+                console.log(communityIn);
                 const communityInData = [parseInt((communityIn.percentage/100)*360),parseInt(((100 - communityIn.percentage)/100)*360)];
                 const communityInPercentage = [parseInt(communityIn.percentage), parseInt(100 - communityIn.percentage)];
 
@@ -546,6 +533,7 @@ const FilterContext = React.createContext();
                     count : communityInPercentage,
                     percentage: communityInPercentage
                 }
+
                 setCommunityInTip(commInToolTip);
                 setCommInTipTitle(communityInLabel[0]);
                 setCommInTipPerc(communityInPercentage[0]);

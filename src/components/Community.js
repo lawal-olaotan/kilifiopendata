@@ -34,6 +34,8 @@ const Community = () => {
 
     const commComp = {
 
+
+        
         labels: communityPieData.label,
         datasets:[
             {
@@ -50,6 +52,8 @@ const Community = () => {
             }
         ] 
     }
+
+   
 
 
     const womenComp = {

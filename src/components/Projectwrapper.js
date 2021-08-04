@@ -184,6 +184,8 @@ const ProjectWrapper = () => {
         }]
     }
 
+    console.log(state);
+
     
 
 
