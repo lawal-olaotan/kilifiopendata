@@ -245,7 +245,7 @@ const ProjectWrapper = () => {
                                 </div>    
                         </div>
 
-                        <div className="project__pieData">
+                        <div className="project__chart">
                                 <p className="project__sumtitle">Based on Project Department</p>
                                 <div className="project__biggerpie">
                                     <Piechart state={projectType}  ToolData={deptStats} setPieTitle={SetDeptTipTitle} setPiePercent={setDeptTipValue}/> 

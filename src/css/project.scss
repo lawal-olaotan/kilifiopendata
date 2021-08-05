@@ -21,7 +21,7 @@
         height: 40vh;
         
     }
-       @include tablet{
+       @include laptop{
         width: 50vw;
       height: 30vh;
         
@@ -39,7 +39,7 @@
         @include mobile{
             width: 88%;
         }
-        @include tablet {
+        @include laptop {
             width: 74%;
         }
     }
@@ -56,7 +56,7 @@
             text-align: center;
         }
 
-        @include tablet{
+        @include laptop{
             font-size: 2rem;
             text-align: unset;
         } 
@@ -72,7 +72,7 @@
         @include mobile{
             padding: .6rem;
         }
-        @include tablet{
+        @include laptop{
             padding: .8rem;
         }
     }
@@ -89,7 +89,7 @@
         @include mobile{
             width: 50%;
         }
-        @include tablet{
+        @include laptop{
             width: 255px;
         }
     }
@@ -108,7 +108,7 @@
             width: 100%;
             flex-direction: column;
         }
-        @include tablet {
+        @include laptop {
             width: unset;
             flex-direction: row;
         }
@@ -135,7 +135,7 @@
             width: 100%;
        
         }
-        @include tablet{
+        @include laptop{
             width: 25%;
         }
     }
@@ -147,7 +147,7 @@
             overflow: scroll;
         }
 
-        @include tablet{
+        @include laptop{
             width: auto;
             overflow: none;
         }
@@ -181,7 +181,7 @@
            
         }
 
-        @include tablet{
+        @include laptop{
             width: 40%;
         }
       
@@ -246,7 +246,7 @@
             width: 100%;
            
         }
-        @include tablet {
+        @include laptop {
             width: 35%;
         }
       

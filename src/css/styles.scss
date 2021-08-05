@@ -33,7 +33,7 @@
         position: relative;
     }
 
-    @include tablet{
+    @include laptop{
         position: sticky;
         padding: 1rem 2rem;
         top: 0pc;
@@ -66,7 +66,7 @@
             @include mobile{
                 width: 150px;
             }
-            @include tablet{
+            @include laptop{
                 width: 200px;
             }
         }
@@ -83,8 +83,12 @@
             margin: 6rem 0 ;
             
         }
+
+        @include tablet {
+            width: 70%;
+        }
         
-        @include tablet{
+        @include laptop{
             width: 35%;
             flex-direction: row;
             order: unset;
@@ -134,7 +138,7 @@
             top: 2.4pc;
         }
 
-        @include tablet{
+        @include laptop{
             width: 85%;
             top: 1.8pc;
             right: .26pc;
@@ -182,7 +186,9 @@
             z-index: 5000;
         }
 
-        @include tablet{
+       
+
+        @include laptop{
             display: flex;
             justify-content: space-between;
             width: 60%;
@@ -213,6 +219,10 @@
         }
 
         @include tablet{
+            width: 70%;
+        }
+
+        @include laptop{
             order: unset;
             width: 58%;
             flex-direction: row;
@@ -247,7 +257,7 @@
             margin-bottom: 2rem;
         }
 
-        @include tablet{
+        @include laptop{
             width: 120px;
             margin: 0;
         }
@@ -262,7 +272,7 @@
         display: block;
     }
 
-    @include tablet{
+    @include laptop{
         display: none;
     }
     
@@ -293,7 +303,7 @@
         top: 1pc;
     }
 
-    @include tablet{
+    @include laptop{
         display: none;
     }
     

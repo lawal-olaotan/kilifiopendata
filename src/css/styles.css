@@ -18,7 +18,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .top {
     position: -webkit-sticky;
     position: sticky;
@@ -62,7 +62,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .top__logowrapper img {
     width: 200px;
   }
@@ -90,6 +90,12 @@
 }
 
 @media screen and (min-width: 768px) {
+  .top__searchwrapper {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .top__searchwrapper {
     width: 35%;
     -webkit-box-orient: horizontal;
@@ -161,7 +167,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .top__searchbox {
     width: 85%;
     top: 1.8pc;
@@ -217,7 +223,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .top__navmenu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -274,6 +280,12 @@
 
 @media screen and (min-width: 768px) {
   .nav__left {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav__left {
     -webkit-box-ordinal-group: unset;
         -ms-flex-order: unset;
             order: unset;
@@ -328,7 +340,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .nav__select {
     width: 120px;
     margin: 0;
@@ -341,7 +353,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .toggle_btn {
     display: none;
   }
@@ -376,7 +388,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .navicon {
     display: none;
   }

@@ -15,7 +15,6 @@ const Piechart = ({state,ToolData,setPieTitle,setPiePercent}) => {
     }, [state])
 
     useMemo(() => {
-
         let timecall = setTimeout(()=> {
 
             const calldata = {
@@ -45,13 +44,12 @@ const Piechart = ({state,ToolData,setPieTitle,setPiePercent}) => {
                 }
 
             }
-
-            setCall(calldata)
+            setCall(calldata);
         },1000);
         
         return () => clearTimeout(timecall);
 
-    },[ToolData,setPieTitle,setPiePercent])
+    },[ToolData])
     
 
     return(

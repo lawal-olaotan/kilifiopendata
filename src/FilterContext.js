@@ -522,15 +522,14 @@ const FilterContext = React.createContext();
 
 
                 const communityIn = commData.community_involved;
-                console.log(communityIn);
                 const communityInData = [parseInt((communityIn.percentage/100)*360),parseInt(((100 - communityIn.percentage)/100)*360)];
                 const communityInPercentage = [parseInt(communityIn.percentage), parseInt(100 - communityIn.percentage)];
+                const communityInCount = [parseInt(communityIn.count), parseInt((communityIn.count*communityInPercentage[1]/communityInPercentage[0]))];
 
-               
-                
+            
                 // communityToolTip
                 const commInToolTip = {
-                    count : communityInPercentage,
+                    count : communityInCount,
                     percentage: communityInPercentage
                 }
 
@@ -542,9 +541,10 @@ const FilterContext = React.createContext();
                 const womenIn = commData.women_involved;
                 const womenInData = [parseInt((womenIn.percentage/100)*360),parseInt(((100 - womenIn.percentage)/100)*360)];
                 const womenInPercentage = [parseInt(womenIn.percentage),parseInt(100 - womenIn.percentage)];
+                const womenInCount = [parseInt(womenIn.count), parseInt((womenIn.count*womenInPercentage[1]/womenInPercentage[0]))];
 
                 const womenInToolTip = {
-                    count : womenInPercentage,
+                    count : womenInCount,
                     percentage : womenInPercentage
                 }
 
@@ -691,7 +691,7 @@ const FilterContext = React.createContext();
         womenInTools : womenInTip,
         womenTipTitles:[womenInTipTitle, setWomenInTipTitle],
         womenInTipPercs : [womenInTipPerc, setWomenInTipPerc],
-        // chartState : setChartInstance
+    
 
     }
 
