@@ -90,6 +90,32 @@ const FilterContext = React.createContext();
     const [womenInTipPerc, setWomenInTipPerc] = useState('');
 
 
+    const [disabledInTip,setDisabledInTip] = useState([]);
+    const [disabledInTipTitle, setDisabledInTipTitle] = useState('');
+    const [disabledInTipPerc, setDisabledInTipPerc] = useState('');
+
+
+    const [youthInTip,setYouthInTip] = useState([]);
+    const [youthInTipTitle, setYouthInTipTitle] = useState('');
+    const [youthInTipPerc, setYouthInTipPerc] = useState('');
+
+
+    const [projectInTip,setProjectInTip] = useState([]);
+    const [projectInTipTitle, setProjectInTipTitle] = useState('');
+    const [projectInTipPerc, setProjectInTipPerc] = useState('');
+
+
+    const [meetingInTip,setMeetingInTip] = useState([]);
+    const [meetingInTipTitle, setMeetingInTipTitle] = useState('');
+    const [meetingInTipPerc, setMeetingInTipPerc] = useState('');
+
+
+    const [matInTip,setMatingInTip] = useState([]);
+    const [matgInTipTitle, setMatingInTipTitle] = useState('');
+    const [matingInTipPerc, setMatingInTipPerc] = useState('');
+    
+
+
     // // chart js instance
     // const [chartInstance, setChartInstance] = useState(null);
 
@@ -135,7 +161,6 @@ const FilterContext = React.createContext();
             let approvalrate =0
 
             for(let k=0; k < countyData.length; k++){
-
                 totalres += countyData[k].all;
                 pending += countyData[k].pending;
                 totalapproved += countyData[k].approved;
@@ -514,10 +539,6 @@ const FilterContext = React.createContext();
 
             if (!MountRef.current) {return null}
                 const  commData = res.data.data;
-
-               
-
-
                 const communityInLabel = ['Involved','Not Involved']
 
 
@@ -555,28 +576,92 @@ const FilterContext = React.createContext();
 
 
                 const disabledIn = commData.disabled_involved;
-                const disabledInData = [parseInt(((disabledIn.percentage/100)*360).toFixed(1)), parseInt((((100 - disabledIn.percentage)/100)*360).toFixed(1))];
-                
+                const disabledInData = [parseInt(((disabledIn.percentage/100)*360)), parseInt((((100 - disabledIn.percentage)/100)*360))];
+                const disabledInPercentage = [parseInt(disabledIn.percentage),parseInt(100 - disabledIn.percentage)];
+                const disabledInCount = [parseInt(disabledIn.count),parseInt((disabledIn.count*disabledInPercentage[1]/disabledInPercentage[0]))];
 
-                const projectIn = commData.implemented_timely; 
-                const ProjectInData = [parseInt(((projectIn.percentage/100)*360).toFixed(1)), parseInt((((100 - projectIn.percentage)/100)*360).toFixed(1))];
 
-                const meetingIn = commData.meeting_involved; 
-                const meeetingInData = [parseInt(((meetingIn.percentage/100)*360).toFixed(1)), parseInt((((100 - meetingIn.percentage)/100)*360).toFixed(1))];
+                const disbaledInToolTip = {
+                    count : disabledInCount,
+                    percentage : disabledInPercentage
+                }
 
-                const materialsIn = commData.quality_materials; 
-                const materialsInData = [parseInt(((materialsIn.percentage/100)*360).toFixed(1)), parseInt((((100 - materialsIn.percentage)/100)*360).toFixed(1))];
-
-               
-               
-
+                setDisabledInTip(disbaledInToolTip);
+                setDisabledInTipTitle(communityInLabel[0]);
+                setDisabledInTipPerc(disabledInPercentage[0]);
 
 
                 const YouthIn = commData.youth_involved;
-                const youthInData = [parseInt(((YouthIn.percentage/100)*360).toFixed(1)), parseInt((((100 - YouthIn.percentage)/100)*360).toFixed(1))];
+                const youthInData = [parseInt(((YouthIn.percentage/100)*360)), parseInt((((100 - YouthIn.percentage)/100)*360))];
+                const youthInPercentage =  [parseInt(YouthIn.percentage),parseInt(100 - YouthIn.percentage)];
+                const youthInCount = [parseInt(YouthIn.count),parseInt((YouthIn.count*youthInPercentage[1]/youthInPercentage[0]))];
                 
-                let newData = {}
 
+                const YouthInToolTip = {
+                    count : youthInCount,
+                    percentage : youthInPercentage
+                }
+
+                setYouthInTip(YouthInToolTip);
+                setYouthInTipTitle(communityInLabel[0]);
+                setYouthInTipPerc(youthInPercentage[0]);
+
+
+                const projectIn = commData.implemented_timely; 
+                const ProjectInData =[parseInt(((projectIn.percentage/100)*360)), parseInt((((100 - projectIn.percentage)/100)*360))];
+                const projectInPercentage =[parseInt(projectIn.percentage),parseInt(100 - projectIn.percentage)];
+                const projectInCount = [parseInt(projectIn.count),parseInt((projectIn.count*projectInPercentage[1]/projectInPercentage[0]))];
+
+                const projectToolTip = {
+                    count : projectInCount,
+                    percentage:projectInPercentage
+                }
+
+                setProjectInTip(projectToolTip);
+                setProjectInTipTitle(communityInLabel[0])
+                setProjectInTipPerc(projectInPercentage[0])
+
+
+                const meetingIn = commData.meeting_involved; 
+                const meeetingInData = [parseInt(((meetingIn.percentage/100)*360)), parseInt((((100 - meetingIn.percentage)/100)*360))];
+                const meetingInPercentage =[parseInt(meetingIn.percentage),parseInt(100 - meetingIn.percentage)];
+                const meetingInCount = [parseInt(meetingIn.count),parseInt((meetingIn.count*meetingInPercentage[1]/meetingInPercentage[0]))];
+
+                const meetingToolTip = {
+                    count : meetingInCount,
+                    percentage : meetingInPercentage
+                }
+
+                    setMeetingInTip(meetingToolTip)
+                    setMeetingInTipTitle(communityInLabel[0])
+                    setMeetingInTipPerc(meetingInPercentage[0])
+                
+
+
+                const materialsIn = commData.quality_materials; 
+                const materialsInData = [parseInt(((materialsIn.percentage/100)*360)), parseInt((((100 - materialsIn.percentage)/100)*360))];
+                const materialsInPercentage =[parseInt(materialsIn.percentage),parseInt(100 - materialsIn.percentage)];
+                const materialsInCount = [parseInt(materialsIn.count),parseInt((materialsIn.count*materialsInPercentage[1]/materialsInPercentage[0]))];
+
+                const materialToolTip = {
+                    count : materialsInCount,
+                    percentage: materialsInPercentage
+                }
+
+                setMatingInTip(materialToolTip);
+                setMatingInTipTitle('great')
+                setMatingInTipPerc(materialsInPercentage[0])
+                
+
+
+                // const [matInTip,setMatingInTip] = useState([]);
+                // const [matgInTipTitle, setMatingInTipTitle] = useState('');
+                // const [matingInTipPerc, setMatingInTipPerc] = useState('');
+                
+
+
+            
+                let newData = {}
                 newData.CommmunityInvolvement = commData.women_involved.percentage
                 newData.citizenPriority = commData.youth_involved.percentage;
                 
@@ -585,8 +670,6 @@ const FilterContext = React.createContext();
                     commArray.push(commData[property]);  
                 }
 
-                
-              
                 let total = 0;
                 for(let item of commArray){
                     total += item.percentage
@@ -691,8 +774,22 @@ const FilterContext = React.createContext();
         womenInTools : womenInTip,
         womenTipTitles:[womenInTipTitle, setWomenInTipTitle],
         womenInTipPercs : [womenInTipPerc, setWomenInTipPerc],
-    
-
+        disabledInTools : disabledInTip,
+        disabledInTipTitles:[disabledInTipTitle, setDisabledInTipTitle],
+        disabledInTipPercs :[disabledInTipPerc, setDisabledInTipPerc],
+        youthInTools : youthInTip,
+        youthInTipTitles:[youthInTipTitle, setYouthInTipTitle],
+        youthInTipPercs :[youthInTipPerc, setYouthInTipPerc],
+        projectInTools: projectInTip,
+        projectInTipTitles:[projectInTipTitle, setProjectInTipTitle],
+        projectInTipPercs :[projectInTipPerc, setProjectInTipPerc],
+        meetingInTools:meetingInTip,
+        meetingInTipTitles:[meetingInTipTitle, setMeetingInTipTitle],
+        meetingInTipPercs :[meetingInTipPerc, setMeetingInTipPerc],
+        matingInTools:matInTip,
+        matingInTipTitles:[matgInTipTitle, setMatingInTipTitle],
+        matingInTipPercs :[matingInTipPerc, setMatingInTipPerc],
+        
     }
 
  

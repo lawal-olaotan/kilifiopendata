@@ -265,6 +265,8 @@
   margin: 0;
   font-size: .5rem;
   font-weight: 500;
+  text-align: center;
+  margin-bottom: .2rem;
 }
 
 .project__pievalue {
@@ -365,5 +367,21 @@ canvas {
 
 .deptfonttitle {
   font-size: .8rem;
+}
+
+@media screen and (min-width: 320px) {
+  .threepstyle {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .threepstyle {
+    width: 30%;
+  }
+}
+
+.newposition {
+  left: 5.5pc;
 }
 /*# sourceMappingURL=project.css.map */
