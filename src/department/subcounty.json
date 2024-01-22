@@ -1,0 +1,158 @@
+{
+  "subCounty": [
+    {
+      "Name": "Ganze Sub-County",
+      "lat": -3.53673,
+      "lon": 39.69237,
+      "color": "rgba(236,199,34,0.42)",
+      "totalProjects": 237,
+      "departments": [
+        {"Name": "Treasury", "totalProjects": 41, "percentage": 17.3},
+        {"Name": "Transport", "totalProjects": 65, "percentage": 27.4},
+        {"Name": "Housing", "totalProjects": 93, "percentage": 39.2},
+        {"Name": "Agriculture", "totalProjects": 38, "percentage": 16.0}
+      ],
+      "projectExecution": {
+        "completed": 72,
+        "ongoing": 110,
+        "proposed": 55
+      },
+      "projectstatus": {
+        "approved": 170,
+        "pending": 67
+      }
+    },
+    {
+      "Name": "Malindi Sub-County",
+      "lat": -3.21319,
+      "lon": 40.118,
+      "color": "rgba(141,27,109,0.44)",
+      "totalProjects": 371,
+      "departments": [
+        {"Name": "Treasury", "totalProjects": 56, "percentage": 15.1},
+        {"Name": "Transport", "totalProjects": 74, "percentage": 19.9},
+        {"Name": "Housing", "totalProjects": 98, "percentage": 26.4},
+        {"Name": "Agriculture", "totalProjects": 143, "percentage": 38.5}
+      ],
+      "projectExecution": {
+        "completed": 135,
+        "ongoing": 170,
+        "proposed": 66
+      },
+      "projectstatus": {
+        "approved": 250,
+        "pending": 121
+      }
+    },
+    {
+      "Name": "Kaloleni Sub-County",
+      "lat": -3.744,
+      "lon": 39.722,
+      "color": "rgba(61,91,42,0.53)",
+      "totalProjects": 287,
+      "departments": [
+        {"Name": "Treasury", "totalProjects": 48, "percentage": 16.7},
+        {"Name": "Transport", "totalProjects": 68, "percentage": 23.7},
+        {"Name": "Housing", "totalProjects": 82, "percentage": 28.6},
+        {"Name": "Agriculture", "totalProjects": 89, "percentage": 31.0}
+      ],
+      "projectExecution": {
+        "completed": 110,
+        "ongoing": 107,
+        "proposed": 70
+      },
+      "projectstatus": {
+        "approved": 220,
+        "pending": 67
+      }
+    },
+    {
+      "Name": "Kilifi North Sub-County",
+      "lat": -3.581297874802858,
+      "lon": 39.79346292313003,
+      "color": "rgba(79,235,55,0.5)",
+      "totalProjects": 362,
+      "departments": [
+        {"Name": "Treasury", "totalProjects": 64, "percentage": 17.7},
+        {"Name": "Transport", "totalProjects": 78, "percentage": 21.5},
+        {"Name": "Housing", "totalProjects": 95, "percentage": 26.2},
+        {"Name": "Agriculture", "totalProjects": 125, "percentage": 34.6}
+      ],
+      "projectExecution": {
+        "completed": 153,
+        "ongoing": 133,
+        "proposed": 76
+      },
+      "projectstatus": {
+        "approved": 267,
+        "pending": 95
+      }
+    },
+    {
+      "Name": "Magarini Sub-County",
+      "lat": -3.023276431920616,
+      "lon": 40.06700513752723,
+      "color": "rgba(20,174,204,0.3)",
+      "totalProjects": 276,
+      "departments": [
+        {"Name": "Treasury", "totalProjects": 45, "percentage": 16.3},
+        {"Name": "Transport", "totalProjects": 62, "percentage": 22.5},
+        {"Name": "Housing", "totalProjects": 73, "percentage": 26.4},
+        {"Name": "Agriculture", "totalProjects": 96, "percentage": 34.8}
+      ],
+      "projectExecution": {
+        "completed": 85,
+        "ongoing": 111,
+        "proposed": 80
+      },
+      "projectstatus": {
+        "approved": 230,
+        "pending": 46
+      }
+    },
+    {
+      "Name": "Kilifi South Sub-County",
+      "lat": -3.776113008337626,
+      "lon": 39.83224031160767,
+      "color": "rgba(236,73,9,0.33)",
+      "totalProjects": 280,
+      "departments": [
+        {"Name": "Treasury", "totalProjects": 49, "percentage": 17.5},
+        {"Name": "Transport", "totalProjects": 72, "percentage": 25.7},
+        {"Name": "Housing", "totalProjects": 80, "percentage": 28.6},
+        {"Name": "Agriculture", "totalProjects": 79, "percentage": 28.2}
+      ],
+      "projectExecution": {
+        "completed": 105,
+        "ongoing": 108,
+        "proposed": 67
+      },
+      "projectstatus": {
+        "approved": 215,
+        "pending": 65
+      }
+    },
+    {
+      "Name": "Rabai Sub-County",
+      "lat": -3.932021734071574,
+      "lon": 39.54882822876534,
+      "color": "rgba(20,96,153,0.31)",
+      "totalProjects": 267,
+      "departments": [
+        {"Name": "Treasury", "totalProjects": 40, "percentage": 15.0},
+        {"Name": "Transport", "totalProjects": 56, "percentage": 21.0},
+        {"Name": "Housing", "totalProjects": 74, "percentage": 27.7},
+        {"Name": "Agriculture", "totalProjects": 97, "percentage": 36.3}
+      ],
+      "projectExecution": {
+        "completed": 95,
+        "ongoing": 85,
+        "proposed": 87
+      },
+      "projectstatus": {
+        "approved": 210,
+        "pending": 57
+      }
+    }
+  ]
+}

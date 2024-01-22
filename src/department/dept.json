@@ -1,0 +1,38 @@
+[
+    {
+        "department": "Treasury",
+        "totalProjects": 303,
+        "projectStatus": {
+            "completed": 70,
+            "ongoing": 120,
+            "proposed": 113
+        }
+    },
+    {
+        "department": "Transport",
+        "totalProjects": 525,
+        "projectStatus": {
+            "completed": 116,
+            "ongoing": 202,
+            "proposed": 207
+        }
+    },
+    {
+        "department": "Housing",
+        "totalProjects": 621,
+        "projectStatus": {
+            "completed": 203,
+            "ongoing": 256,
+            "proposed": 162
+        }
+    },
+    {
+        "department": "Agriculture",
+        "totalProjects": 757,
+        "projectStatus": {
+            "completed": 222,
+            "ongoing": 297,
+            "proposed": 238
+        }
+    }
+]

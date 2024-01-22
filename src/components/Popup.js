@@ -12,7 +12,6 @@ const Popup = () => {
     const [currentComp,deptComp,communityPop,projectStats]= compdata;
     const currentGeo = geodatas
 
-  
     const loader = <FontAwesomeIcon icon={faSpinner} className="fa-spin"/>;
 
     return (
@@ -25,7 +24,7 @@ const Popup = () => {
 
               ):(
                 <div>
-                <div className="hero__title">{currentGeo.Name}{currentGeo.type === 'ward' ? (<span> Ward</span>):(console.log())}</div>
+                <div className="hero__title">{currentGeo.Name}{currentGeo.type === 'ward' ? (<span> Ward</span>):('')}</div>
 
                 <div style={{background:(currentGeo.color)}} className="hero__colorbar">{currentGeo.subName}</div>
 
@@ -34,12 +33,12 @@ const Popup = () => {
                             <div className="hero__contenttable">
 
                             <div className="hero__project">
-                                <span className="hero__protitle">{projectStats.projectNumber}</span>
+                                <span className="hero__protitle">{projectStats.totalProjects}</span>
                                 <p className="hero__prosubtitle">Total Projects</p>
                             </div>
 
                             <div className="hero__project">
-                                <span className="hero__protitle">{projectStats.totalSpent}</span>
+                                <span className="hero__protitle">{projectStats.pendingProjects}</span>
                                 <p className="hero__prosubtitle">Pending Projects</p>
                             </div>
                                 
@@ -47,12 +46,12 @@ const Popup = () => {
 
                             <div className="hero__contenttable">
                             <div className="hero__project">
-                                <span className="hero__protitle">{projectStats.totalapproved}</span>
+                                <span className="hero__protitle">{projectStats.projectsApproved}</span>
                                 <p className="hero__prosubtitle">Projects Approved</p>
                             </div>
 
                             <div className="hero__project">
-                                <span className="hero__protitle">{projectStats.approvalrate}%</span>
+                                <span className="hero__protitle">{projectStats.approvalRate}%</span>
                                 <p className="hero__prosubtitle">Approval Rate</p>
                             </div>   
                             </div>
@@ -83,22 +82,6 @@ const Popup = () => {
                 
                     )}
                    
-                    
-
-                    <div className="hero__contenttable">
-
-                        <div className="hero__project">
-                            <span className="hero__protitle">{communityPop.CommmunityInvolvement}%</span>
-                            <p className="hero__prosubtitle">Women Involvement</p>
-                        </div>
-
-                        <div className="hero__project">
-                            <span className="hero__protitle">{communityPop.citizenPriority}%</span>
-                            <p className="hero__prosubtitle">Youth Involvement</p>
-                        </div>
-                            
-                    </div>
-
                 </div>
             
               )}

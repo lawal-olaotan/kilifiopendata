@@ -3,10 +3,10 @@ import data from './endpoint.json';
 import Items from "./entitles/Items";
 import wards from "./datas/wards.json";
 import subcounty from "./datas/sub_counties.json";
-import { Community, GetAll, GetAllinvolvement, GetDepartment, GetStats, GetStatus, GetSubcounties, citizenPriority} from './Dataservice';
-
-
-
+import summary from "./department/summary.json"
+import projectsCounty from "./department/subcounty.json";
+import projectsWards from "./department/wards.json"
+import { Community, GetAll, GetAllinvolvement, GetDepartment, GetStatus, GetSubcounties, citizenPriority} from './Dataservice';
 
 const FilterContext = React.createContext();
 
@@ -115,83 +115,12 @@ const FilterContext = React.createContext();
     const [matingInTipPerc, setMatingInTipPerc] = useState('');
     
 
-
-    // // chart js instance
-    // const [chartInstance, setChartInstance] = useState(null);
-
-
-
-    
     useEffect(()=> {
-        
         const geodata = data
         retrievGeoInfo(geodata,'County',8.5);
         setCurrentComp(data);
-
-
-        GetAll()
-        .then(res => {
-            const subCont = res.data.data;
-            setSubCountyList(subCont);
-        })
-
-
-        GetStats(subcounty,'ward')
-        .then (res=> {
-            const countiesStats = res.data.data;
-            
-            let countiesWards = []
-            for(let i=0; i < countiesStats.length; i++){
-                const wards = countiesStats[i].wards.values();
-                for(let ward of wards ){
-                    countiesWards.push(ward);
-                }   
-            }
-            setWardArray(countiesWards); 
-
-        })
-
-        GetSubcounties()
-        .then (res => {
-            const countyData = res.data.data; 
-            // paramaters  
-            let totalres = 0;
-            let pending = 0;
-            let totalapproved = 0;
-            let approvalrate =0
-
-            for(let k=0; k < countyData.length; k++){
-                totalres += countyData[k].all;
-                pending += countyData[k].pending;
-                totalapproved += countyData[k].approved;
-                approvalrate += countyData[k].approved_percentage/countyData.length
-            }
-
-            let ProjectSum = {
-                projectNumber : totalres,
-                totalSpent : pending,
-                totalapproved : totalapproved,
-                approvalrate : approvalrate.toFixed(1)
-            }
-            setProjectStats(ProjectSum);
-        })
-
-
-        GetAllinvolvement()
-        .then (res => {
-            const comm = res.data.data;
-            let newData = {};
-            newData.CommmunityInvolvement = comm.women_involved.percentage
-            newData.citizenPriority = comm.youth_involved.percentage
-            setCommunityPop(newData);
-        })
-
-        // updatePie(0)
-        
-        return () => { 
-            MountRef.current = false
-          }
-
+        setSubCountyList(data.subCounty);
+        getProjectSum(null,'county');
     } ,[]);
 
 
@@ -200,27 +129,25 @@ const FilterContext = React.createContext();
     
     const handleChange = async(value) => {
 
-        if(value !== 'Sub County'){
-            const selSubCounty = value;
-            const subCounty = subCountyList.filter(subcounty => subcounty.name === selSubCounty)[0];
-           let index = subCountyList.findIndex(sub => sub.name === selSubCounty);
-            const wards = subCounty.wards;
-            const geoSubCounty = data.subCounty;
-            const CountyGeo = geoSubCounty.filter(geosub => geosub.Name.toLowerCase() === selSubCounty.toLowerCase())[0];
-            retrievGeoInfo(CountyGeo,'subCounty',11);
-            getDept(selSubCounty,'constituency');
+        if(value === 'Sub County') return false;
+
+        const selSubCounty = value;
+        const subCounty = subCountyList.filter(subcounty => subcounty.Name === selSubCounty)[0];
+        setWardList(subCounty.wards)
+
+        const geoSubCounty = data.subCounty;
+        const CountyGeo = geoSubCounty.filter(geosub => geosub.Name.toLowerCase() === selSubCounty.toLowerCase())[0];
+        retrievGeoInfo(CountyGeo,'subCounty',10.4);
+
+            getDept(selSubCounty,'subCounty');
             setCurrentComp(subCounty);
-            getProjectSum(selSubCounty,'constituency',index);
             setCountyGeo(CountyGeo);
-            getStatus(selSubCounty,'constituency');
-            // citizenPriorities(selSubCounty,'constituency')
-            await getCommunityData(selSubCounty,'constituency')
+            getProjectSum(selSubCounty,'subCounty');
             setDeptComp([])
             setStatusComp([]);
             setShowNavbar(true);
             setShowProject(false);
-            setWardList(wards);
-        }
+        
 
     }
 
@@ -292,9 +219,6 @@ const FilterContext = React.createContext();
         setShowNavbar(!showNavbar);
     }
 
-
-
-
     const handleDept = e => {
         if(e.target.value !== 'Department'){
             const dept = e.target.value
@@ -311,22 +235,37 @@ const FilterContext = React.createContext();
 
 
     const handleStatus = e => {
-        if(e.target.value !== 'Project Status'){
+        if(e.target.value === 'Project Status') return null 
             const statusKey = e.target.value;
-            const currentStatus = projectStatus.filter(inner => inner.title === statusKey)[0];
-            setStatusComp(currentStatus);
-        }
+            // console.log(currentComp);
+            // expect a conditional here
+            const {projectExecution,totalProjects} = projectsCounty.subCounty.filter(projectSub => projectSub.Name === currentComp.Name)[0];
+            
+            let data; 
+
+            for( let exeState in projectExecution){
+                    if(exeState === statusKey) {
+                        const exeStateNum = projectExecution[exeState]
+                        data = {
+                            title:exeState,
+                            count:exeStateNum,
+                            percentage: parseInt((exeStateNum/totalProjects)*100)
+                        }
+                    }
+                   
+            }
+            setStatusComp(data);
     }
 
 
     const getDept = (subCountyName,location) => {
+    
+            const subCountyInfo = projectsCounty.subCounty
+            const { departments,totalProjects, projectstatus, projectExecution}= location === 'subCounty'?  subCountyInfo.filter(subCounty => subCountyName.toLowerCase() === subCounty.Name.toLowerCase())[0] : ''
+            setDepartmentList(departments)
+            projectType(departments,totalProjects)
+            getStatus(projectstatus,projectExecution,totalProjects)
 
-        GetDepartment(subCountyName,location)
-        .then (res =>{
-            const department = res.data.data;
-            setDepartmentList(department);
-            projectType(department);
-        })  
     }
 
 
@@ -367,70 +306,43 @@ const FilterContext = React.createContext();
      
 
 
-     const getProjectSum = (subcounty,location,index) => {
+     const getProjectSum = (name = null,location) => {
+            let projectSum;
+
+            switch(location){
+                case "county":
+                    projectSum = summary.countySummary
+                    break;
+                case "subCounty":
+                    const subCountySummaries = summary.subCountySummaries
+                    projectSum = subCountySummaries.filter(subCounty => subCounty.Name.toLowerCase() === name.toLowerCase())[0]
+                    break;
+                case "ward":
+                    break;
+                default:
+                console.log("invalid location")
+            }
         
-        GetStats(subcounty,location)
-        .then (res => {
-            let totalres = 0;
-            let pending = 0;
-            let totalapproved = 0;
-            let approvalrate = 0;
+            setProjectStats(projectSum);
 
-            if(index === ''){
-                let currentWard = wardArray.filter(inner => inner.name === subcounty)[0];
-                totalres = currentWard.all;
-                pending = currentWard.pending;
-                totalapproved = currentWard.approved;
-                approvalrate = currentWard.approved_percentage;
-            }else{
-                let wardProject = res.data.data[index].wards;
-                    for(let i =0; i < wardProject.length; i++){
-                        totalres += wardProject[i].all 
-                        pending += wardProject[i].pending;
-                        totalapproved += wardProject[i].approved;
-                        approvalrate += wardProject[i].approved_percentage / wardProject.length;
-                        
-                    }
-            }
-
-            let ProjectSum = {
-                projectNumber : totalres,
-                totalSpent : pending,
-                totalapproved : totalapproved,
-                approvalrate : approvalrate.toFixed(1)
-            }
-
-            setProjectStats(ProjectSum);
-
-                  
-        })
     }
 
    
 
     
-    const getStatus = (subcounty,location)=> {
+    const getStatus = (statusData,projectExecution,totalProject)=> {
 
-        GetStatus(subcounty,location)
-        .then(res => {
-            const statusData = res.data.data;
-
-            const statusCount = [statusData.none_phased,statusData.phased]
-            const statPerc = [ parseInt(100 - statusData.phased_percentage),parseInt(statusData.phased_percentage) ]
-
-
+            const statPerc = [ parseInt((statusData.approved/totalProject)*100), parseInt((statusData.pending/totalProject)*100),]
+            const statusCount = [statusData.approved, statusData.pending]
             let statusTool = {
                 count : statusCount,
                 percentage : statPerc
             }
 
-            const ProjectStatusDatas = statusData.projects_status
-            setProjectStatus(ProjectStatusDatas)
+            const phasedProject = parseInt((statusData.approved/totalProject)*360)
+            const nonPhasedProject = parseInt((statusData.pending/totalProject)*360)
 
-            const phasedProject = parseInt((statusData.phased/statusData.all)*360)
-            const nonPhasedProject = parseInt((statusData.none_phased/statusData.all)*360)
-
-            const phasedLabel = ['No Phased Project', 'Phased Project']
+            const phasedLabel = ['Approved', 'pending']
             const phaseData = [nonPhasedProject,phasedProject];
              
             setPhaseLabel(phasedLabel);
@@ -441,92 +353,70 @@ const FilterContext = React.createContext();
             let projectStatusData = [];
             let projectRealData = [];
 
-            for(let projectstatusData of ProjectStatusDatas){
-                projectStatusData.push(projectstatusData.percentage)
+
+            for(let phase in projectExecution){
+                const executionCount = projectExecution[phase]
+                const percentage = parseInt((executionCount/totalProject)*100)
+                projectStatusData.push(percentage)
+                projectRealData.push(executionCount)
+                projectStatusLabel.push(phase)
                 
             }
 
-            for(let projectstatusData of ProjectStatusDatas){
-                projectRealData.push(projectstatusData.count)
-                
-            }
 
-
-
-            for(let projectStatusLable of ProjectStatusDatas){
-                projectStatusLabel.push(projectStatusLable.title)
-                
-            }
+            setProjectStatus(projectStatusLabel)
 
             setStatusStats(statusTool);
             
             setPieTitle(phasedLabel[0])
             setPiePercent(statusTool.percentage[0])
         
+    
 
             setProjStatusLabel(projectStatusLabel)
             setProjStatusData(projectStatusData)
             setStatsCount(projectRealData);
         
-        })
-
-
     }
 
 
 
-     const projectType = (department) => {
+     const projectType = (department,projectSum) => {
 
 
         let typeLabel = [];
         let typeData = [];
         let pievalues = [];
         let percentValues =  [];
-        let totalvalue = 0
 
 
       
 
         for(let labels of department){
-            typeLabel.push(labels.department.split(' ')[0])
-        }
-           
-        for(let data of department){
-            totalvalue += parseInt(data.total)
-            typeData.push(parseInt(data.total))
-
-        }
-
-        for(let data of department){
-            percentValues.push(parseInt(data.percentage))
-
+            typeLabel.push(labels.Name)
+            typeData.push(parseInt(labels.totalProjects))
+            pievalues.push(parseInt((( labels.totalProjects/projectSum)*360)))
+            percentValues.push(parseInt(labels.percentage))
         }
         
-
-
-        for (let pieval of typeData){
-            pievalues.push(parseInt(((pieval/totalvalue)*360)))
-            // percentValues.push(parseInt(((pieval/totalvalue)*100).toFixed(0)))
-        }
-
+        if(typeLabel.length){
     
-       
-        const DeptToolTip = {
-            count : typeData,
-            percentage : percentValues
-        }
+            const DeptToolTip = {
+                count : typeData,
+                percentage : percentValues
+            }
 
         setDeptStats(DeptToolTip);
+        setDeptStats(DeptToolTip);
 
-        SetDeptTipTitle(typeLabel[0])
-        setDeptTipValue(percentValues[0])
-        setProjectType(pievalues);
-        setProjLabel(typeLabel);
+            setDeptStats(DeptToolTip);
 
-
-
-        
-
+            SetDeptTipTitle(typeLabel[0])
+            setDeptTipValue(percentValues[0])
+            setProjectType(pievalues);
+            setProjLabel(typeLabel);
+        }
+    
      };
 
 
@@ -739,11 +629,6 @@ const FilterContext = React.createContext();
         }
     }
 
-    // chart
-
-
-  
-
     
     // all data nedded for the components and event functions
     const UiData = {
@@ -792,8 +677,6 @@ const FilterContext = React.createContext();
         
     }
 
- 
-    
     return <FilterContext.Provider value={UiData}>{ children }</FilterContext.Provider>
 
 

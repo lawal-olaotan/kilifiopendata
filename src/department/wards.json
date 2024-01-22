@@ -1,0 +1,858 @@
+[
+    {
+        "Name": "Ganze Sub-County",
+        "lat": -3.53673,
+        "lon": 39.69237,
+        "color": "rgba(236,199,34,0.42)",
+        "totalProjects": 237,
+        "projectExecution": {
+            "completed": 72,
+            "ongoing": 110,
+            "proposed": 55
+        },
+        "projectStatus": {
+            "approved": 170,
+            "pending": 67
+        },
+        "wards": [
+            {
+                "Name": "Bamba",
+                "lat": -3.5424195273650936,
+                "lon": 39.52271463910227,
+                "totalProjects": 41,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 7, "percentage": 17.3},
+                    {"Name": "Transport", "totalProjects": 11, "percentage": 27.4},
+                    {"Name": "Housing", "totalProjects": 16, "percentage": 39.2},
+                    {"Name": "Agriculture", "totalProjects": 7, "percentage": 16.0}
+                ],
+                "projectStatus": {
+                    "completed": 15,
+                    "ongoing": 20,
+                    "proposed": 6
+                },
+                "projectExecution": {
+                    "completed": 15,
+                    "ongoing": 20,
+                    "proposed": 6
+                }
+            },
+            {
+                "Name": "Ganze",
+                "lat": -3.543576174276269,
+                "lon": 39.68299670174134,
+                "totalProjects": 50,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 9, "percentage": 21.1},
+                    {"Name": "Transport", "totalProjects": 13, "percentage": 29.5},
+                    {"Name": "Housing", "totalProjects": 18, "percentage": 40.5},
+                    {"Name": "Agriculture", "totalProjects": 10, "percentage": 8.9}
+                ],
+                "projectStatus": {
+                    "completed": 20,
+                    "ongoing": 25,
+                    "proposed": 5
+                },
+                "projectExecution": {
+                    "completed": 20,
+                    "ongoing": 25,
+                    "proposed": 5
+                }
+            },
+            {
+                "Name": "Jaribuni",
+                "lat": -3.6350635268615012,
+                "lon": 39.734458923339844,
+                "totalProjects": 56,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 10, "percentage": 23.6},
+                    {"Name": "Transport", "totalProjects": 14, "percentage": 31.2},
+                    {"Name": "Housing", "totalProjects": 19, "percentage": 41.3},
+                    {"Name": "Agriculture", "totalProjects": 13, "percentage": 8.9}
+                ],
+                "projectStatus": {
+                    "completed": 22,
+                    "ongoing": 25,
+                    "proposed": 9
+                },
+                "projectExecution": {
+                    "completed": 22,
+                    "ongoing": 25,
+                    "proposed": 9
+                }
+            },
+            {
+                "Name": "Sokoke",
+                "lat": -3.5317149846555385,
+                "lon": 39.81742359503702,
+                "totalProjects": 45,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 8, "percentage": 19.0},
+                    {"Name": "Transport", "totalProjects": 11, "percentage": 26.2},
+                    {"Name": "Housing", "totalProjects": 14, "percentage": 30.8},
+                    {"Name": "Agriculture", "totalProjects": 12, "percentage": 4.0}
+                ],
+                "projectStatus": {
+                    "completed": 18,
+                    "ongoing": 20,
+                    "proposed": 7
+                },
+                "projectExecution": {
+                    "completed": 18,
+                    "ongoing": 20,
+                    "proposed": 7
+                }
+            }
+        ]
+    },
+    {
+        "Name": "Malindi Sub-County",
+        "lat": -3.21319,
+        "lon": 40.118,
+        "color": "rgba(141,27,109,0.44)",
+        "totalProjects": 371,
+        "wards": [
+            {
+                "Name": "Jilore",
+                "lat": -3.1847372849216034,
+                "lon": 39.899940490722656,
+                "totalProjects": 56,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 9, "percentage": 16.1},
+                    {"Name": "Transport", "totalProjects": 14, "percentage": 25.0},
+                    {"Name": "Housing", "totalProjects": 18, "percentage": 32.1},
+                    {"Name": "Agriculture", "totalProjects": 15, "percentage": 26.8}
+                ],
+                "projectExecution": {
+                    "completed": 20,
+                    "ongoing": 18,
+                    "proposed": 18
+                },
+                "projectStatus": {
+                    "approved": 45,
+                    "pending": 11
+                }
+            },
+            {
+                "Name": "Kakuyuni",
+                "lat": -3.222554337514064,
+                "lon": 40.0010161789435,
+                "totalProjects": 74,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 11, "percentage": 14.9},
+                    {"Name": "Transport", "totalProjects": 19, "percentage": 25.7},
+                    {"Name": "Housing", "totalProjects": 26, "percentage": 35.1},
+                    {"Name": "Agriculture", "totalProjects": 18, "percentage": 24.3}
+                ],
+                "projectExecution": {
+                    "completed": 27,
+                    "ongoing": 22,
+                    "proposed": 25
+                },
+                "projectStatus": {
+                    "approved": 65,
+                    "pending": 9
+                }
+            },
+            {
+                "Name": "Ganda",
+                "lat": -3.2166190605239255,
+                "lon": 40.06620097936667,
+                "totalProjects": 98,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 17, "percentage": 17.3},
+                    {"Name": "Transport", "totalProjects": 28, "percentage": 28.6},
+                    {"Name": "Housing", "totalProjects": 34, "percentage": 34.7},
+                    {"Name": "Agriculture", "totalProjects": 19, "percentage": 19.4}
+                ],
+                "projectExecution": {
+                    "completed": 32,
+                    "ongoing": 30,
+                    "proposed": 36
+                },
+                "projectStatus": {
+                    "approved": 84,
+                    "pending": 14
+                }
+            },
+            {
+                "Name": "Malindi town",
+                "lat": -3.224066545407254,
+                "lon": 40.076405074880235,
+                "totalProjects": 143,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 26, "percentage": 18.2},
+                    {"Name": "Transport", "totalProjects": 35, "percentage": 24.5},
+                    {"Name": "Housing", "totalProjects": 44, "percentage": 30.8},
+                    {"Name": "Agriculture", "totalProjects": 38, "percentage": 26.6}
+                ],
+                "projectExecution": {
+                    "completed": 52,
+                    "ongoing": 45,
+                    "proposed": 46
+                },
+                "projectStatus": {
+                    "approved": 98,
+                    "pending": 45
+                }
+            },
+            {
+                "Name": "Shella",
+                "lat": -3.244904773677602,
+                "lon": 40.11693998874619,
+                "totalProjects": 0,
+                "departments": [],
+                "projectExecution": {
+                    "completed": 0,
+                    "ongoing": 0,
+                    "proposed": 0
+                },
+                "projectStatus": {
+                    "approved": 0,
+                    "pending": 0
+                }
+            }
+        ]
+    }
+    ,{
+        "Name": "Kaloleni Sub-County",
+        "lat": -3.744,
+        "lon": 39.722,
+        "color": "rgba(61,91,42,0.53)",
+        "totalProjects": 287,
+        "projectExecution": {
+          "completed": 85,
+          "ongoing": 137,
+          "proposed": 65
+        },
+        "projectStatus": {
+          "approved": 222,
+          "pending": 65
+        },
+        "wards": [
+          {
+            "Name": "Kaloleni",
+            "lat": -3.8141991639728654,
+            "lon": 39.632320404052734,
+            "totalProjects": 48,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 8, "percentage": 16.7},
+              {"Name": "Transport", "totalProjects": 14, "percentage": 29.2},
+              {"Name": "Housing", "totalProjects": 16, "percentage": 33.3},
+              {"Name": "Agriculture", "totalProjects": 10, "percentage": 20.8}
+            ],
+            "projectExecution": {
+              "completed": 15,
+              "ongoing": 25,
+              "proposed": 8
+            },
+            "projectStatus": {
+              "approved": 38,
+              "pending": 10
+            }
+          },
+          {
+            "Name": "Kayafungo",
+            "lat": -3.816682737048665,
+            "lon": 39.5163631439209,
+            "totalProjects": 68,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 12, "percentage": 17.6},
+              {"Name": "Transport", "totalProjects": 24, "percentage": 35.3},
+              {"Name": "Housing", "totalProjects": 20, "percentage": 29.4},
+              {"Name": "Agriculture", "totalProjects": 12, "percentage": 17.6}
+            ],
+            "projectExecution": {
+              "completed": 22,
+              "ongoing": 35,
+              "proposed": 11
+            },
+            "projectStatus": {
+              "approved": 56,
+              "pending": 12
+            }
+          },
+          {
+            "Name": "Mariakani",
+            "lat": -3.8660101427599476,
+            "lon": 39.473576545715325,
+            "totalProjects": 82,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 14, "percentage": 17.1},
+              {"Name": "Transport", "totalProjects": 26, "percentage": 31.7},
+              {"Name": "Housing", "totalProjects": 22, "percentage": 26.8},
+              {"Name": "Agriculture", "totalProjects": 20, "percentage": 24.4}
+            ],
+            "projectExecution": {
+              "completed": 25,
+              "ongoing": 40,
+              "proposed": 17
+            },
+            "projectStatus": {
+              "approved": 62,
+              "pending": 20
+            }
+          },
+          {
+            "Name": "Mwanamwinga",
+            "lat": -3.7522359866240578,
+            "lon": 39.546661376953125,
+            "totalProjects": 89,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 14, "percentage": 15.7},
+              {"Name": "Transport", "totalProjects": 28, "percentage": 31.5},
+              {"Name": "Housing", "totalProjects": 32, "percentage": 36.0},
+              {"Name": "Agriculture", "totalProjects": 15, "percentage": 16.9}
+            ],
+            "projectExecution": {
+              "completed": 20,
+              "ongoing": 30,
+              "proposed": 39
+            },
+            "projectStatus": {
+              "approved": 68,
+              "pending": 21
+            }
+          }
+        ]
+      }
+      ,{
+        "Name": "Kilifi North Sub-County",
+        "lat": -3.581297874802858,
+        "lon": 39.79346292313003,
+        "color": "rgba(79,235,55,0.5)",
+        "totalProjects": 362,
+        "projectExecution": {
+          "completed": 153,
+          "ongoing": 133,
+          "proposed": 76
+        },
+        "projectstatus": {
+          "approved": 267,
+          "pending": 95
+        },
+        "wards": [
+          {
+            "Name": "Tezo",
+            "lat": -3.5338101318623734,
+            "lon": 39.84964370727539,
+            "totalProjects": 64,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 14, "percentage": 21.9},
+              {"Name": "Transport", "totalProjects": 20, "percentage": 31.3},
+              {"Name": "Housing", "totalProjects": 16, "percentage": 25.0},
+              {"Name": "Agriculture", "totalProjects": 14, "percentage": 21.9}
+            ],
+            "projectExecution": {
+              "completed": 27,
+              "ongoing": 23,
+              "proposed": 14
+            },
+            "projectStatus": {
+              "approved": 48,
+              "pending": 16
+            }
+          },
+          {
+            "Name": "Sokoni",
+            "lat": -3.62512714335925,
+            "lon": 39.873247146606445,
+            "totalProjects": 78,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 16, "percentage": 20.5},
+              {"Name": "Transport", "totalProjects": 26, "percentage": 33.3},
+              {"Name": "Housing", "totalProjects": 20, "percentage": 25.6},
+              {"Name": "Agriculture", "totalProjects": 16, "percentage": 20.5}
+            ],
+            "projectExecution": {
+              "completed": 32,
+              "ongoing": 31,
+              "proposed": 15
+            },
+            "projectStatus": {
+              "approved": 62,
+              "pending": 16
+            }
+          },
+          {
+            "Name": "Kibarani",
+            "lat": -3.6012279813684387,
+            "lon": 39.844322204589844,
+            "totalProjects": 95,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 18, "percentage": 18.9},
+              {"Name": "Transport", "totalProjects": 32, "percentage": 33.7},
+              {"Name": "Housing", "totalProjects": 25, "percentage": 26.3},
+              {"Name": "Agriculture", "totalProjects": 20, "percentage": 21.1}
+            ],
+            "projectExecution": {
+              "completed": 38,
+              "ongoing": 34,
+              "proposed": 23
+            },
+            "projectStatus": {
+              "approved": 75,
+              "pending": 20
+            }
+          },
+          {
+            "Name": "Dabaso",
+            "lat": -3.354202186673276,
+            "lon": 39.99845789337886,
+            "totalProjects": 125,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 28, "percentage": 22.4},
+              {"Name": "Transport", "totalProjects": 36, "percentage": 28.8},
+              {"Name": "Housing", "totalProjects": 30, "percentage": 24.0},
+              {"Name": "Agriculture", "totalProjects": 31, "percentage": 24.8}
+            ],
+            "projectExecution": {
+              "completed": 50,
+              "ongoing": 45,
+              "proposed": 30
+            },
+            "projectStatus": {
+              "approved": 85,
+              "pending": 40
+            }
+          },
+          {
+            "Name": "Watamu",
+            "lat": -3.3500354824389063,
+            "lon": 40.0162410736084,
+            "totalProjects": 62,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 11, "percentage": 17.7},
+              {"Name": "Transport", "totalProjects": 17, "percentage": 27.4},
+              {"Name": "Housing", "totalProjects": 13, "percentage": 21.0},
+              {"Name": "Agriculture", "totalProjects": 21, "percentage": 33.9}
+            ],
+            "projectExecution": {
+              "completed": 26,
+              "ongoing": 22,
+              "proposed": 14
+            },
+            "projectStatus": {
+              "approved": 41,
+              "pending": 21
+            }
+          },
+          {
+            "Name": "Matsangoni",
+            "lat": -3.4017015747197306,
+            "lon": 39.925689697265625,
+            "totalProjects": 35,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 6, "percentage": 17.1},
+              {"Name": "Transport", "totalProjects": 9, "percentage": 25.7},
+              {"Name": "Housing", "totalProjects": 10, "percentage": 28.6},
+              {"Name": "Agriculture", "totalProjects": 10, "percentage": 28.6}
+            ],
+            "projectExecution": {
+              "completed": 16,
+              "ongoing": 12,
+              "proposed": 7
+            },
+            "projectStatus": {
+              "approved": 25,
+              "pending": 10
+            }
+          },
+          {
+            "Name": "Mnarani",
+            "lat": -3.6418304840146227,
+            "lon": 39.847283363342285,
+            "totalProjects": 28,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 5, "percentage": 17.9},
+              {"Name": "Transport", "totalProjects": 7, "percentage": 25.0},
+              {"Name": "Housing", "totalProjects": 8, "percentage": 28.6},
+              {"Name": "Agriculture", "totalProjects": 8, "percentage": 28.6}
+            ],
+            "projectExecution": {
+              "completed": 10,
+              "ongoing": 11,
+              "proposed": 7
+            },
+            "projectStatus": {
+              "approved": 20,
+              "pending": 8
+            }
+          }
+        ]
+      },{
+        "Name": "Magarini Sub-County",
+        "lat": "-3.023276431920616",
+        "lon": "40.06700513752723",
+        "color": "rgba(20,174,204,0.3)",
+        "totalProjects": 276,
+        "projectExecution": {
+          "completed": 135,
+          "ongoing": 170,
+          "proposed": 66
+        },
+        "projectStatus": {
+          "approved": 250,
+          "pending": 121
+        },
+        "wards": [
+          {
+            "Name": "Gongoni",
+            "lat": -2.998571153165889,
+            "lon": 40.04205799102783,
+            "totalProjects": 45,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 8, "percentage": 17.8},
+              {"Name": "Transport", "totalProjects": 11, "percentage": 24.4},
+              {"Name": "Housing", "totalProjects": 13, "percentage": 28.9},
+              {"Name": "Agriculture", "totalProjects": 13, "percentage": 28.9}
+            ],
+            "projectExecution": {
+              "completed": 20,
+              "ongoing": 15,
+              "proposed": 10
+            },
+            "projectStatus": {
+              "approved": 28,
+              "pending": 17
+            }
+          },
+          {
+            "Name": "Marafa",
+            "lat": -3.0696057619679945,
+            "lon": 40.10416030883789,
+            "totalProjects": 62,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 11, "percentage": 17.7},
+              {"Name": "Transport", "totalProjects": 18, "percentage": 29.0},
+              {"Name": "Housing", "totalProjects": 15, "percentage": 24.2},
+              {"Name": "Agriculture", "totalProjects": 18, "percentage": 29.0}
+            ],
+            "projectExecution": {
+              "completed": 28,
+              "ongoing": 20,
+              "proposed": 14
+            },
+            "projectStatus": {
+              "approved": 47,
+              "pending": 15
+            }
+          },
+          {
+            "Name": "Garashi",
+            "lat": -3.0188764519016597,
+            "lon": 40.101661682128906,
+            "totalProjects": 73,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 13, "percentage": 17.8},
+              {"Name": "Transport", "totalProjects": 20, "percentage": 27.4},
+              {"Name": "Housing", "totalProjects": 18, "percentage": 24.7},
+              {"Name": "Agriculture", "totalProjects": 22, "percentage": 30.1}
+            ],
+            "projectExecution": {
+              "completed": 35,
+              "ongoing": 25,
+              "proposed": 13
+            },
+            "projectStatus": {
+              "approved": 55,
+              "pending": 18
+            }
+          },
+          {
+            "Name": "Malanga",
+            "lat": -3.0580326428364357,
+            "lon": 40.07556915283203,
+            "totalProjects": 96,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 17, "percentage": 17.7},
+              {"Name": "Transport", "totalProjects": 27, "percentage": 28.1},
+              {"Name": "Housing", "totalProjects": 26, "percentage": 27.1},
+              {"Name": "Agriculture", "totalProjects": 26, "percentage": 27.1}
+            ],
+            "projectExecution": {
+              "completed": 52,
+              "ongoing": 30,
+              "proposed": 14
+            },
+            "projectStatus": {
+              "approved": 78,
+              "pending": 18
+            }
+          }
+        ]
+      }
+      ,{
+        "Name": "Kilifi South Sub-County",
+        "lat": "-3.776113008337626",
+        "lon": "39.83224031160767",
+        "color": "rgba(236,73,9,0.33)",
+        "totalProjects": 280,
+        "wards": [
+            {
+                "Name": "Chasimba",
+                "lat": -3.820218241571531,
+                "lon": 39.81904983520508,
+                "totalProjects": 49,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 9, "percentage": 18.4},
+                    {"Name": "Transport", "totalProjects": 15, "percentage": 30.6},
+                    {"Name": "Housing", "totalProjects": 12, "percentage": 24.5},
+                    {"Name": "Agriculture", "totalProjects": 13, "percentage": 26.5}
+                ]
+            },
+            {
+                "Name": "Kasemeni",
+                "lat": -3.795765411784492,
+                "lon": 39.82720375061035,
+                "totalProjects": 72,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 14, "percentage": 19.4},
+                    {"Name": "Transport", "totalProjects": 25, "percentage": 34.7},
+                    {"Name": "Housing", "totalProjects": 20, "percentage": 27.8},
+                    {"Name": "Agriculture", "totalProjects": 13, "percentage": 18.1}
+                ]
+            },
+            {
+                "Name": "Mackinnon Road",
+                "lat": -3.7857082282666815,
+                "lon": 39.792823791503906,
+                "totalProjects": 80,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 15, "percentage": 18.8},
+                    {"Name": "Transport", "totalProjects": 28, "percentage": 35.0},
+                    {"Name": "Housing", "totalProjects": 23, "percentage": 28.8},
+                    {"Name": "Agriculture", "totalProjects": 14, "percentage": 17.5}
+                ]
+            },
+            {
+                "Name": "Kinango",
+                "lat": -3.826275632474664,
+                "lon": 39.78931427001953,
+                "totalProjects": 79,
+                "departments": [
+                    {"Name": "Treasury", "totalProjects": 11, "percentage": 13.9},
+                    {"Name": "Transport", "totalProjects": 24, "percentage": 30.4},
+                    {"Name": "Housing", "totalProjects": 23, "percentage": 29.1},
+                    {"Name": "Agriculture", "totalProjects": 21, "percentage": 26.6}
+                ]
+            }
+        ]
+    },{
+        "Name": "Rabai Sub-County",
+        "lat": "-3.932021734071574",
+        "lon": "39.54882822876534",
+        "color": "rgba(20,96,153,0.31)",
+        "totalProjects": 267,
+        "projectExecution": {
+          "completed": 153,
+          "ongoing": 133,
+          "proposed": 76
+        },
+        "projectStatus": {
+          "approved": 267,
+          "pending": 95
+        },
+        "wards": [
+          {
+            "Name": "Ruruma",
+            "lat": -3.915540841274347,
+            "lon": 39.58974838256836,
+            "totalProjects": 40,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 8, "percentage": 20.0},
+              {"Name": "Transport", "totalProjects": 12, "percentage": 30.0},
+              {"Name": "Housing", "totalProjects": 10, "percentage": 25.0},
+              {"Name": "Agriculture", "totalProjects": 10, "percentage": 25.0}
+            ],
+            "projectExecution": {
+              "completed": 30,
+              "ongoing": 5,
+              "proposed": 5
+            },
+            "projectStatus": {
+              "approved": 30,
+              "pending": 10
+            }
+          },
+          {
+            "Name": "Chasimba",
+            "lat": -3.9284707590182193,
+            "lon": 39.53807830810547,
+            "totalProjects": 56,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 10, "percentage": 17.9},
+              {"Name": "Transport", "totalProjects": 18, "percentage": 32.1},
+              {"Name": "Housing", "totalProjects": 18, "percentage": 32.1},
+              {"Name": "Agriculture", "totalProjects": 10, "percentage": 17.9}
+            ],
+            "projectExecution": {
+              "completed": 25,
+              "ongoing": 15,
+              "proposed": 16
+            },
+            "projectStatus": {
+              "approved": 38,
+              "pending": 18
+            }
+          },
+          {
+            "Name": "Jibana",
+            "lat": -3.961066157163707,
+            "lon": 39.53773593902588,
+            "totalProjects": 74,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 11, "percentage": 14.9},
+              {"Name": "Transport", "totalProjects": 23, "percentage": 31.1},
+              {"Name": "Housing", "totalProjects": 22, "percentage": 29.7},
+              {"Name": "Agriculture", "totalProjects": 18, "percentage": 24.3}
+            ],
+            "projectExecution": {
+              "completed": 40,
+              "ongoing": 22,
+              "proposed": 12
+            },
+            "projectStatus": {
+              "approved": 54,
+              "pending": 20
+            }
+          },
+          {
+            "Name": "Rabai/Kisurutini",
+            "lat": -3.945648883632693,
+            "lon": 39.517269134521484,
+            "totalProjects": 97,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 21, "percentage": 21.6},
+              {"Name": "Transport", "totalProjects": 30, "percentage": 30.9},
+              {"Name": "Housing", "totalProjects": 26, "percentage": 26.8},
+              {"Name": "Agriculture", "totalProjects": 20, "percentage": 20.6}
+            ],
+            "projectExecution": {
+              "completed": 58,
+              "ongoing": 30,
+              "proposed": 9
+            },
+            "projectStatus": {
+              "approved": 145,
+              "pending": 27
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Kilifi South Sub-County",
+        "lat": -3.776113008337626,
+        "lon": 39.83224031160767,
+        "color": "rgba(236,73,9,0.33)",
+        "wards": [
+          {
+            "Name": "Junju",
+            "lat": -3.8501674502679974,
+            "lon": 39.73355770111084,
+            "totalProjects": 60,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 10, "percentage": 16.7},
+              {"Name": "Transport", "totalProjects": 18, "percentage": 30.0},
+              {"Name": "Housing", "totalProjects": 20, "percentage": 33.3},
+              {"Name": "Agriculture", "totalProjects": 12, "percentage": 20.0}
+            ],
+            "projectExecution": {
+              "completed": 22,
+              "ongoing": 28,
+              "proposed": 10
+            },
+            "projectStatus": {
+              "approved": 45,
+              "pending": 15
+            }
+          },
+          {
+            "Name": "Mwarakaya",
+            "lat": -3.7998970691480882,
+            "lon": 39.6999979019165,
+            "totalProjects": 80,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 15, "percentage": 18.8},
+              {"Name": "Transport", "totalProjects": 24, "percentage": 30.0},
+              {"Name": "Housing", "totalProjects": 25, "percentage": 31.3},
+              {"Name": "Agriculture", "totalProjects": 16, "percentage": 20.0}
+            ],
+            "projectExecution": {
+              "completed": 35,
+              "ongoing": 32,
+              "proposed": 13
+            },
+            "projectStatus": {
+              "approved": 60,
+              "pending": 20
+            }
+          },
+          {
+            "Name": "Shimo La Tewa",
+            "lat": -3.947359820348865,
+            "lon": 39.74235534667969,
+            "totalProjects": 90,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 20, "percentage": 22.2},
+              {"Name": "Transport", "totalProjects": 32, "percentage": 35.6},
+              {"Name": "Housing", "totalProjects": 28, "percentage": 31.1},
+              {"Name": "Agriculture", "totalProjects": 10, "percentage": 11.1}
+            ],
+            "projectExecution": {
+              "completed": 22,
+              "ongoing": 28,
+              "proposed": 10
+            },
+            "projectStatus": {
+              "approved": 45,
+              "pending": 15
+            }
+          },
+          {
+            "Name": "Chasimba",
+            "lat": -3.716777535844104,
+            "lon": 39.6999979019165,
+            "totalProjects": 60,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 10, "percentage": 16.7},
+              {"Name": "Transport", "totalProjects": 18, "percentage": 30.0},
+              {"Name": "Housing", "totalProjects": 20, "percentage": 33.3},
+              {"Name": "Agriculture", "totalProjects": 12, "percentage": 20.0}
+            ],
+            "projectExecution": {
+              "completed": 22,
+              "ongoing": 28,
+              "proposed": 10
+            },
+            "projectStatus": {
+              "approved": 45,
+              "pending": 15
+            }
+          },
+          {
+            "Name": "Mtepeni",
+            "lat": -3.9161758719358097,
+            "lon": 39.75951424873872,
+            "totalProjects": 80,
+            "departments": [
+              {"Name": "Treasury", "totalProjects": 15, "percentage": 18.8},
+              {"Name": "Transport", "totalProjects": 24, "percentage": 30.0},
+              {"Name": "Housing", "totalProjects": 25, "percentage": 31.3},
+              {"Name": "Agriculture", "totalProjects": 16, "percentage": 20.0}
+            ],
+            "projectExecution": {
+              "completed": 35,
+              "ongoing": 32,
+              "proposed": 13
+            },
+            "projectStatus": {
+              "approved": 60,
+              "pending": 20
+            }
+          }
+        ]
+      }
+      
+      
+]

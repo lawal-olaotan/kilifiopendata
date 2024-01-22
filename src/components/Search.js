@@ -45,8 +45,6 @@ const Search = () => {
             }
       }
 
-
-
     return (
        
         <div className="top__searchwrapper">

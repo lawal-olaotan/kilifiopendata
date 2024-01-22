@@ -26,7 +26,7 @@ const NavBar = () => {
                         <select className="nav__orgselect" onChange={(e)=> handleChange(e.target.value) }>
                           <option>Sub County</option>
                           {subCountyList && subCountyList.map((subCounty)=> (
-                            <option >{subCounty.name}</option>
+                            <option >{subCounty.Name}</option>
                           )) }    
                         </select>
 
@@ -36,7 +36,7 @@ const NavBar = () => {
                         <select className="nav__orgselect"  onChange={(e)=> handleWard(e.target.value)}>
                           <option>Wards</option>
                           {wardList && wardList.map((ward)=> (
-                            <option>{ward.name}</option>
+                            <option>{ward.Name}</option>
                           )) }
                         </select>
                     </div>
@@ -45,7 +45,7 @@ const NavBar = () => {
                         <select className="nav__orgselect" onChange={handleDept}>
                           <option>Department</option>
                           {departmentList && departmentList.map((dept)=> (
-                            <option>{dept.department}</option>
+                            <option>{dept.Name}</option>
                           )) }
                               
                         </select>
@@ -59,12 +59,7 @@ const NavBar = () => {
                   <FontAwesomeIcon icon={faBars} className="icon" onClick={NavState} />
                 </div>
             </nav>
-
-        // </header>
     )
-
-
-
 }
 
 export default NavBar;

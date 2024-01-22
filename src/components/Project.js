@@ -1,10 +1,8 @@
 import React,{useContext} from 'react';
 import { FilterContext } from '../FilterContext';
 import ProjectWrapper from './Projectwrapper';
-import Community from './Community';
 import '../css/styles.min.css';
 import '../css/project.min.css';
-// import Citizen from './Citizen'
 
 
 
@@ -21,8 +19,6 @@ const Project = () => {
         ):(
             <div className='project'>
                 <ProjectWrapper/>
-                <Community/>
-                {/* <Citizen/> */}
             </div>  
 
         )}

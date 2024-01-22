@@ -26,7 +26,7 @@ const Barsize = () => {
             autoSkip: true,
             maxRotation: 0,
             minRotation: 0,
-            fontSize:6.55,
+            fontSize:13,
             fontStyle:900,
             fontColor:'#2B622A'
         }
@@ -70,31 +70,29 @@ const ProjectWrapper = () => {
     })
 
 
-
-
     const projectSummary = {
         summaryName: 'Total Projects',
         sumText: 'Includes completed, ongoing and proposed projects',
     }
-    projectSummary.sumValue = deptComp.length === 0 ? projectStats.projectNumber : deptComp.total
+    projectSummary.sumValue = deptComp.length === 0 ? projectStats.totalProjects : deptComp.total
 
 
     const statusSummary = {
-        summaryName:`Total Projects in ${currentComp.name}`,
-        sumValue: projectStats.projectNumber,
+        summaryName:`Total Projects in ${currentComp.Name}`,
+        sumValue: projectStats.totalProjects,
         sumText: 'Includes completed, ongoing and proposed projects'
     }
 
     const statusProjects = {
-        summaryName:`Total ${statusComp.title} projects in ${currentComp.name}`,
+        summaryName:`Total ${statusComp.title} projects in ${currentComp.Name}`,
         sumValue: statusComp.count,
         sumText: `Includes all ${statusComp.title} projects`
     }
 
     const statusperc = {
-        summaryName:`% of ${statusComp.title} projects in ${currentComp.name}`,
+        summaryName:`% of ${statusComp.title} projects in ${currentComp.Name}`,
         sumValue: `${statusComp.percentage}%`,
-        sumText: `Includes all ${statusComp.title} project rates in ${currentComp.name}`
+        sumText: `Includes all ${statusComp.title} project rates in ${currentComp.Name}`
     }
 
 
@@ -158,11 +156,6 @@ const ProjectWrapper = () => {
     }
 
     
-   
-    
-
-
-
     const state = {
         labels: projStatusLabel,
         datasets:[{
@@ -170,11 +163,11 @@ const ProjectWrapper = () => {
             backgroundColor:'#6FCF97',
             data:projStatusData,
             datalabels: {
-                align: 'end',
-                anchor: 'end',
+                align: 'center',
+                anchor: 'center',
                 clamp:true,
                 color: '#000',
-                offset:0.5,
+                offset:0.8,
                 formatter: function(value, context) {
                     return  value.toFixed(0) +  '%';
                 },
@@ -184,12 +177,6 @@ const ProjectWrapper = () => {
         }]
     }
 
-    console.log(state);
-
-    
-
-
-    
     return (
        
         <div className="project__wrapper">

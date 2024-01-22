@@ -2,7 +2,7 @@ import React,{useContext} from 'react';
 import {Bar} from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { FilterContext } from '../FilterContext';
-import '../css/project.min.css';
+import '../css/project.css';
 
 
 

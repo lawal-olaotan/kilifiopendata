@@ -1,6 +1,5 @@
-import React,{useMemo,useState,useEffect} from 'react';
+import React,{useMemo,useState} from 'react';
 import {Doughnut} from 'react-chartjs-2';
-
 import '../css/project.min.css';
 
 
@@ -49,7 +48,7 @@ const Piechart = ({state,ToolData,setPieTitle,setPiePercent}) => {
         
         return () => clearTimeout(timecall);
 
-    },[ToolData])
+    },[ToolData,setPiePercent,setPieTitle])
     
 
     return(

@@ -15,9 +15,7 @@ function App() {
       <FilterProvider>
         <NavBar/>
         <DataTable/>
-
         <Project/>
-        
         </FilterProvider>
       </div>
    

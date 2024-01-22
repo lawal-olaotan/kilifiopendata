@@ -1,0 +1,59 @@
+{
+  "countySummary": {
+    "totalProjects": 1803,
+    "pendingProjects": 450,
+    "projectsApproved": 1353,
+    "approvalRate": 74.9
+  },
+  "subCountySummaries": [
+    {
+      "Name": "Ganze Sub-County",
+      "totalProjects": 237,
+      "pendingProjects": 110,
+      "projectsApproved": 72,
+      "approvalRate": 76.8
+    },
+    {
+      "Name": "Malindi Sub-County",
+      "totalProjects": 371,
+      "pendingProjects": 170,
+      "projectsApproved": 135,
+      "approvalRate": 73.1
+    },
+    {
+      "Name": "Kaloleni Sub-County",
+      "totalProjects": 287,
+      "pendingProjects": 107,
+      "projectsApproved": 110,
+      "approvalRate": 69.1
+    },
+    {
+      "Name": "Kilifi North Sub-County",
+      "totalProjects": 362,
+      "pendingProjects": 133,
+      "projectsApproved": 153,
+      "approvalRate": 77.9
+    },
+    {
+      "Name": "Magarini Sub-County",
+      "totalProjects": 276,
+      "pendingProjects": 111,
+      "projectsApproved": 85,
+      "approvalRate": 91.0
+    },
+    {
+      "Name": "Kilifi South Sub-County",
+      "totalProjects": 280,
+      "pendingProjects": 108,
+      "projectsApproved": 105,
+      "approvalRate": 76.1
+    },
+    {
+      "Name": "Rabai Sub-County",
+      "totalProjects": 267,
+      "pendingProjects": 85,
+      "projectsApproved": 95,
+      "approvalRate": 67.4
+    }
+  ]
+}
